@@ -1,27 +1,108 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  text-align: center;
+  background: #eef2f7;
+  margin: 0;
   padding: 30px;
 }
 
 .container {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 400px;
+  max-width: 900px;
   margin: auto;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-input, select {
-  width: 90%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 6px;
+h1 {
+  margin-bottom: 20px;
+}
+
+.row {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+input, textarea, select {
+  padding: 8px;
   border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-#recommendations {
-  margin-top: 20px;
+textarea {
+  resize: vertical;
+  height: 60px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background: #f9f9f9;
+}
+
+.amount {
+  font-weight: bold;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.summary {
+  text-align: right;
+  margin: 20px 0;
+}
+
+.summary p {
+  margin: 5px 0;
+}
+
+.summary .total {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+button.primary {
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button.primary:hover {
+  opacity: 0.9;
+}
+
+.row-inline {
+  display: flex;
+  gap: 20px; /* space between fields */
+  margin-bottom: 15px;
+}
+
+.row-inline .field {
+  flex: 1; /* makes both fields equal width */
+  display: flex;
+  flex-direction: column;
 }

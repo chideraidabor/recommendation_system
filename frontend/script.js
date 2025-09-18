@@ -1,36 +1,81 @@
-// Example dataset: item → related recommendations
-const recommendationsData = {
-  "Bread": ["Butter", "Jam", "Eggs"],
-  "Milk": ["Cereal", "Cookies", "Chocolate"],
-  "Rice": ["Curry Powder", "Vegetables", "Lentils"]
-};
+function updateTotals() {
+  const rows = document.querySelectorAll("#itemsTable tbody tr");
+  let subtotal = 0;
 
-// Populate dropdown when searchBox is used
-document.getElementById("searchBox").addEventListener("input", function() {
-  const query = this.value.toLowerCase();
-  const dropdown = document.getElementById("dropdown");
+  rows.forEach(row => {
+    const qty = parseFloat(row.querySelector("td:nth-child(3) input").value) || 0;
+    const price = parseFloat(row.querySelector("td:nth-child(4) input").value) || 0;
+    const amount = qty * price;
+    row.querySelector(".amount").textContent = amount.toFixed(2);
+    subtotal += amount;
+  });
 
-  // Clear old options
-  dropdown.innerHTML = "";
+  const tax = subtotal * 0.05; // 5% tax mock
+  const shipping = 0.00; // fixed for now
+  const total = subtotal + tax + shipping;
 
-  // Match items from dataset
-  Object.keys(recommendationsData).forEach(item => {
-    if (item.toLowerCase().includes(query)) {
-      const option = document.createElement("option");
-      option.value = item;
-      option.textContent = item;
-      dropdown.appendChild(option);
-    }
+  document.getElementById("subtotal").textContent = subtotal.toFixed(2);
+  document.getElementById("tax").textContent = tax.toFixed(2);
+  document.getElementById("shipping").textContent = shipping.toFixed(2);
+  document.getElementById("total").textContent = total.toFixed(2);
+}
+
+// Add new row
+document.getElementById("addItem").addEventListener("click", () => {
+  const tbody = document.querySelector("#itemsTable tbody");
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
+    <td>
+      <select>
+        <option>Door</option>
+        <option>Handle</option>
+        <option>Lock</option>
+      </select>
+    </td>
+    <td>
+      <select>
+        <option>DR123</option>
+        <option>HD368</option>
+        <option>LK222</option>
+      </select>
+    </td>
+    <td><input type="number" value="1" min="1"></td>
+    <td><input type="number" value="100" step="0.01"></td>
+    <td class="amount">100.00</td>
+    <td>
+      <select>
+        <option>Handle</option>
+        <option>Extra Keys</option>
+        <option>None</option>
+      </select>
+    </td>
+  `;
+  tbody.appendChild(newRow);
+
+  // Re-bind change listeners
+  newRow.querySelectorAll("input").forEach(input => {
+    input.addEventListener("input", updateTotals);
+  });
+
+  updateTotals();
+});
+
+// Auto-update totals when quantity or price changes
+document.querySelectorAll("#itemsTable input").forEach(input => {
+  input.addEventListener("input", updateTotals);
+});
+
+// Form submit (mock)
+document.getElementById("invoiceForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  alert("Invoice created (mock data only). Check console.");
+  console.log("Invoice data:", {
+    number: document.getElementById("invoiceNumber").value,
+    date: document.getElementById("invoiceDate").value,
+    customer: document.getElementById("customerContact").value,
+    billing: document.getElementById("billingAddress").value,
+    salesperson: document.getElementById("salesperson").value
   });
 });
 
-// Show recommendations when an item is selected
-document.getElementById("dropdown").addEventListener("change", function() {
-  const selectedItem = this.value;
-  const recs = recommendationsData[selectedItem] || [];
-  const recDiv = document.getElementById("recommendations");
-
-  recDiv.innerHTML = `<h3>Recommendations for ${selectedItem}:</h3><ul>` +
-    recs.map(r => `<li>${r}</li>`).join("") +
-    `</ul>`;
-});
+updateTotals();
