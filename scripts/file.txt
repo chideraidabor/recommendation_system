@@ -1,0 +1,59 @@
+Here’s a clear and structured description of your project that you can share with someone who needs to understand it or help build it:
+
+---
+
+## 🧠 **Project Overview: Compatibility-Based Item Recommendation System**
+
+### 🎯 **Goal**
+Build a recommendation system that suggests compatible items based on historical invoice data. The system uses **item-to-item collaborative filtering** enhanced with **domain-specific compatibility rules** to ensure recommendations are functionally valid (e.g., a specific door only pairs with its matching knob, hinge, etc.).
+
+---
+
+## 📦 **Core Requirements**
+
+### 1. **Input Data**
+- **Invoices Dataset**: Contains transactions with fields like `customer_id`, `part_number`, and `date`.
+- **Compatibility Mapping**: A dictionary that defines which items are compatible with each main item (e.g., `DO101` → `KN101`, `HI101`, etc.).
+
+### 2. **Processing Steps**
+
+#### ✅ **Step 1: Data Preparation**
+- Load and clean invoice data.
+- Convert `date` to datetime format.
+- Group transactions by `customer_id`.
+
+#### ✅ **Step 2: Co-occurrence Matrix Construction**
+- For each item purchased by a customer, find other items purchased within a ±30-day window.
+- Count co-occurrences **only if the items are compatible**, using:
+  - A **forward compatibility dictionary** (e.g., `DO101` → `KN101`)
+  - A **reverse compatibility dictionary** (e.g., `KN101` → `DO101`)
+- Store counts in a symmetric co-occurrence matrix.
+
+#### ✅ **Step 3: Recommendation Logic**
+- When a user selects an item (e.g., `DO101`), recommend the top-N compatible items based on co-occurrence frequency.
+- Optionally normalize scores using cosine similarity (Step 3 of the original plan).
+
+---
+
+## 🧰 **Technical Stack**
+- **Python** with `pandas`, `collections`, and `datetime`
+- No external databases or APIs required
+- Console-based output or CSV export for the matrix
+
+---
+
+## 🧩 **Key Design Principles**
+- **Compatibility-aware filtering**: Only recommend items that are explicitly compatible.
+- **Symmetric co-occurrence**: Ensure that if `DO101` is bought with `KN101`, then `KN101` also suggests `DO101`.
+- **Time-window filtering**: Only count co-purchases within a meaningful time frame (±30 days).
+
+---
+
+## 📈 **Future Extensions**
+- Add a UI for selecting items and viewing recommendations.
+- Integrate with a product catalog or e-commerce platform.
+- Add category-level filtering (e.g., show only knobs when a door is selected).
+
+---
+
+Would you like this saved as a markdown or PDF file for sharing? Or want help writing a README or documentation for your repo?
