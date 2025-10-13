@@ -65,17 +65,40 @@ document.querySelectorAll("#itemsTable input").forEach(input => {
   input.addEventListener("input", updateTotals);
 });
 
-// Form submit (mock)
 document.getElementById("invoiceForm").addEventListener("submit", (e) => {
   e.preventDefault();
-  alert("Invoice created (mock data only). Check console.");
-  console.log("Invoice data:", {
+
+  // Collect invoice data
+  const rows = document.querySelectorAll("#itemsTable tbody tr");
+  const items = [];
+
+  rows.forEach(row => {
+    const description = row.querySelector("td:nth-child(1) select").value;
+    const partNumber = row.querySelector("td:nth-child(2) select").value;
+    const qty = parseFloat(row.querySelector("td:nth-child(3) input").value);
+    const price = parseFloat(row.querySelector("td:nth-child(4) input").value);
+    const amount = qty * price;
+    const addon = row.querySelector("td:nth-child(6) select").value;
+    items.push({ description, partNumber, qty, price, amount, addon });
+  });
+
+  const invoiceData = {
     number: document.getElementById("invoiceNumber").value,
     date: document.getElementById("invoiceDate").value,
     customer: document.getElementById("customerContact").value,
     billing: document.getElementById("billingAddress").value,
-    salesperson: document.getElementById("salesperson").value
-  });
+    salesperson: document.getElementById("salesperson").value,
+    subtotal: document.getElementById("subtotal").textContent,
+    tax: document.getElementById("tax").textContent,
+    shipping: document.getElementById("shipping").textContent,
+    total: document.getElementById("total").textContent,
+    items
+  };
+
+  // Save to localStorage
+  localStorage.setItem("invoiceData", JSON.stringify(invoiceData));
+
+  // Redirect to final invoice page
+  window.location.href = "invoice.html";
 });
 
-updateTotals();
