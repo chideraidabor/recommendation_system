@@ -71,40 +71,23 @@ cosine_sim_matrix = cosine_similarity_matrix(filtered_matrix)
 cosine_sim_matrix.to_csv("cosine_similarity_matrix.csv")
 
 
-# Check the Confidence score
-def get_confidence_scores(item_id, candidates, co_mat):
-    support_A = co_mat.loc[item_id].sum()
-    scores = {}
-    for candidate in candidates.index:
-        co_occur = co_mat.loc[item_id, candidate]
-        if support_A > 0:
-            scores[candidate] = co_occur / support_A
-        else:
-            scores[candidate] = 0.0
-    return pd.Series(scores)
-
-
 # recommend top item
 def get_top_recommendations(item_id, top_n=5, candidate_pool=10):
     sims = cosine_sim_matrix.loc[item_id].drop(item_id).sort_values(ascending=False)
     candidates = sims.head(candidate_pool)
-    
-    # Confidence scores
-    conf_scores = get_confidence_scores(item_id, candidates, filtered_matrix)
-    
-    # Merge both into one DataFrame
+
+    # Merge into one DataFrame
     combined = pd.DataFrame({
         "Cosine_Similarity": candidates,
-        "Confidence": conf_scores
     })
     
     # Re-rank by confidence 
-    combined = combined.sort_values(by="Confidence", ascending=False)
+    combined = combined.sort_values(by="Cosine_Similarity", ascending=False)
     
     return combined.head(top_n)
 
 # Test
-print("Cosine + Confidence - Top 3 recommendations for DO101:")
+print("Cosine Similarity - Top 3 recommendations for DO101:")
 print(get_top_recommendations("DO101", top_n=3, candidate_pool=10))
 
 
@@ -119,7 +102,6 @@ def build_top_n_table(top_n=5, candidate_pool=10):
                 "item_id": item_id,
                 "recommended_item": rec_item,
                 "cosine_similarity": row["Cosine_Similarity"],
-                "confidence": row["Confidence"]
             })
     return pd.DataFrame(records)
 
