@@ -1,0 +1,27 @@
+UI TEST CASES
+
+1.	Is the designed UI the same as in the figma prototype
+2.	Is the date in correct format
+3.	Is text visible in the invoice
+4.	Are we able to enter details in customer contact info and billing address
+5.	Is the dropdown working for all the columns in item details
+6.	Are we able to add an item
+7.	Are we able to delete the item 
+8.	Is it calculating the total amount automatically
+9.	Are we able to enter details in salesperson
+10.	Is create invoice button working?
+11.	Is create invoice button working?
+12.	After clicking invoice button, is it transitioning to the final invoice page?
+13.	Is text visible in invoice summary?
+14.	Are subtotal and total calculations correct in the final invoice?
+15.	Does the total amount calculation automatically rounded off to 2 decimal values automatically?
+16.	Is the billing address same in the invoice summary as given in the invoice creation?
+17.	Are we able to input the salesperson’s signature in the invoice summary?
+18.	Does it block Create Invoice and show errors when Customer Contact Info, Billing Address, or Salesperson are empty?
+19.	On first load, with the default item row untouched, do Subtotal/Tax/Shipping/Total calculate correctly (not $0.00)?
+20.	If I click Create Invoice without changing any fields, does a final recalculation run so the Invoice Summary shows the correct totals (not $0.00)?
+
+
+
+
+

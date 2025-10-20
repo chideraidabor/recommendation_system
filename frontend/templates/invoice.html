@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Invoice</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Invoice Summary</h1>
+
+    <div id="invoiceDisplay">
+      <h2>Invoice #<span id="displayNumber"></span></h2>
+      <p><strong>Date:</strong> <span id="displayDate"></span></p>
+      <p><strong>Customer Contact:</strong> <span id="displayCustomer"></span></p>
+      <p><strong>Billing Address:</strong></p>
+      <p id="displayBilling"></p>
+    </div>
+
+
+    <h2>Items</h2>
+    <table id="displayItems">
+      <thead>
+        <tr>
+          <th>Part Number</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Amount</th>
+          <th>Add-ons</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <div class="summary">
+      <p>Subtotal: $<span id="displaySubtotal"></span></p>
+      <p>Tax: $<span id="displayTax"></span></p>
+      <p>Shipping: $<span id="displayShipping"></span></p>
+      <p class="total">Total: $<span id="displayTotal"></span></p>
+    </div>
+
+    <p><strong>Salesperson:</strong> <span id="displaySalesperson"></span></p>
+  </div>
+
+  <script src="{{ url_for('static', filename='javascript/invoice.js') }}"></script>
+</body>
+</html>
