@@ -1,6 +1,7 @@
 import pandas as pd
 from itertools import combinations
 import numpy as np
+import sqlite3
 
 # load the invoice data
 df = pd.read_csv("../Data/generated_invoices.csv")
@@ -86,11 +87,6 @@ def get_top_recommendations(item_id, top_n=5, candidate_pool=10):
     
     return combined.head(top_n)
 
-# Test
-print("Cosine Similarity - Top 3 recommendations for DO101:")
-print(get_top_recommendations("DO101", top_n=3, candidate_pool=10))
-
-
 # Store Top-N Recommendations for all items 
 
 def build_top_n_table(top_n=5, candidate_pool=10):
@@ -105,8 +101,41 @@ def build_top_n_table(top_n=5, candidate_pool=10):
             })
     return pd.DataFrame(records)
 
-# Build and save Top-N table
-top_n_table = build_top_n_table(top_n=5, candidate_pool=10)
-top_n_table.to_csv("top_n_recommendations.csv", index=False)
+# ---- Store Top-N Recommendations in Database ----
+def store_recommendations_in_db(top_n_table, db_path="../Database/recommendation.db"):
+    # Connect to your SQLite database (or create if not exists)
+    conn = sqlite3.connect(db_path)
+    cursor = conn.cursor()
 
-print("Top-N recommendation table saved as top_n_recommendations.csv")
+    # Create the table if it doesn't exist
+    cursor.execute("""
+    CREATE TABLE IF NOT EXISTS Recommendations (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        item_id TEXT,
+        recommended_item TEXT,
+        cosine_similarity REAL
+    )
+    """)
+
+    # Clear old data to avoid duplicates 
+    cursor.execute("DELETE FROM Recommendations")
+
+    # Insert all recommendations
+    top_n_table.to_sql("Recommendations", conn, if_exists="append", index=False)
+
+    conn.commit()
+    conn.close()
+    print(f"Stored {len(top_n_table)} recommendations in the database.")
+
+# Build and save Top-N table
+# top_n_table = build_top_n_table(top_n=5, candidate_pool=10)
+# top_n_table.to_csv("top_n_recommendations.csv", index=False)
+
+top_n_table = build_top_n_table(top_n=5, candidate_pool=10)
+
+# Store it in the database instead of CSV
+store_recommendations_in_db(top_n_table)
+
+# Test
+print("Cosine Similarity - Top 3 recommendations for DO101:")
+print(get_top_recommendations("FA102", top_n=5, candidate_pool=10))
