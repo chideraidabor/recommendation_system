@@ -110,7 +110,6 @@ button.primary:hover {
   font-size: 1.2em;
 }
 
-
 /* Invoice Page Styling  */
 .invoice-header {
   display: flex;
@@ -197,6 +196,20 @@ button.primary:hover {
   margin-top: 8px;
   color: #000;
 }
+
+/* ====== Delete button helpers ====== */
+.hidden { display: none; }
+
+td.actions { width: 110px; }
+button.delete {
+  background: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+button.delete:hover { opacity: 0.9; }
 
 /* ====== Responsive ====== */
 @media (max-width: 768px) {

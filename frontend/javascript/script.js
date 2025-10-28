@@ -38,7 +38,35 @@ function updateTotals() {
   document.getElementById("total").textContent = total.toFixed(2);
 }
 
-// Reusable function to add a new item row
+/* ---------- Delete button helpers (FIXED) ---------- */
+// Show Delete only when there is meaningful content in the row.
+// "Meaningful" = part selected OR description text OR price > 0 OR add-on chosen.
+// Qty alone (default 1) does NOT count.
+function rowHasContent(tr) {
+  const part  = tr.querySelector(".partNumber")?.value?.trim() || "";
+  const desc  = tr.querySelector(".description")?.value?.trim() || "";
+  const price = parseFloat(tr.querySelector(".unitPrice")?.value) || 0;
+  const addon = tr.querySelector(".addon")?.value?.trim() || "";
+
+  if (part !== "" || desc !== "" || price > 0 || addon !== "") return true;
+
+  // qty alone should not trigger visibility
+  return false;
+}
+
+function isFirstRow(tr) {
+  const tbody = document.querySelector("#itemsTable tbody");
+  return tbody.querySelector("tr") === tr; // first <tr> in tbody
+}
+
+function toggleDeleteVisibility(tr) {
+  const btn = tr.querySelector("button.delete");
+  if (!btn) return;
+  if (rowHasContent(tr)) btn.classList.remove("hidden");
+  else btn.classList.add("hidden");
+}
+
+/* ---------- Reusable: add a new item row ---------- */
 function addNewRow() {
   const tbody = document.querySelector("#itemsTable tbody");
 
@@ -64,13 +92,38 @@ function addNewRow() {
         <option value="">None</option>
       </select>
     </td>
+    <td class="actions">
+      <button type="button" class="delete hidden">Delete</button>
+    </td>
   `;
 
   tbody.appendChild(newRow);
 
-  const partSelect = newRow.querySelector(".partNumber");
-  const qtyInput = newRow.querySelector(".quantity");
+  const partSelect  = newRow.querySelector(".partNumber");
+  const qtyInput    = newRow.querySelector(".quantity");
+  const priceInput  = newRow.querySelector(".unitPrice"); // readonly but changes when part chosen
+  const descInput   = newRow.querySelector(".description"); // readonly but we set it
   const addonSelect = newRow.querySelector(".addon");
+  const delBtn      = newRow.querySelector(".delete");
+
+  // DELETE button behavior
+  delBtn.addEventListener("click", () => {
+    if (isFirstRow(newRow)) {
+      // Clear fields but keep the row (do not remove)
+      partSelect.value = "";
+      descInput.value = "";
+      qtyInput.value = "1";
+      priceInput.value = "0";
+      newRow.querySelector(".amount").textContent = "0.00";
+      addonSelect.innerHTML = `<option value="">None</option>`;
+      toggleDeleteVisibility(newRow); // hide after clearing
+      updateTotals();
+    } else {
+      // Remove this specific row
+      newRow.remove();
+      updateTotals();
+    }
+  });
 
   // Handle part selection
   partSelect.addEventListener("change", async (e) => {
@@ -78,20 +131,21 @@ function addNewRow() {
     const selectedItem = allItems.find(item => item.item_id === selectedId);
 
     if (selectedItem) {
-      // Check for duplicates
+      // Check for duplicates in existing rows (except this one)
       const existingRow = Array.from(tbody.querySelectorAll("tr")).find(
         row => row.querySelector(".partNumber").value === selectedId && row !== newRow
       );
 
       if (existingRow) {
         const existingQty = existingRow.querySelector(".quantity");
-        existingQty.value = parseInt(existingQty.value) + 1;
+        existingQty.value = parseInt(existingQty.value || "0") + 1;
         newRow.remove();
         updateTotals();
       } else {
         // Fill description and unit price
-        newRow.querySelector(".description").value = selectedItem.item_description;
-        newRow.querySelector(".unitPrice").value = selectedItem.unit_price.toFixed(2);
+        descInput.value  = selectedItem.item_description;
+        priceInput.value = Number(selectedItem.unit_price).toFixed(2);
+        toggleDeleteVisibility(newRow); // row now has content
         updateTotals();
 
         // Fetch recommended add-ons dynamically
@@ -102,7 +156,7 @@ function addNewRow() {
           // Clear old options first
           addonSelect.innerHTML = `<option value="">None</option>`;
 
-          if (data.length > 0) {
+          if (Array.isArray(data) && data.length > 0) {
             data.forEach(rec => {
               const opt = document.createElement("option");
               opt.value = rec.recommended_item;
@@ -120,11 +174,30 @@ function addNewRow() {
           addonSelect.innerHTML = `<option value="">Error loading add-ons</option>`;
         }
       }
+    } else {
+      // User reset to "Select Part" — treat as cleared row
+      descInput.value = "";
+      priceInput.value = "0";
+      newRow.querySelector(".amount").textContent = "0.00";
+      addonSelect.innerHTML = `<option value="">None</option>`;
+      toggleDeleteVisibility(newRow); // hide delete if empty
+      updateTotals();
     }
   });
 
-  // Update totals when quantity changes
-  qtyInput.addEventListener("input", updateTotals);
+  // Update totals + delete visibility when quantity changes
+  qtyInput.addEventListener("input", () => {
+    toggleDeleteVisibility(newRow);  // qty alone won't show Delete anymore
+    updateTotals();
+  });
+
+  // If user picks an add-on, that counts as "content"
+  addonSelect.addEventListener("change", () => {
+    toggleDeleteVisibility(newRow);
+  });
+
+  // Make sure the first blank row starts with Delete hidden
+  toggleDeleteVisibility(newRow);
 }
 
 // Add new row when button clicked
@@ -140,8 +213,8 @@ document.getElementById("invoiceForm").addEventListener("submit", (e) => {
   rows.forEach(row => {
     const partNumber = row.querySelector(".partNumber").value;
     const description = row.querySelector(".description").value;
-    const qty = parseFloat(row.querySelector(".quantity").value);
-    const price = parseFloat(row.querySelector(".unitPrice").value);
+    const qty = parseFloat(row.querySelector(".quantity").value) || 0;
+    const price = parseFloat(row.querySelector(".unitPrice").value) || 0;
     const amount = qty * price;
     const addon = row.querySelector(".addon").value;
 
