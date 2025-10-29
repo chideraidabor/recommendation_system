@@ -1,3 +1,60 @@
+// ====================== //
+//  AUTO INVOICE ID LOAD  //
+// ====================== //
+async function loadNextInvoiceID() {
+  try {
+    const res = await fetch("http://127.0.0.1:5000/next_invoice_id");
+    const data = await res.json();
+    document.getElementById("invoiceNumber").value = data.next_invoice_id;
+  } catch (err) {
+    console.error("Error fetching next invoice ID:", err);
+    document.getElementById("invoiceNumber").value = "INV0001"; // fallback
+  }
+}
+
+// document.addEventListener("DOMContentLoaded", loadNextInvoiceID);
+//  Ensure new invoice number loads after redirect
+document.addEventListener("DOMContentLoaded", async () => {
+  if (sessionStorage.getItem("fetchNewInvoiceID")) {
+    await loadNextInvoiceID();
+    sessionStorage.removeItem("fetchNewInvoiceID");
+  } else {
+    await loadNextInvoiceID();
+  }
+});
+
+
+// ====================== //
+//   EMAIL VALIDATION     //
+// ====================== //
+const emailInput = document.getElementById("customerContact");
+const emailError = document.createElement("span");
+emailError.id = "emailError";
+emailError.style.color = "red";
+emailError.style.fontSize = "12px";
+emailInput.parentNode.insertBefore(emailError, emailInput.nextSibling);
+
+//  Simple regex: supports most valid email patterns
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+emailInput.addEventListener("input", () => {
+  const email = emailInput.value.trim();
+
+  if (email === "") {
+    emailError.textContent = "";
+    emailInput.style.borderColor = "";
+  } else if (!emailRegex.test(email)) {
+    emailError.textContent = "⚠ Please enter a valid email address";
+    emailInput.style.borderColor = "red";
+  } else {
+    emailError.textContent = "";
+    emailInput.style.borderColor = "green";
+  }
+});
+
+// ====================== //
+//  ITEMS FETCH & TABLE   //
+// ====================== //
 let allItems = [];
 
 // Fetch items from backend and populate first blank row
@@ -6,8 +63,6 @@ async function fetchItems() {
     const response = await fetch("http://127.0.0.1:5000/items");
     allItems = await response.json();
     console.log("Items loaded:", allItems);
-
-    // Create one blank row after data is fetched
     addNewRow();
   } catch (error) {
     console.error("Error fetching items:", error);
@@ -15,7 +70,9 @@ async function fetchItems() {
 }
 fetchItems();
 
-// Function to update totals for all rows
+// ====================== //
+//   UPDATE TOTALS LOGIC  //
+// ====================== //
 function updateTotals() {
   const rows = document.querySelectorAll("#itemsTable tbody tr");
   let subtotal = 0;
@@ -38,11 +95,13 @@ function updateTotals() {
   document.getElementById("total").textContent = total.toFixed(2);
 }
 
-// Reusable function to add a new item row
+// ====================== //
+//   ADD NEW ROW LOGIC    //
+// ====================== //
 function addNewRow() {
   const tbody = document.querySelector("#itemsTable tbody");
 
-  // Build part number dropdown dynamically
+  // Build dropdown options
   const partOptions = allItems
     .map(item => `<option value="${item.item_id}">${item.item_id}</option>`)
     .join("");
@@ -78,7 +137,7 @@ function addNewRow() {
     const selectedItem = allItems.find(item => item.item_id === selectedId);
 
     if (selectedItem) {
-      // Check for duplicates
+      // Avoid duplicate rows
       const existingRow = Array.from(tbody.querySelectorAll("tr")).find(
         row => row.querySelector(".partNumber").value === selectedId && row !== newRow
       );
@@ -89,17 +148,15 @@ function addNewRow() {
         newRow.remove();
         updateTotals();
       } else {
-        // Fill description and unit price
+        // Fill description and price
         newRow.querySelector(".description").value = selectedItem.item_description;
         newRow.querySelector(".unitPrice").value = selectedItem.unit_price.toFixed(2);
         updateTotals();
 
-        // Fetch recommended add-ons dynamically
+        // Fetch recommended add-ons
         try {
           const res = await fetch(`http://127.0.0.1:5000/recommendations/${selectedId}`);
           const data = await res.json();
-
-          // Clear old options first
           addonSelect.innerHTML = `<option value="">None</option>`;
 
           if (data.length > 0) {
@@ -123,17 +180,27 @@ function addNewRow() {
     }
   });
 
-  // Update totals when quantity changes
   qtyInput.addEventListener("input", updateTotals);
 }
 
-// Add new row when button clicked
+// Add new item row manually
 document.getElementById("addItem").addEventListener("click", addNewRow);
 
-// Handle form submission
+// ====================== //
+//   FORM SUBMISSION      //
+// ====================== //
 document.getElementById("invoiceForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
+  // Validate email again before submit
+  const email = document.getElementById("customerContact").value.trim();
+  if (!emailRegex.test(email)) {
+    alert("Please enter a valid email address before submitting.");
+    emailInput.focus();
+    return;
+  }
+
+  // Build items array
   const rows = document.querySelectorAll("#itemsTable tbody tr");
   const items = [];
 
@@ -143,15 +210,15 @@ document.getElementById("invoiceForm").addEventListener("submit", (e) => {
     const qty = parseFloat(row.querySelector(".quantity").value);
     const price = parseFloat(row.querySelector(".unitPrice").value);
     const amount = qty * price;
-    const addon = row.querySelector(".addon").value;
-
+    const addon = row.querySelector(".addon") ? row.querySelector(".addon").value : "";
     items.push({ partNumber, description, qty, price, amount, addon });
   });
 
+  // Build invoice data
   const invoiceData = {
     number: document.getElementById("invoiceNumber").value,
     date: document.getElementById("invoiceDate").value,
-    customer: document.getElementById("customerContact").value,
+    customer: email,
     billing: document.getElementById("billingAddress").value,
     salesperson: document.getElementById("salesperson").value,
     subtotal: document.getElementById("subtotal").textContent,
@@ -161,6 +228,35 @@ document.getElementById("invoiceForm").addEventListener("submit", (e) => {
     items
   };
 
-  localStorage.setItem("invoiceData", JSON.stringify(invoiceData));
-  window.location.href = "invoice.html";
+  // Send data to backend
+  fetch("http://127.0.0.1:5000/save_invoice", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(invoiceData)
+  })
+    .then(res => res.json())
+    .then(response => {
+      console.log(response.message);
+
+      // Use backend invoice_id if available
+      const redirectId = response.invoice_id || invoiceData.number;
+
+      // Store locally
+      localStorage.setItem("invoiceData", JSON.stringify(invoiceData));
+
+      // Redirect
+      window.location.href = `/invoice?invoice_id=${redirectId}`;
+
+      // ✅ Make sure the next invoice ID is fetched fresh for the next load
+      sessionStorage.setItem("fetchNewInvoiceID", "true");
+      setTimeout(async () => {
+        await loadNextInvoiceID();
+        console.log("🔁 Invoice ID refreshed for next entry.");
+      }, 1500);
+      
+    })
+    .catch(err => {
+      console.error("Error saving invoice:", err);
+      alert("Error saving invoice. Check console for details.");
+    });
 });
