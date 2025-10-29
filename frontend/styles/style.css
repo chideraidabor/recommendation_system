@@ -1,4 +1,6 @@
-/* General Page Styles */
+/* =========================
+   General Page Styles
+   ========================= */
 body {
   font-family: Arial, sans-serif;
   background: #eef2f7;
@@ -36,7 +38,9 @@ textarea {
   height: 60px;
 }
 
-/* Invoice Form (First Page)  */
+/* =========================
+   Invoice Form (First Page)
+   ========================= */
 .row {
   margin-bottom: 15px;
   display: flex;
@@ -55,6 +59,7 @@ textarea {
   flex-direction: column;
 }
 
+/* Base table styles */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -65,6 +70,7 @@ th, td {
   padding: 10px;
   border: 1px solid #ddd;
   text-align: center;
+  vertical-align: middle;
 }
 
 th {
@@ -110,7 +116,9 @@ button.primary:hover {
   font-size: 1.2em;
 }
 
-/* Invoice Page Styling  */
+/* =========================
+   Invoice Page Styling
+   ========================= */
 .invoice-header {
   display: flex;
   justify-content: space-between;
@@ -197,7 +205,9 @@ button.primary:hover {
   color: #000;
 }
 
-/* ====== Delete button helpers ====== */
+/* =========================
+   Delete button helpers
+   ========================= */
 .hidden { display: none; }
 
 td.actions { width: 110px; }
@@ -211,7 +221,9 @@ button.delete {
 }
 button.delete:hover { opacity: 0.9; }
 
-/* ====== Responsive ====== */
+/* =========================
+   Responsive
+   ========================= */
 @media (max-width: 768px) {
   .row-inline {
     flex-direction: column;
@@ -232,3 +244,55 @@ button.delete:hover { opacity: 0.9; }
     align-self: flex-start;
   }
 }
+
+/* =======================================================
+   FIX: Keep “Actions” column & Delete button inside margin
+   (scoped to #itemsTable only, so other tables remain same)
+   ======================================================= */
+#itemsTable {
+  table-layout: fixed;   /* respect set column widths; prevents overflow */
+  width: 100%;
+}
+
+#itemsTable th,
+#itemsTable td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Column widths — 6 = Add-ons, 7 = Actions */
+#itemsTable th:nth-child(6),
+#itemsTable td:nth-child(6) {
+  width: 140px;          /* Add-ons column */
+}
+
+#itemsTable th:nth-child(7),
+#itemsTable td:nth-child(7),
+#itemsTable td.actions {
+  width: 110px;          /* Actions column */
+  padding: 8px;
+}
+
+/* Inputs/selects fit inside their cells */
+#itemsTable select,
+#itemsTable input[type="number"],
+#itemsTable input[type="text"] {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Keep Delete button neat inside the cell */
+#itemsTable button.delete {
+  display: inline-block;
+  width: 100%;            /* fill Actions cell width */
+  max-width: 96px;        /* but never spill */
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+/* Last-resort guard against any sub-pixel overflow */
+.container { overflow-x: hidden; }
+/* Hide elements until we decide to show them in JS */
+.hidden { display: none !important; }
