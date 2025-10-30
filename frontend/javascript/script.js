@@ -130,11 +130,28 @@ function addNewRow() {
   const partSelect = newRow.querySelector(".partNumber");
   const qtyInput = newRow.querySelector(".quantity");
   const addonSelect = newRow.querySelector(".addon");
+// When an add-on is selected, it creates a new row and prefills it with that item.
+// We do NOT reset the original dropdown, so it stays selected.
+addonSelect.addEventListener("change", (e) => {
+  const addonId = e.target.value;
+  if (!addonId) return; // ignore "None" or empty
+
+  // Create the next row
+  const newAddonRow = addNewRow();
+  const newAddonPartSelect = newAddonRow.querySelector(".partNumber");
+
+  // Select the add-on item in the new row and trigger normal population
+  newAddonPartSelect.value = addonId;
+  newAddonPartSelect.dispatchEvent(new Event("change"));
+
+  // IMPORTANT: Do NOT modify e.target.value — this preserves the selection
+});
+
 
   // Handle part selection
   partSelect.addEventListener("change", async (e) => {
     const selectedId = e.target.value;
-    const selectedItem = allItems.find(item => item.item_id === selectedId);
+    const selectedItem = allItems.find(item => String(item.item_id) === String(selectedId));
 
     if (selectedItem) {
       // Avoid duplicate rows
@@ -181,6 +198,7 @@ function addNewRow() {
   });
 
   qtyInput.addEventListener("input", updateTotals);
+  return newRow;
 }
 
 // Add new item row manually
