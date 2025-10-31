@@ -1,24 +1,27 @@
 let allItems = [];
 
-// --- Load items then start with one blank row ---
+// Fetch items from backend and populate first blank row
 async function fetchItems() {
   try {
-    const res = await fetch("http://127.0.0.1:5000/items");
-    allItems = await res.json();
-    addNewRow(); // start blank; delete hidden
-  } catch (e) {
-    console.error("Error fetching items:", e);
+    const response = await fetch("http://127.0.0.1:5000/items");
+    allItems = await response.json();
+    console.log("Items loaded:", allItems);
+
+    // Create one blank row after data is fetched
+    addNewRow();
+  } catch (error) {
+    console.error("Error fetching items:", error);
   }
 }
 fetchItems();
 
-// --- Totals ---
+// Function to update totals for all rows
 function updateTotals() {
   const rows = document.querySelectorAll("#itemsTable tbody tr");
   let subtotal = 0;
 
   rows.forEach(row => {
-    const qty   = parseFloat(row.querySelector(".quantity")?.value) || 0;
+    const qty = parseFloat(row.querySelector(".quantity")?.value) || 0;
     const price = parseFloat(row.querySelector(".unitPrice")?.value) || 0;
     const amount = qty * price;
     row.querySelector(".amount").textContent = amount.toFixed(2);
@@ -35,7 +38,7 @@ function updateTotals() {
   document.getElementById("total").textContent = total.toFixed(2);
 }
 
-/* ===== Delete visibility helpers =====
+/* ===== NEW: helpers to control Delete visibility =====
    "Content" means: part chosen OR description text OR unit price > 0 OR add-on chosen.
    Quantity alone does NOT count. */
 function rowHasContent(tr) {
@@ -47,7 +50,7 @@ function rowHasContent(tr) {
 }
 function isFirstRow(tr) {
   const tbody = document.querySelector("#itemsTable tbody");
-  return tbody.querySelector("tr") === tr;
+  return tbody.querySelector("tr") === tr; // first <tr> in tbody
 }
 function toggleDeleteVisibility(tr) {
   const btn = tr.querySelector("button.delete");
@@ -56,17 +59,17 @@ function toggleDeleteVisibility(tr) {
   else btn.classList.add("hidden");
 }
 
-/* ===== Add a new item row ===== */
+// Reusable function to add a new item row
 function addNewRow() {
   const tbody = document.querySelector("#itemsTable tbody");
 
-  // Build part options
+  // Build part number dropdown dynamically
   const partOptions = allItems
     .map(item => `<option value="${item.item_id}">${item.item_id}</option>`)
     .join("");
 
-  const tr = document.createElement("tr");
-  tr.innerHTML = `
+  const newRow = document.createElement("tr");
+  newRow.innerHTML = `
     <td>
       <select class="partNumber">
         <option value="">Select Part</option>
@@ -83,103 +86,117 @@ function addNewRow() {
       </select>
     </td>
     <td class="actions">
-      <button type="button" class="delete hidden">Delete</button>
+      <button type="button" class="delete hidden">Delete</button> <!-- NEW: starts hidden -->
     </td>
   `;
-  tbody.appendChild(tr);
 
-  // Hook elements
-  const partSelect  = tr.querySelector(".partNumber");
-  const qtyInput    = tr.querySelector(".quantity");
-  const priceInput  = tr.querySelector(".unitPrice");
-  const descInput   = tr.querySelector(".description");
-  const addonSelect = tr.querySelector(".addon");
-  const delBtn      = tr.querySelector(".delete");
+  tbody.appendChild(newRow);
 
-  // Delete click: clear first row, remove others
+  const partSelect  = newRow.querySelector(".partNumber");
+  const qtyInput    = newRow.querySelector(".quantity");
+  const priceInput  = newRow.querySelector(".unitPrice"); // readonly but changes when part chosen
+  const descInput   = newRow.querySelector(".description"); // readonly but we set it
+  const addonSelect = newRow.querySelector(".addon");
+  const delBtn      = newRow.querySelector(".delete");
+
+  // NEW: DELETE button behavior
   delBtn.addEventListener("click", () => {
-    if (isFirstRow(tr)) {
+    if (isFirstRow(newRow)) {
+      // Clear fields but keep the row (do not remove)
       partSelect.value = "";
-      descInput.value  = "";
-      qtyInput.value   = "1";
+      descInput.value = "";
+      qtyInput.value = "1";
       priceInput.value = "0";
-      tr.querySelector(".amount").textContent = "0.00";
+      newRow.querySelector(".amount").textContent = "0.00";
       addonSelect.innerHTML = `<option value="">None</option>`;
-      toggleDeleteVisibility(tr); // hide again
+      toggleDeleteVisibility(newRow); // hide after clearing
       updateTotals();
     } else {
-      tr.remove();
+      // Remove this specific row
+      newRow.remove();
       updateTotals();
     }
   });
 
-  // Part selection: fill price/desc, load recommendations, manage duplicates
+  // Handle part selection
   partSelect.addEventListener("change", async (e) => {
     const selectedId = e.target.value;
     const selectedItem = allItems.find(item => item.item_id === selectedId);
 
     if (selectedItem) {
-      // If same part exists elsewhere, bump its qty and remove this row
-      const existing = Array.from(tbody.querySelectorAll("tr")).find(
-        row => row !== tr && row.querySelector(".partNumber")?.value === selectedId
+      // Check for duplicates
+      const existingRow = Array.from(tbody.querySelectorAll("tr")).find(
+        row => row.querySelector(".partNumber").value === selectedId && row !== newRow
       );
-      if (existing) {
-        const q = existing.querySelector(".quantity");
-        q.value = String((parseInt(q.value || "0", 10) + 1));
-        tr.remove();
+
+      if (existingRow) {
+        const existingQty = existingRow.querySelector(".quantity");
+        existingQty.value = parseInt(existingQty.value) + 1;
+        newRow.remove();
         updateTotals();
-        return;
-      }
+      } else {
+        // Fill description and unit price
+        newRow.querySelector(".description").value = selectedItem.item_description;
+        newRow.querySelector(".unitPrice").value = selectedItem.unit_price.toFixed(2);
+        toggleDeleteVisibility(newRow); // NEW: show delete now that row has content
+        updateTotals();
 
-      // Fill fields
-      descInput.value  = selectedItem.item_description;
-      priceInput.value = Number(selectedItem.unit_price).toFixed(2);
-      updateTotals();
+        // Fetch recommended add-ons dynamically
+        try {
+          const res = await fetch(`http://127.0.0.1:5000/recommendations/${selectedId}`);
+          const data = await res.json();
 
-      // Load add-ons
-      try {
-        const res = await fetch(`http://127.0.0.1:5000/recommendations/${selectedId}`);
-        const data = await res.json();
-        addonSelect.innerHTML = `<option value="">None</option>`;
-        if (Array.isArray(data) && data.length > 0) {
-          data.forEach(rec => {
+          // Clear old options first
+          addonSelect.innerHTML = `<option value="">None</option>`;
+
+          if (data.length > 0) {
+            data.forEach(rec => {
+              const opt = document.createElement("option");
+              opt.value = rec.recommended_item;
+              opt.textContent = rec.recommended_item;
+              addonSelect.appendChild(opt);
+            });
+          } else {
             const opt = document.createElement("option");
-            opt.value = rec.recommended_item;
-            opt.textContent = rec.recommended_item;
+            opt.textContent = "No recommendations";
+            opt.disabled = true;
             addonSelect.appendChild(opt);
-          });
+          }
+        } catch (err) {
+          console.error("Error fetching recommendations:", err);
+          addonSelect.innerHTML = `<option value="">Error loading add-ons</option>`;
         }
-      } catch (err) {
-        console.error("Error fetching recommendations:", err);
-        addonSelect.innerHTML = `<option value="">None</option>`;
       }
     } else {
-      // Deselected: clear row back to blank
+      // User reset to "Select Part" — treat as cleared row
       descInput.value = "";
       priceInput.value = "0";
-      tr.querySelector(".amount").textContent = "0.00";
+      newRow.querySelector(".amount").textContent = "0.00";
       addonSelect.innerHTML = `<option value="">None</option>`;
+      toggleDeleteVisibility(newRow); // NEW: hide delete if empty
       updateTotals();
     }
-
-    toggleDeleteVisibility(tr);
   });
 
-  // Reflect changes
+  // Update totals when quantity changes
   qtyInput.addEventListener("input", () => {
+    toggleDeleteVisibility(newRow);  // NEW: qty alone won't show Delete
     updateTotals();
-    toggleDeleteVisibility(tr); // qty alone won't show, but keep state fresh
   });
-  addonSelect.addEventListener("change", () => toggleDeleteVisibility(tr));
 
-  // Ensure the brand-new blank row starts with Delete hidden
-  toggleDeleteVisibility(tr);
+  // NEW: If user picks an add-on, that counts as "content"
+  addonSelect.addEventListener("change", () => {
+    toggleDeleteVisibility(newRow);
+  });
+
+  // NEW: Make sure the first blank row starts with Delete hidden
+  toggleDeleteVisibility(newRow);
 }
 
-// Add row button
+// Add new row when button clicked
 document.getElementById("addItem").addEventListener("click", addNewRow);
 
-// Submit
+// Handle form submission
 document.getElementById("invoiceForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -187,12 +204,12 @@ document.getElementById("invoiceForm").addEventListener("submit", (e) => {
   const items = [];
 
   rows.forEach(row => {
-    const partNumber  = row.querySelector(".partNumber").value;
+    const partNumber = row.querySelector(".partNumber").value;
     const description = row.querySelector(".description").value;
-    const qty         = parseFloat(row.querySelector(".quantity").value) || 0;
-    const price       = parseFloat(row.querySelector(".unitPrice").value) || 0;
-    const amount      = qty * price;
-    const addon       = row.querySelector(".addon").value;
+    const qty = parseFloat(row.querySelector(".quantity").value) || 0;
+    const price = parseFloat(row.querySelector(".unitPrice").value) || 0;
+    const amount = qty * price;
+    const addon = row.querySelector(".addon").value;
 
     items.push({ partNumber, description, qty, price, amount, addon });
   });
