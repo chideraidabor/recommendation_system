@@ -317,11 +317,11 @@ document.getElementById("invoiceForm").addEventListener("submit", (e) => {
       // Redirect
       window.location.href = `/invoice?invoice_id=${redirectId}`;
 
-      // ✅ Make sure the next invoice ID is fetched fresh for the next load
+      //  Make sure the next invoice ID is fetched fresh for the next load
       sessionStorage.setItem("fetchNewInvoiceID", "true");
       setTimeout(async () => {
         await loadNextInvoiceID();
-        console.log("🔁 Invoice ID refreshed for next entry.");
+        console.log(" Invoice ID refreshed for next entry.");
       }, 1500);
       
     })
