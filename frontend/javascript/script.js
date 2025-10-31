@@ -22,6 +22,31 @@ document.addEventListener("DOMContentLoaded", async () => {
     await loadNextInvoiceID();
   }
 });
+// Clear/set HTML5 validity messages as the user types/tabs
+document.addEventListener("DOMContentLoaded", () => {
+  const customerEl    = document.getElementById("customerContact");
+  const billingEl     = document.getElementById("billingAddress");
+  const salespersonEl = document.getElementById("salesperson");
+
+  [customerEl, billingEl, salespersonEl].forEach((el) => {
+    if (!el) return;
+
+    // Clear any prior custom error while typing
+    el.addEventListener("input", () => {
+      el.setCustomValidity("");
+    });
+
+    // On leaving the field, set the message only if empty
+    el.addEventListener("blur", () => {
+      if (!el.value.trim()) {
+        el.setCustomValidity("Please fill out this field.");
+      } else {
+        el.setCustomValidity("");
+      }
+    });
+  });
+});
+
 
 
 // ====================== //
@@ -209,6 +234,33 @@ document.getElementById("addItem").addEventListener("click", addNewRow);
 // ====================== //
 document.getElementById("invoiceForm").addEventListener("submit", (e) => {
   e.preventDefault();
+    const customerEl    = document.getElementById("customerContact");
+  const billingEl     = document.getElementById("billingAddress");
+  const salespersonEl = document.getElementById("salesperson");
+
+  // Always clear stale messages at the start of a submit
+  customerEl.setCustomValidity("");
+  billingEl.setCustomValidity("");
+  salespersonEl.setCustomValidity("");
+
+  if (!customerEl.value.trim()) {
+    customerEl.setCustomValidity("Please fill out this field.");
+    customerEl.reportValidity();
+    customerEl.focus();
+    return;
+  }
+  if (!billingEl.value.trim()) {
+    billingEl.setCustomValidity("Please fill out this field.");
+    billingEl.reportValidity();
+    billingEl.focus();
+    return;
+  }
+  if (!salespersonEl.value.trim()) {
+    salespersonEl.setCustomValidity("Please fill out this field.");
+    salespersonEl.reportValidity();
+    salespersonEl.focus();
+    return;
+  }
 
   // Validate email again before submit
   const email = document.getElementById("customerContact").value.trim();
