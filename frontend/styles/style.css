@@ -198,6 +198,19 @@ button.primary:hover {
   color: #000;
 }
 
+button.delete {
+  background: none;
+  color: #007bff;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+button.delete:hover {
+  text-decoration: underline;
+}
+
 /* ====== Responsive ====== */
 @media (max-width: 768px) {
   .row-inline {
@@ -219,3 +232,55 @@ button.primary:hover {
     align-self: flex-start;
   }
 }
+
+/* =======================================================
+   FIX: Keep “Actions” column & Delete button inside margin
+   (scoped to #itemsTable only, so other tables remain same)
+   ======================================================= */
+   #itemsTable {
+    table-layout: fixed;   /* respect set column widths; prevents overflow */
+    width: 100%;
+  }
+  
+  #itemsTable th,
+  #itemsTable td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Column widths — 6 = Add-ons, 7 = Actions */
+  #itemsTable th:nth-child(6),
+  #itemsTable td:nth-child(6) {
+    width: 140px;          /* Add-ons column */
+  }
+  
+  #itemsTable th:nth-child(7),
+  #itemsTable td:nth-child(7),
+  #itemsTable td.actions {
+    width: 110px;          /* Actions column */
+    padding: 8px;
+  }
+  
+  /* Inputs/selects fit inside their cells */
+  #itemsTable select,
+  #itemsTable input[type="number"],
+  #itemsTable input[type="text"] {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Keep Delete button neat inside the cell */
+  #itemsTable button.delete {
+    display: inline-block;
+    width: 100%;            /* fill Actions cell width */
+    max-width: 96px;        /* but never spill */
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+  
+  /* Last-resort guard against any sub-pixel overflow */
+  .container { overflow-x: hidden; }
+  /* Hide elements until we decide to show them in JS */
+  .hidden { display: none !important; }
