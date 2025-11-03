@@ -86,7 +86,7 @@ function addNewRow() {
       </select>
     </td>
     <td class="actions">
-      <button type="button" class="delete hidden">Delete</button> <!-- NEW: starts hidden -->
+      <button type="button" class="delete hidden">Delete</button>
     </td>
   `;
 

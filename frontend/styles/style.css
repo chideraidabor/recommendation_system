@@ -1,6 +1,4 @@
-/* =========================
-   General Page Styles
-   ========================= */
+/* General Page Styles */
 body {
   font-family: Arial, sans-serif;
   background: #eef2f7;
@@ -38,9 +36,7 @@ textarea {
   height: 60px;
 }
 
-/* =========================
-   Invoice Form (First Page)
-   ========================= */
+/* Invoice Form (First Page) */
 .row {
   margin-bottom: 15px;
   display: flex;
@@ -116,9 +112,7 @@ button.primary:hover {
   font-size: 1.2em;
 }
 
-/* =========================
-   Invoice Page Styling
-   ========================= */
+/* Invoice Page Styling */
 .invoice-header {
   display: flex;
   justify-content: space-between;
@@ -212,18 +206,16 @@ button.primary:hover {
 
 td.actions { width: 110px; }
 button.delete {
-  background: #dc3545;
-  color: #fff;
+  background: none;
+  color: #007bff;
   border: none;
-  border-radius: 6px;
-  padding: 6px 10px;
+  padding: 0;
   cursor: pointer;
+  border-radius: 0;
 }
-button.delete:hover { opacity: 0.9; }
 
-/* =========================
-   Responsive
-   ========================= */
+
+/* ====== Responsive ====== */
 @media (max-width: 768px) {
   .row-inline {
     flex-direction: column;
