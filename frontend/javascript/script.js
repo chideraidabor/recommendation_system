@@ -229,7 +229,17 @@ function addNewRow() {
             data.forEach((rec) => {
               const opt = document.createElement("option");
               opt.value = rec.recommended_item;
-              opt.textContent = rec.recommended_item;
+
+              // fetch the item description of the item in the dropdown
+              const match = allItems.find(item => item.item_id === rec.recommended_item);
+              const desc = match ? match.item_description : "";
+
+              // calculate the similarity percentage by the recommended item
+              const percent = (rec.score * 100).toFixed(0);
+
+              // show the percentage and description
+              opt.textContent = `${rec.recommended_item} - ${percent}% (${desc})`;
+
               addonSelect.appendChild(opt);
             });
           } else {
