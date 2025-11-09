@@ -166,9 +166,19 @@ function addNewRow() {
   const delBtn = newRow.querySelector(".delete");
 
   // DELETE button functionality
+  // DELETE button functionality
   delBtn.addEventListener("click", () => {
+    // Clean up linked rows both ways before deleting
+    if (newRow._addonRow && newRow._addonRow.isConnected) {
+      newRow._addonRow.remove();
+      newRow._addonRow = null;
+    }
+    if (newRow._parentRow) {
+      newRow._parentRow._addonRow = null;
+    }
+
     if (isFirstRow(newRow)) {
-      // Clear the first row instead of deleting it
+      // If this is the first row, clear it instead of deleting
       partSelect.value = "";
       newRow.querySelector(".description").value = "";
       qtyInput.value = "1";
@@ -178,95 +188,160 @@ function addNewRow() {
       toggleDeleteVisibility(newRow);
       updateTotals();
     } else {
+      // Otherwise, remove the row completely
       newRow.remove();
       updateTotals();
     }
   });
 
-  // Add-on change → auto-add row
-  addonSelect.addEventListener("change", (e) => {
-    const addonId = e.target.value;
-    if (!addonId) return;
-    const newAddonRow = addNewRow();
-    const newAddonPartSelect = newAddonRow.querySelector(".partNumber");
-    newAddonPartSelect.value = addonId;
-    newAddonPartSelect.dispatchEvent(new Event("change"));
-  });
+// Add-on change: create once, then update that same linked row
+addonSelect.addEventListener("change", (e) => {
+  const addonId = e.target.value;
+  const baseRow = newRow; // this dropdown belongs to this row
+
+  // If cleared, remove linked add-on row
+  if (!addonId) {
+    if (baseRow._addonRow && baseRow._addonRow.isConnected) {
+      baseRow._addonRow.remove();
+    }
+    baseRow._addonRow = null;
+    updateTotals();
+    return;
+  }
+
+  // If already created, just update its part number
+  if (baseRow._addonRow && baseRow._addonRow.isConnected) {
+    const partSelect2 = baseRow._addonRow.querySelector(".partNumber");
+    partSelect2.value = addonId;
+    const qty2 = baseRow._addonRow.querySelector(".quantity");
+    if (qty2) qty2.value = "1"; // optional reset
+    partSelect2.dispatchEvent(new Event("change"));
+    updateTotals();
+    return;
+  }
+
+  // Otherwise, create it once
+  const newAddonRow = addNewRow();
+  baseRow._addonRow = newAddonRow;
+  newAddonRow._parentRow = baseRow; // backlink for cleanup
+
+  const newAddonPartSelect = newAddonRow.querySelector(".partNumber");
+  newAddonPartSelect.value = addonId;
+  newAddonPartSelect.dispatchEvent(new Event("change"));
+  updateTotals();
+});
+
+
 
   // Part selection
-  partSelect.addEventListener("change", async (e) => {
-    const selectedId = e.target.value;
-    const selectedItem = allItems.find(
-      (item) => String(item.item_id) === String(selectedId)
+partSelect.addEventListener("change", async (e) => {
+  const selectedId = e.target.value;
+  const selectedItem = allItems.find(
+    (item) => String(item.item_id) === String(selectedId)
+  );
+
+  // STEP 1: Always clear the add-on dropdown when part changes
+  addonSelect.innerHTML = `<option value="">None</option>`;
+
+  // STEP 2: If this row previously created an add-on row, remove it
+  if (newRow._addonRow && newRow._addonRow.isConnected) {
+    newRow._addonRow.remove();
+    newRow._addonRow = null;
+  }
+
+  if (selectedItem) {
+    // Check if there's already another row with this item
+    const existingRow = Array.from(tbody.querySelectorAll("tr")).find(
+      (row) =>
+        row.querySelector(".partNumber").value === selectedId &&
+        row !== newRow
     );
 
-    if (selectedItem) {
-      const existingRow = Array.from(tbody.querySelectorAll("tr")).find(
-        (row) =>
-          row.querySelector(".partNumber").value === selectedId && row !== newRow
-      );
-      if (existingRow) {
-        const existingQty = existingRow.querySelector(".quantity");
-        existingQty.value = parseInt(existingQty.value) + 1;
-        newRow.remove();
-        updateTotals();
-      } else {
-        newRow.querySelector(".description").value =
-          selectedItem.item_description;
-        newRow.querySelector(".unitPrice").value =
-          selectedItem.unit_price.toFixed(2);
-        toggleDeleteVisibility(newRow);
-        updateTotals();
+    if (existingRow) {
+      // Instead of adding a new row, update the existing row with latest info
+      existingRow.querySelector(".description").value =
+        selectedItem.item_description;
+      existingRow.querySelector(".unitPrice").value =
+        selectedItem.unit_price.toFixed(2);
+      const qtyInput = existingRow.querySelector(".quantity");
+      qtyInput.value = parseInt(qtyInput.value) + 1;
 
-        try {
-          const res = await fetch(
-            `http://127.0.0.1:5000/recommendations/${selectedId}`
-          );
-          const data = await res.json();
-          addonSelect.innerHTML = `<option value="">None</option>`;
+      // Remove the redundant new row
+      newRow.remove();
+      updateTotals();
+      return;
+    }
 
-          if (data.length > 0) {
-            data.forEach((rec) => {
-              const opt = document.createElement("option");
-              opt.value = rec.recommended_item;
-          
-              // get the similarity percentage and display the description
-              const percent = (rec.score * 100).toFixed(0);
-              const match = allItems.find(item => item.item_id === rec.recommended_item);
-              const desc = match ? match.item_description : "";
-          
-              opt.textContent = `${rec.recommended_item} - ${percent}% (${desc})`;
-              addonSelect.appendChild(opt);
-            });
-          
-            // Ensure only item_id shows after selection
-            addonSelect.addEventListener("change", () => {
-              const selectedOption = addonSelect.options[addonSelect.selectedIndex];
-              if (selectedOption) {
-                selectedOption.textContent = selectedOption.value;
+    // Otherwise, just update current row
+    newRow.querySelector(".description").value = selectedItem.item_description;
+    newRow.querySelector(".unitPrice").value = selectedItem.unit_price.toFixed(2);
+    toggleDeleteVisibility(newRow);
+    updateTotals();
+
+    // STEP 3: Fetch and rebuild recommendations for the new part
+    try {
+      const res = await fetch(`http://127.0.0.1:5000/recommendations/${selectedId}`);
+      const data = await res.json();
+
+      // Reset dropdown again before adding new options
+      addonSelect.innerHTML = `<option value="">None</option>`;
+
+      if (data.length > 0) {
+        data.forEach((rec) => {
+          const opt = document.createElement("option");
+          opt.value = rec.recommended_item;
+          const percent = (rec.score * 100).toFixed(0);
+          const match = allItems.find((item) => item.item_id === rec.recommended_item);
+          const desc = match ? match.item_description : "";
+          opt.textContent = `${rec.recommended_item} - ${percent}% (${desc})`;
+          addonSelect.appendChild(opt);
+        });
+
+        // STEP 4: Make sure only one "change" listener exists (handles text revert issue)
+        addonSelect.onchange = () => {
+          const selectedOption = addonSelect.options[addonSelect.selectedIndex];
+          if (selectedOption) {
+            // Save full text the first time
+            if (!selectedOption.dataset.fullText) {
+              selectedOption.dataset.fullText = selectedOption.textContent;
+            }
+
+            // Show only the short value when closed
+            selectedOption.textContent = selectedOption.value;
+          }
+
+          // When user clicks the dropdown again, restore full text for all options
+          addonSelect.addEventListener("mousedown", () => {
+            Array.from(addonSelect.options).forEach((opt) => {
+              if (opt.dataset.fullText) {
+                opt.textContent = opt.dataset.fullText;
               }
             });
-          } else {
-            const opt = document.createElement("option");
-            opt.textContent = "No recommendations";
-            opt.disabled = true;
-            addonSelect.appendChild(opt);
-          }
-        } catch (err) {
-          console.error("Error fetching recommendations:", err);
-          addonSelect.innerHTML = `<option value="">Error loading add-ons</option>`;
-        }
+          });
+        };
+
+      } else {
+        const opt = document.createElement("option");
+        opt.textContent = "No recommendations";
+        opt.disabled = true;
+        addonSelect.appendChild(opt);
       }
-    } else {
-      // Reset row if user clears selection
-      newRow.querySelector(".description").value = "";
-      newRow.querySelector(".unitPrice").value = "0";
-      newRow.querySelector(".amount").textContent = "0.00";
-      addonSelect.innerHTML = `<option value="">None</option>`;
-      toggleDeleteVisibility(newRow);
-      updateTotals();
+    } catch (err) {
+      console.error("Error fetching recommendations:", err);
+      addonSelect.innerHTML = `<option value="">Error loading add-ons</option>`;
     }
-  });
+  } else {
+    // Reset if cleared
+    newRow.querySelector(".description").value = "";
+    newRow.querySelector(".unitPrice").value = "0";
+    newRow.querySelector(".amount").textContent = "0.00";
+    addonSelect.innerHTML = `<option value="">None</option>`;
+    toggleDeleteVisibility(newRow);
+    updateTotals();
+  }
+});
+  
+
 
   qtyInput.addEventListener("input", () => {
     toggleDeleteVisibility(newRow);
