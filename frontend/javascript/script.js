@@ -229,8 +229,22 @@ function addNewRow() {
             data.forEach((rec) => {
               const opt = document.createElement("option");
               opt.value = rec.recommended_item;
-              opt.textContent = rec.recommended_item;
+          
+              // get the similarity percentage and display the description
+              const percent = (rec.score * 100).toFixed(0);
+              const match = allItems.find(item => item.item_id === rec.recommended_item);
+              const desc = match ? match.item_description : "";
+          
+              opt.textContent = `${rec.recommended_item} - ${percent}% (${desc})`;
               addonSelect.appendChild(opt);
+            });
+          
+            // Ensure only item_id shows after selection
+            addonSelect.addEventListener("change", () => {
+              const selectedOption = addonSelect.options[addonSelect.selectedIndex];
+              if (selectedOption) {
+                selectedOption.textContent = selectedOption.value;
+              }
             });
           } else {
             const opt = document.createElement("option");
