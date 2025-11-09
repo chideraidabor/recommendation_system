@@ -297,13 +297,29 @@ partSelect.addEventListener("change", async (e) => {
           addonSelect.appendChild(opt);
         });
 
-        // STEP 4: Make sure only one "change" listener exists
+        // STEP 4: Make sure only one "change" listener exists (handles text revert issue)
         addonSelect.onchange = () => {
           const selectedOption = addonSelect.options[addonSelect.selectedIndex];
           if (selectedOption) {
+            // Save full text the first time
+            if (!selectedOption.dataset.fullText) {
+              selectedOption.dataset.fullText = selectedOption.textContent;
+            }
+
+            // Show only the short value when closed
             selectedOption.textContent = selectedOption.value;
           }
+
+          // When user clicks the dropdown again, restore full text for all options
+          addonSelect.addEventListener("mousedown", () => {
+            Array.from(addonSelect.options).forEach((opt) => {
+              if (opt.dataset.fullText) {
+                opt.textContent = opt.dataset.fullText;
+              }
+            });
+          });
         };
+
       } else {
         const opt = document.createElement("option");
         opt.textContent = "No recommendations";
