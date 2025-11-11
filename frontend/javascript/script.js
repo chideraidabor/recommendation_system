@@ -19,6 +19,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   } else {
     await loadNextInvoiceID();
   }
+  
+  // Auto-update date to current date
+  const dateField = document.getElementById("invoiceDate");
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  dateField.value = `${year}-${month}-${day}`;
 });
 
 // Clear/set HTML5 validity messages as the user types/tabs
