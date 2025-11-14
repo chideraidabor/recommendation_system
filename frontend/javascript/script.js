@@ -61,6 +61,41 @@ emailInput.addEventListener("input", () => {
     emailError.textContent = "";
     emailInput.style.borderColor = "green";
   }
+}); // (this closes your emailInput event listener)
+
+// ====================== //
+//  CREATE BUTTON STATE   //
+//  (gray until valid)    //
+// ====================== //
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("invoiceForm");
+  const submitBtn = form?.querySelector('button[type="submit"]');
+
+  const customerEl   = document.getElementById("customerContact");
+  const billingEl    = document.getElementById("billingAddress");
+  const salespersonEl= document.getElementById("salesperson");
+
+  function allRequiredFilled() {
+    const email = (customerEl?.value || "").trim();
+    const emailOk = email === "" ? false : emailRegex.test(email);
+    return (
+      emailOk &&
+      (billingEl?.value || "").trim() !== "" &&
+      (salespersonEl?.value || "").trim() !== ""
+    );
+  }
+
+  function updateSubmitState() {
+    if (!submitBtn) return;
+    submitBtn.disabled = !allRequiredFilled();
+  }
+
+  [customerEl, billingEl, salespersonEl].forEach((el) => {
+    el?.addEventListener("input", updateSubmitState);
+    el?.addEventListener("blur", updateSubmitState);
+  });
+
+  updateSubmitState(); // Initial state check
 });
 
 // ====================== //
