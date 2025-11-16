@@ -12,7 +12,7 @@ Page Transition – Verified. Smooth navigation to final invoice summary after c
 Invoice Summary Visibility – Verified. All fields and item details are clearly visible.
 Subtotal & Total Calculations – Verified. Calculations are accurate in the summary.
 Decimal Precision – Verified. Amounts are automatically rounded to two decimal places.
-Billing Address Consistency – Verified. Address in summary matches input during creation.
+Billing Address Consistency – Partially Passed . some address are getting same in the invoice summary but some are printing differently.
 Salesperson Information – Verified. Salesperson details appear correctly in the summary.
 Required Field Validation – passed. the invoice button works soon after avery required column is entered.
 Initial Totals on First Load – passed . it shows correct calculations even on the first load it is fixed.
