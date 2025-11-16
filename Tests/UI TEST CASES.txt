@@ -18,7 +18,7 @@ UI TEST CASES
 16.	Are we able to input the salesperson’s signature in the invoice summary?
 17.	Does it block Create Invoice and show errors when Customer Contact Info, Billing Address, or Salesperson are empty?
 18.	On first load, with the default item row untouched, do Subtotal/Tax/Shipping/Total calculate correctly (not $0.00)?
-19.	If I click Create Invoice without changing any fields, does a final recalculation run so the Invoice Summary shows the correct totals (not $0.00)?
+19.	If I click Create Invoice without adding items does invoice is created.
 20.	The Invoice Number auto-increments for the next customer.
 21. The Date field defaults to today’s date when creating an invoice.
 22. Customer information includes name, phone, and email, and is captured in the form and shown on the summary.
