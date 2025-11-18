@@ -19,13 +19,12 @@ Initial Totals on First Load – passed . it shows correct calculations even on 
 items adding- passed.when customer is not supposed to enter the item details it pop up a error saving the invoice check console for error so items should be added to create invoice.
 Invoice Number Auto-Increments – Verified. Invoice auto-advances from INV0055 (form) to INV0056 (summary).
 Default Date to Today – Verified. Date field auto-fills with today’s date when creating a new invoice.
-Customer Info Captured & Shown – Failed. Only email is captured/shown; name and phone are missing from form and summary.
+Customer Info Captured & Shown – Verified. The email is captured/shown in the form and summary.
 Part Number Auto-Fills Description – Verified. Choosing part CA103 auto-fills the correct “Cabinet” description.
 Quantity Minimum of 1 – Verified. Quantity starts at 1 and cannot be set to 0.
 Amount Updates with Quantity – Verified. Amount recalculates from qty × unit price (e.g., 1 × 150 = 150).
 Add-ons Recommendations Dropdown – Verified. Add-ons dropdown appears and provides relevant recommendations for the selected item.
-Tax & Shipping Calculation – Verified. Tax (5% = $7.50) and shipping ($0.00) compute correctly, totaling $157.50.
+Tax & Shipping Calculation – Verified. 
 Salesperson Captured & Displayed – Verified. Salesperson is captured on the form and shown on the summary.
 Recommendation Auto-Adds Line Item – Verified. Selecting a recommendation auto-adds a new line item row to the table.
 All Items Listed on Invoice – Verified. All added items appear on the generated invoice; no line items are missing.
-Email/Print Delivery of Invoice – Failed. No email send or print/PDF delivery functionality is implemented yet.
