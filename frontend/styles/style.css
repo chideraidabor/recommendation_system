@@ -284,3 +284,38 @@ button.delete:hover {
   .container { overflow-x: hidden; }
   /* Hide elements until we decide to show them in JS */
   .hidden { display: none !important; }
+
+/* Hover Reveal Info Icon */
+
+.desc-cell {
+  position: relative;
+  padding-right: 8px; 
+}
+
+.addon-cell {
+  position: relative;
+  padding-right: 28px; 
+}
+
+/* Info icon beside Add-on dropdown */
+.addon-info-icon {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #007bff;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  vertical-align: middle;
+}
+
+.addon-cell:hover .addon-info-icon {
+  opacity: 1;
+}
+
+/* Hover color effect */
+.addon-info-icon:hover {
+  color: #0056c7;
+}
