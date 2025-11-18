@@ -24,7 +24,7 @@ Part Number Auto-Fills Description – Verified. Choosing part CA103 auto-fills 
 Quantity Minimum of 1 – Verified. Quantity starts at 1 and cannot be set to 0.
 Amount Updates with Quantity – Verified. Amount recalculates from qty × unit price (e.g., 1 × 150 = 150).
 Add-ons Recommendations Dropdown – Verified. Add-ons dropdown appears and provides relevant recommendations for the selected item.
-Tax & Shipping Calculation – Verified. 
+Tax & Shipping Calculation – Verified. the tax is calculated for 5% that is DR101 Drain is 40$ in which tax shows 2$(Tax =5%).
 Salesperson Captured & Displayed – Verified. Salesperson is captured on the form and shown on the summary.
 Recommendation Auto-Adds Line Item – Verified. Selecting a recommendation auto-adds a new line item row to the table.
 All Items Listed on Invoice – Verified. All added items appear on the generated invoice; no line items are missing.
