@@ -333,35 +333,80 @@ partSelect.addEventListener("change", async (e) => {
         data.forEach((rec) => {
           const opt = document.createElement("option");
           opt.value = rec.recommended_item;
+        
           const percent = (rec.score * 100).toFixed(0);
           const match = allItems.find((item) => item.item_id === rec.recommended_item);
           const desc = match ? match.item_description : "";
-          opt.textContent = `${rec.recommended_item} - ${percent}% (${desc})`;
+        
+          const fullLabel  = `${rec.recommended_item} – ${percent}% (${desc})`;
+          const shortLabel = rec.recommended_item;
+        
+          opt.dataset.fullLabel  = fullLabel;
+          opt.dataset.shortLabel = shortLabel;
+        
+          // When the list is open, we show the full label
+          opt.textContent = fullLabel;
+        
           addonSelect.appendChild(opt);
         });
+        
 
         // STEP 4: Make sure only one "change" listener exists (handles text revert issue)
-        addonSelect.onchange = () => {
-          const selectedOption = addonSelect.options[addonSelect.selectedIndex];
-          if (selectedOption) {
-            // Save full text the first time
-            if (!selectedOption.dataset.fullText) {
-              selectedOption.dataset.fullText = selectedOption.textContent;
-            }
+        // addonSelect.onchange = () => {
+        //   const selectedOption = addonSelect.options[addonSelect.selectedIndex];
+        //   if (selectedOption) {
+        //     // Save full text the first time
+        //     if (!selectedOption.dataset.fullText) {
+        //       selectedOption.dataset.fullText = selectedOption.textContent;
+        //     }
 
-            // Show only the short value when closed
-            selectedOption.textContent = selectedOption.value;
-          }
+        //     // Show only the short value when closed
+        //     selectedOption.textContent = selectedOption.value;
+        //   }
 
-          // When user clicks the dropdown again, restore full text for all options
-          addonSelect.addEventListener("mousedown", () => {
-            Array.from(addonSelect.options).forEach((opt) => {
-              if (opt.dataset.fullText) {
-                opt.textContent = opt.dataset.fullText;
-              }
-            });
+        //   // When user clicks the dropdown again, restore full text for all options
+        //   addonSelect.addEventListener("mousedown", () => {
+        //     Array.from(addonSelect.options).forEach((opt) => {
+        //       if (opt.dataset.fullText) {
+        //         opt.textContent = opt.dataset.fullText;
+        //       }
+        //     });
+        //   });
+        // };
+        // ————————————————
+        // FIXED SHORT/LONG LABEL LOGIC
+        // ————————————————
+
+        addonSelect.addEventListener("focus", () => {
+          // Dropdown is opening → show FULL labels
+          Array.from(addonSelect.options).forEach(opt => {
+            if (opt.dataset.fullLabel) opt.textContent = opt.dataset.fullLabel;
           });
-        };
+        });
+
+        addonSelect.addEventListener("mousedown", () => {
+          // Some browsers trigger mousedown before focus
+          Array.from(addonSelect.options).forEach(opt => {
+            if (opt.dataset.fullLabel) opt.textContent = opt.dataset.fullLabel;
+          });
+        });
+
+        addonSelect.addEventListener("change", () => {
+          // Selection made → set ONLY this one to short label
+          const selected = addonSelect.options[addonSelect.selectedIndex];
+          if (selected && selected.dataset.shortLabel) {
+            selected.textContent = selected.dataset.shortLabel;
+          }
+        });
+
+        // When dropdown closes (blur), ensure collapsed view shows short label
+        addonSelect.addEventListener("blur", () => {
+          const selected = addonSelect.options[addonSelect.selectedIndex];
+          if (selected && selected.dataset.shortLabel) {
+            selected.textContent = selected.dataset.shortLabel;
+          }
+        });
+
 
       } else {
         const opt = document.createElement("option");
