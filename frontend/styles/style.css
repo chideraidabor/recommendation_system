@@ -95,6 +95,11 @@ button.primary {
 button.primary:hover {
   opacity: 0.9;
 }
+button.primary:disabled {
+  background: #9aa4b2;
+  cursor: not-allowed;
+  opacity: 0.75;
+}
 
 .summary {
   text-align: right;

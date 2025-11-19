@@ -12,6 +12,22 @@ async function loadNextInvoiceID() {
   }
 }
 
+document.addEventListener("DOMContentLoaded", async () => {
+  if (sessionStorage.getItem("fetchNewInvoiceID")) {
+    await loadNextInvoiceID();
+    sessionStorage.removeItem("fetchNewInvoiceID");
+  } else {
+    await loadNextInvoiceID();
+  }
+  
+  // Auto-update date to current date
+  const dateField = document.getElementById("invoiceDate");
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const day = String(today.getDate()).padStart(2, '0');
+  dateField.value = `${year}-${month}-${day}`;
+});
 
 // Clear/set HTML5 validity messages as the user types/tabs
 document.addEventListener("DOMContentLoaded", () => {
@@ -99,6 +115,41 @@ emailInput.addEventListener("input", () => {
     emailError.textContent = "";
     emailInput.style.borderColor = "green";
   }
+}); // (this closes your emailInput event listener)
+
+// ====================== //
+//  CREATE BUTTON STATE   //
+//  (gray until valid)    //
+// ====================== //
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("invoiceForm");
+  const submitBtn = form?.querySelector('button[type="submit"]');
+
+  const customerEl   = document.getElementById("customerContact");
+  const billingEl    = document.getElementById("billingAddress");
+  const salespersonEl= document.getElementById("salesperson");
+
+  function allRequiredFilled() {
+    const email = (customerEl?.value || "").trim();
+    const emailOk = email === "" ? false : emailRegex.test(email);
+    return (
+      emailOk &&
+      (billingEl?.value || "").trim() !== "" &&
+      (salespersonEl?.value || "").trim() !== ""
+    );
+  }
+
+  function updateSubmitState() {
+    if (!submitBtn) return;
+    submitBtn.disabled = !allRequiredFilled();
+  }
+
+  [customerEl, billingEl, salespersonEl].forEach((el) => {
+    el?.addEventListener("input", updateSubmitState);
+    el?.addEventListener("blur", updateSubmitState);
+  });
+
+  updateSubmitState(); // Initial state check
 });
 
 
@@ -255,9 +306,19 @@ function addNewRow() {
   const delBtn = newRow.querySelector(".delete");
 
   // DELETE button functionality
+  // DELETE button functionality
   delBtn.addEventListener("click", () => {
+    // Clean up linked rows both ways before deleting
+    if (newRow._addonRow && newRow._addonRow.isConnected) {
+      newRow._addonRow.remove();
+      newRow._addonRow = null;
+    }
+    if (newRow._parentRow) {
+      newRow._parentRow._addonRow = null;
+    }
+
     if (isFirstRow(newRow)) {
-      // Clear the first row instead of deleting it
+      // If this is the first row, clear it instead of deleting
       partSelect.value = "";
       newRow.querySelector(".description").value = "";
       qtyInput.value = "1";
@@ -267,104 +328,230 @@ function addNewRow() {
       toggleDeleteVisibility(newRow);
       updateTotals();
     } else {
+      // Otherwise, remove the row completely
       newRow.remove();
       updateTotals();
     }
   });
 
-  // Add-on change → auto-add row
   addonSelect.addEventListener("change", (e) => {
-  const addonId = e.target.value;
-  const existingIcon = newRow.querySelector(".addon-info-icon");
-
-  // If cleared — remove icon
-  if (!addonId) {
-    if (existingIcon) existingIcon.remove();
-    return;
-  }
-
-  // If not existing, add hover icon
-  if (!existingIcon) {
-    const icon = document.createElement("span");
-    icon.classList.add("addon-info-icon");
-    icon.innerHTML = `<i class="fa-solid fa-circle-info"></i>`;
-    icon.title = "View Add-on Details";
-
-    // Wrap icon and dropdown in hoverable cell
-    const addonCell = addonSelect.closest("td");
-    addonCell.classList.add("addon-cell");
-    addonCell.appendChild(icon);
-
-    // Navigate on click
-    icon.addEventListener("click", () => {
-      window.location.href = `/item/${encodeURIComponent(addonId)}`;
-    });
-  } else {
-    existingIcon.onclick = () =>
-      (window.location.href = `/item/${encodeURIComponent(addonId)}`);
-  }
-});
-
-  // Part selection
-  partSelect.addEventListener("change", async (e) => {
-    const selectedId = e.target.value;
-    const selectedItem = allItems.find(
-      (item) => String(item.item_id) === String(selectedId)
-    );
-
-    if (selectedItem) {
-      const existingRow = Array.from(tbody.querySelectorAll("tr")).find(
-        (row) =>
-          row.querySelector(".partNumber").value === selectedId && row !== newRow
-      );
-      if (existingRow) {
-        const existingQty = existingRow.querySelector(".quantity");
-        existingQty.value = parseInt(existingQty.value) + 1;
-        newRow.remove();
-        updateTotals();
-      } else {
-        newRow.querySelector(".description").value =
-          selectedItem.item_description;
-        newRow.querySelector(".unitPrice").value =
-          selectedItem.unit_price.toFixed(2);
-        toggleDeleteVisibility(newRow);
-        updateTotals();
-
-        try {
-          const res = await fetch(
-            `http://127.0.0.1:5000/recommendations/${selectedId}`
-          );
-          const data = await res.json();
-          addonSelect.innerHTML = `<option value="">None</option>`;
-
-          if (data.length > 0) {
-            data.forEach((rec) => {
-              const opt = document.createElement("option");
-              opt.value = rec.recommended_item;
-              opt.textContent = rec.recommended_item;
-              addonSelect.appendChild(opt);
-            });
-          } else {
-            const opt = document.createElement("option");
-            opt.textContent = "No recommendations";
-            opt.disabled = true;
-            addonSelect.appendChild(opt);
-          }
-        } catch (err) {
-          console.error("Error fetching recommendations:", err);
-          addonSelect.innerHTML = `<option value="">Error loading add-ons</option>`;
-        }
+    const addonId = e.target.value;
+    const baseRow = newRow; // this dropdown belongs to this row
+  
+    if (!addonId) {
+      // remove linked addon row
+      if (baseRow._addonRow && baseRow._addonRow.isConnected) {
+        baseRow._addonRow.remove();
       }
+      baseRow._addonRow = null;
+  
+      // remove info icon too (from feature branch)
+      const existingIcon = newRow.querySelector(".addon-info-icon");
+      if (existingIcon) existingIcon.remove();
+  
+      updateTotals();
+      return;
+    }
+  
+    // Update existing linked row
+    if (baseRow._addonRow && baseRow._addonRow.isConnected) {
+      const partSelect2 = baseRow._addonRow.querySelector(".partNumber");
+      partSelect2.value = addonId;
+  
+      const qty2 = baseRow._addonRow.querySelector(".quantity");
+      if (qty2) qty2.value = "1";
+  
+      partSelect2.dispatchEvent(new Event("change"));
+      updateTotals();
     } else {
-      // Reset row if user clears selection
-      newRow.querySelector(".description").value = "";
-      newRow.querySelector(".unitPrice").value = "0";
-      newRow.querySelector(".amount").textContent = "0.00";
-      addonSelect.innerHTML = `<option value="">None</option>`;
-      toggleDeleteVisibility(newRow);
+      // Create new linked add-on row
+      const newAddonRow = addNewRow();
+      baseRow._addonRow = newAddonRow;
+      newAddonRow._parentRow = baseRow;
+  
+      const newAddonPartSelect = newAddonRow.querySelector(".partNumber");
+      newAddonPartSelect.value = addonId;
+      newAddonPartSelect.dispatchEvent(new Event("change"));
       updateTotals();
     }
+  
+    const existingIcon = newRow.querySelector(".addon-info-icon");
+  
+    if (!existingIcon) {
+      const icon = document.createElement("span");
+      icon.classList.add("addon-info-icon");
+      icon.innerHTML = `<i class="fa-solid fa-circle-info"></i>`;
+      icon.title = "View Add-on Details";
+  
+      const addonCell = addonSelect.closest("td");
+      addonCell.classList.add("addon-cell");
+      addonCell.appendChild(icon);
+  
+      icon.addEventListener("click", () => {
+        window.location.href = `/item/${encodeURIComponent(addonId)}`;
+      });
+    } else {
+      existingIcon.onclick = () => {
+        window.location.href = `/item/${encodeURIComponent(addonId)}`;
+      };
+    }
   });
+  
+
+  // Part selection
+partSelect.addEventListener("change", async (e) => {
+  const selectedId = e.target.value;
+  const selectedItem = allItems.find(
+    (item) => String(item.item_id) === String(selectedId)
+  );
+
+  // STEP 1: Always clear the add-on dropdown when part changes
+  addonSelect.innerHTML = `<option value="">None</option>`;
+
+  // STEP 2: If this row previously created an add-on row, remove it
+  if (newRow._addonRow && newRow._addonRow.isConnected) {
+    newRow._addonRow.remove();
+    newRow._addonRow = null;
+  }
+
+  if (selectedItem) {
+    // Check if there's already another row with this item
+    const existingRow = Array.from(tbody.querySelectorAll("tr")).find(
+      (row) =>
+        row.querySelector(".partNumber").value === selectedId &&
+        row !== newRow
+    );
+
+    if (existingRow) {
+      // Instead of adding a new row, update the existing row with latest info
+      existingRow.querySelector(".description").value =
+        selectedItem.item_description;
+      existingRow.querySelector(".unitPrice").value =
+        selectedItem.unit_price.toFixed(2);
+      const qtyInput = existingRow.querySelector(".quantity");
+      qtyInput.value = parseInt(qtyInput.value) + 1;
+
+      // Remove the redundant new row
+      newRow.remove();
+      updateTotals();
+      return;
+    }
+
+    // Otherwise, just update current row
+    newRow.querySelector(".description").value = selectedItem.item_description;
+    newRow.querySelector(".unitPrice").value = selectedItem.unit_price.toFixed(2);
+    toggleDeleteVisibility(newRow);
+    updateTotals();
+
+    // STEP 3: Fetch and rebuild recommendations for the new part
+    try {
+      const res = await fetch(`http://127.0.0.1:5000/recommendations/${selectedId}`);
+      const data = await res.json();
+
+      // Reset dropdown again before adding new options
+      addonSelect.innerHTML = `<option value="">None</option>`;
+
+      if (data.length > 0) {
+        data.forEach((rec) => {
+          const opt = document.createElement("option");
+          opt.value = rec.recommended_item;
+        
+          const percent = (rec.score * 100).toFixed(0);
+          const match = allItems.find((item) => item.item_id === rec.recommended_item);
+          const desc = match ? match.item_description : "";
+        
+          const fullLabel  = `${rec.recommended_item} – ${percent}% (${desc})`;
+          const shortLabel = rec.recommended_item;
+        
+          opt.dataset.fullLabel  = fullLabel;
+          opt.dataset.shortLabel = shortLabel;
+        
+          // When the list is open, we show the full label
+          opt.textContent = fullLabel;
+        
+          addonSelect.appendChild(opt);
+        });
+        
+
+        // STEP 4: Make sure only one "change" listener exists (handles text revert issue)
+        // addonSelect.onchange = () => {
+        //   const selectedOption = addonSelect.options[addonSelect.selectedIndex];
+        //   if (selectedOption) {
+        //     // Save full text the first time
+        //     if (!selectedOption.dataset.fullText) {
+        //       selectedOption.dataset.fullText = selectedOption.textContent;
+        //     }
+
+        //     // Show only the short value when closed
+        //     selectedOption.textContent = selectedOption.value;
+        //   }
+
+        //   // When user clicks the dropdown again, restore full text for all options
+        //   addonSelect.addEventListener("mousedown", () => {
+        //     Array.from(addonSelect.options).forEach((opt) => {
+        //       if (opt.dataset.fullText) {
+        //         opt.textContent = opt.dataset.fullText;
+        //       }
+        //     });
+        //   });
+        // };
+        // ————————————————
+        // FIXED SHORT/LONG LABEL LOGIC
+        // ————————————————
+
+        addonSelect.addEventListener("focus", () => {
+          // Dropdown is opening → show FULL labels
+          Array.from(addonSelect.options).forEach(opt => {
+            if (opt.dataset.fullLabel) opt.textContent = opt.dataset.fullLabel;
+          });
+        });
+
+        addonSelect.addEventListener("mousedown", () => {
+          // Some browsers trigger mousedown before focus
+          Array.from(addonSelect.options).forEach(opt => {
+            if (opt.dataset.fullLabel) opt.textContent = opt.dataset.fullLabel;
+          });
+        });
+
+        addonSelect.addEventListener("change", () => {
+          // Selection made → set ONLY this one to short label
+          const selected = addonSelect.options[addonSelect.selectedIndex];
+          if (selected && selected.dataset.shortLabel) {
+            selected.textContent = selected.dataset.shortLabel;
+          }
+        });
+
+        // When dropdown closes (blur), ensure collapsed view shows short label
+        addonSelect.addEventListener("blur", () => {
+          const selected = addonSelect.options[addonSelect.selectedIndex];
+          if (selected && selected.dataset.shortLabel) {
+            selected.textContent = selected.dataset.shortLabel;
+          }
+        });
+
+
+      } else {
+        const opt = document.createElement("option");
+        opt.textContent = "No recommendations";
+        opt.disabled = true;
+        addonSelect.appendChild(opt);
+      }
+    } catch (err) {
+      console.error("Error fetching recommendations:", err);
+      addonSelect.innerHTML = `<option value="">Error loading add-ons</option>`;
+    }
+  } else {
+    // Reset if cleared
+    newRow.querySelector(".description").value = "";
+    newRow.querySelector(".unitPrice").value = "0";
+    newRow.querySelector(".amount").textContent = "0.00";
+    addonSelect.innerHTML = `<option value="">None</option>`;
+    toggleDeleteVisibility(newRow);
+    updateTotals();
+  }
+});
+  
+
 
   qtyInput.addEventListener("input", () => {
     toggleDeleteVisibility(newRow);
