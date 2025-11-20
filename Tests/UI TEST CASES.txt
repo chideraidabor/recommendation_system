@@ -1,5 +1,3 @@
-UI TEST CASES
-
 1.	Is the designed UI the same as in the figma prototype
 2.	Is the date in correct format
 3.	Is text visible in the invoice
@@ -10,18 +8,23 @@ UI TEST CASES
 8.	Is it calculating the total amount automatically
 9.	Are we able to enter details in salesperson
 10.	Is create invoice button working?
-11.	Is create invoice button working?
-12.	After clicking invoice button, is it transitioning to the final invoice page?
-13.	Is text visible in invoice summary?
-14.	Are subtotal and total calculations correct in the final invoice?
-15.	Does the total amount calculation automatically rounded off to 2 decimal values automatically?
-16.	Is the billing address same in the invoice summary as given in the invoice creation?
-17.	Are we able to input the salesperson’s signature in the invoice summary?
-18.	Does it block Create Invoice and show errors when Customer Contact Info, Billing Address, or Salesperson are empty?
-19.	On first load, with the default item row untouched, do Subtotal/Tax/Shipping/Total calculate correctly (not $0.00)?
-20.	If I click Create Invoice without changing any fields, does a final recalculation run so the Invoice Summary shows the correct totals (not $0.00)?
-
-
-
-
-
+11.	After clicking invoice button, is it transitioning to the final invoice page?
+12.	Is text visible in invoice summary?
+13.	Are subtotal and total calculations correct in the final invoice?
+14.	Does the total amount calculation automatically rounded off to 2 decimal values automatically?
+15.	Is the billing address same in the invoice summary as given in the invoice creation?
+16.	Are we able to input the salesperson’s signature in the invoice summary?
+17.	Does it block Create Invoice and show errors when Customer Contact Info, Billing Address, or Salesperson are empty?
+18.	On first load, with the default item row untouched, do Subtotal/Tax/Shipping/Total calculate correctly (not $0.00)?
+19.	If I click Create Invoice without adding items does invoice is created.
+20.	The Invoice Number auto-increments for the next customer.
+21. The Date field defaults to today’s date when creating an invoice.
+22. Customer information includes email, and is captured in the form and shown on the summary.
+23. Selecting a Part Number auto-fills the correct Description.
+24. Quantity can be increased and must be ≥ 1 (not allowed to be 0).
+25. Amount updates automatically when Quantity changes.
+26. The Add-ons dropdown shows relevant recommendations for the selected item.
+27. Tax and Shipping are calculated and displayed correctly in the totals area.
+28. Salesperson can be selected/entered and appears on the summary.
+29. When a recommendation is chosen, a new line item is auto added to the table.
+30. The invoice generated lists every item added—no items are missing.
