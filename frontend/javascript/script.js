@@ -45,6 +45,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+document.addEventListener("DOMContentLoaded", async () => {
+  // Step 1: Load next invoice ID
+  if (sessionStorage.getItem("fetchNewInvoiceID")) {
+    await loadNextInvoiceID();
+    sessionStorage.removeItem("fetchNewInvoiceID");
+  } else {
+    await loadNextInvoiceID();
+  }
+
+  // Step 2: Load all items before restoring saved state
+  await fetchItems();
+
+  // Step 3: Restore any previously saved invoice
+  const saved = sessionStorage.getItem("savedInvoice");
+  if (saved) {
+    const data = JSON.parse(saved);
+
+    // Restore header fields
+    document.getElementById("invoiceNumber").value = data.invoiceNumber || "";
+    document.getElementById("invoiceDate").value = data.invoiceDate || "";
+    document.getElementById("customerContact").value = data.customerContact || "";
+    document.getElementById("billingAddress").value = data.billingAddress || "";
+    document.getElementById("salesperson").value = data.salesperson || "";
+
+    // Restore items
+    const tbody = document.querySelector("#itemsTable tbody");
+    tbody.innerHTML = "";
+
+    data.items.forEach((item) => {
+      const row = addNewRow();
+      const partSelect = row.querySelector(".partNumber");
+      partSelect.value = item.partNumber;
+
+      const selectedItem = allItems.find(it => it.item_id === item.partNumber);
+      if (selectedItem) {
+        row.querySelector(".description").value = selectedItem.item_description;
+        row.querySelector(".unitPrice").value = selectedItem.unit_price.toFixed(2);
+      }
+
+      row.querySelector(".quantity").value = item.quantity;
+    });
+
+    updateTotals();
+  }
+});
+
 
 // ====================== //
 //   EMAIL VALIDATION     //
@@ -106,22 +152,68 @@ document.addEventListener("DOMContentLoaded", () => {
   updateSubmitState(); // Initial state check
 });
 
+
 // ====================== //
 //  ITEMS FETCH & TABLE   //
 // ====================== //
 let allItems = [];
-
 async function fetchItems() {
   try {
     const response = await fetch("http://127.0.0.1:5000/items");
     allItems = await response.json();
     console.log("Items loaded:", allItems);
     addNewRow();
+    return allItems;
   } catch (error) {
     console.error("Error fetching items:", error);
+    return [];
   }
 }
-fetchItems();
+
+
+// ====================== //
+//   ITEM DETAIL NAVIGATE //
+// ====================== //
+document.addEventListener("click", function(e) {
+  const link = e.target.closest(".info-hover-icon");
+  if (!link) return;
+
+  e.preventDefault();
+
+  const invoiceState = {
+    invoiceNumber: document.getElementById("invoiceNumber").value,
+    invoiceDate: document.getElementById("invoiceDate").value,
+    customerContact: document.getElementById("customerContact").value,
+    billingAddress: document.getElementById("billingAddress").value,
+    salesperson: document.getElementById("salesperson").value,
+    items: []
+  };
+
+  document.querySelectorAll("#itemsTable tbody tr").forEach((row) => {
+    invoiceState.items.push({
+      partNumber: row.querySelector(".partNumber")?.value || "",
+      description: row.querySelector(".description")?.value || "",
+      quantity: row.querySelector(".quantity")?.value || "1",
+      unitPrice: row.querySelector(".unitPrice")?.value || "0"
+    });
+  });
+
+  // Store in sessionStorage
+  sessionStorage.setItem("savedInvoice", JSON.stringify(invoiceState));
+
+  // Navigate to item detail page
+  const row = link.closest("tr");
+  const desc = row.querySelector(".description")?.value?.trim();
+  const part = row.querySelector(".partNumber")?.value?.trim();
+  const key = part || desc;
+
+  if (key) {
+    window.location.href = `/item/${encodeURIComponent(key)}`;
+    sessionStorage.removeItem("savedInvoice");
+
+  }
+});
+
 
 // ====================== //
 //   UPDATE TOTALS LOGIC  //
@@ -181,25 +273,30 @@ function addNewRow() {
 
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
-    <td>
-      <select class="partNumber">
-        <option value="">Select Part</option>
-        ${partOptions}
-      </select>
-    </td>
-    <td><input type="text" class="description" placeholder="Auto-filled" readonly></td>
-    <td><input type="number" value="1" min="1" class="quantity"></td>
-    <td><input type="number" value="0" step="0.01" class="unitPrice" readonly></td>
-    <td class="amount">0.00</td>
-    <td>
-      <select class="addon">
-        <option value="">None</option>
-      </select>
-    </td>
-    <td class="actions">
-      <button type="button" class="delete hidden">Delete</button>
-    </td>
-  `;
+  <td>
+    <select class="partNumber">
+      <option value="">Select Part</option>
+      ${partOptions}
+    </select>
+  </td>
+
+  <td class="desc-cell">
+    <input type="text" class="description" placeholder="Auto-filled" readonly>
+  </td>
+
+  <td><input type="number" value="1" min="1" class="quantity"></td>
+  <td><input type="number" value="0" step="0.01" class="unitPrice" readonly></td>
+  <td class="amount">0.00</td>
+  <td>
+    <select class="addon">
+      <option value="">None</option>
+    </select>
+  </td>
+  <td class="actions">
+    <button type="button" class="delete hidden">Delete</button>
+  </td>
+`;
+
 
   tbody.appendChild(newRow);
 
@@ -237,44 +334,69 @@ function addNewRow() {
     }
   });
 
-// Add-on change: create once, then update that same linked row
-addonSelect.addEventListener("change", (e) => {
-  const addonId = e.target.value;
-  const baseRow = newRow; // this dropdown belongs to this row
-
-  // If cleared, remove linked add-on row
-  if (!addonId) {
-    if (baseRow._addonRow && baseRow._addonRow.isConnected) {
-      baseRow._addonRow.remove();
+  addonSelect.addEventListener("change", (e) => {
+    const addonId = e.target.value;
+    const baseRow = newRow; // this dropdown belongs to this row
+  
+    if (!addonId) {
+      // remove linked addon row
+      if (baseRow._addonRow && baseRow._addonRow.isConnected) {
+        baseRow._addonRow.remove();
+      }
+      baseRow._addonRow = null;
+  
+      // remove info icon too (from feature branch)
+      const existingIcon = newRow.querySelector(".addon-info-icon");
+      if (existingIcon) existingIcon.remove();
+  
+      updateTotals();
+      return;
     }
-    baseRow._addonRow = null;
-    updateTotals();
-    return;
-  }
-
-  // If already created, just update its part number
-  if (baseRow._addonRow && baseRow._addonRow.isConnected) {
-    const partSelect2 = baseRow._addonRow.querySelector(".partNumber");
-    partSelect2.value = addonId;
-    const qty2 = baseRow._addonRow.querySelector(".quantity");
-    if (qty2) qty2.value = "1"; // optional reset
-    partSelect2.dispatchEvent(new Event("change"));
-    updateTotals();
-    return;
-  }
-
-  // Otherwise, create it once
-  const newAddonRow = addNewRow();
-  baseRow._addonRow = newAddonRow;
-  newAddonRow._parentRow = baseRow; // backlink for cleanup
-
-  const newAddonPartSelect = newAddonRow.querySelector(".partNumber");
-  newAddonPartSelect.value = addonId;
-  newAddonPartSelect.dispatchEvent(new Event("change"));
-  updateTotals();
-});
-
-
+  
+    // Update existing linked row
+    if (baseRow._addonRow && baseRow._addonRow.isConnected) {
+      const partSelect2 = baseRow._addonRow.querySelector(".partNumber");
+      partSelect2.value = addonId;
+  
+      const qty2 = baseRow._addonRow.querySelector(".quantity");
+      if (qty2) qty2.value = "1";
+  
+      partSelect2.dispatchEvent(new Event("change"));
+      updateTotals();
+    } else {
+      // Create new linked add-on row
+      const newAddonRow = addNewRow();
+      baseRow._addonRow = newAddonRow;
+      newAddonRow._parentRow = baseRow;
+  
+      const newAddonPartSelect = newAddonRow.querySelector(".partNumber");
+      newAddonPartSelect.value = addonId;
+      newAddonPartSelect.dispatchEvent(new Event("change"));
+      updateTotals();
+    }
+  
+    const existingIcon = newRow.querySelector(".addon-info-icon");
+  
+    if (!existingIcon) {
+      const icon = document.createElement("span");
+      icon.classList.add("addon-info-icon");
+      icon.innerHTML = `<i class="fa-solid fa-circle-info"></i>`;
+      icon.title = "View Add-on Details";
+  
+      const addonCell = addonSelect.closest("td");
+      addonCell.classList.add("addon-cell");
+      addonCell.appendChild(icon);
+  
+      icon.addEventListener("click", () => {
+        window.location.href = `/item/${encodeURIComponent(addonId)}`;
+      });
+    } else {
+      existingIcon.onclick = () => {
+        window.location.href = `/item/${encodeURIComponent(addonId)}`;
+      };
+    }
+  });
+  
 
   // Part selection
 partSelect.addEventListener("change", async (e) => {
@@ -442,8 +564,23 @@ partSelect.addEventListener("change", async (e) => {
   return newRow;
 }
 
-// Add new item row manually
-document.getElementById("addItem").addEventListener("click", addNewRow);
+document.getElementById("addItem").addEventListener("click", () => {
+  const newRow = addNewRow();
+  // Find the last selected Add-on value
+  const allAddonSelects = document.querySelectorAll(".addon");
+  const lastSelectedAddon = Array.from(allAddonSelects)
+    .map((sel) => sel.value)
+    .filter((val) => val && val.trim() !== "")
+    .pop(); 
+
+  if (lastSelectedAddon) {
+    const partSelect = newRow.querySelector(".partNumber");
+    partSelect.value = lastSelectedAddon;
+
+    partSelect.dispatchEvent(new Event("change"));
+  }
+});
+
 
 // ====================== //
 //   FORM SUBMISSION      //

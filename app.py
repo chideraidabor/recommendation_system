@@ -212,6 +212,57 @@ def get_invoice(invoice_id):
         }
     })
 
+# ================================================================
+# ITEM DETAILS + SIMILAR + RECOMMENDED (For Item Detail Page)
+# ================================================================
+
+@app.route("/api/item/<item_id>")
+def api_item(item_id):
+    conn = connect_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT item_id, item_description, short_description, unit_price FROM Items WHERE item_id = ?", (item_id,))
+    row = cursor.fetchone()
+    conn.close()
+
+    if not row:
+        return jsonify({"error": "Item not found"}), 404
+
+    return jsonify({
+        "item_id": row["item_id"],
+        "item_description": row["item_description"],
+        "short_description": row["short_description"] or row["item_description"],
+        "unit_price": row["unit_price"]
+    })
+
+
+@app.route("/api/similar/<item_id>")
+def api_similar(item_id):
+    conn = connect_db()
+    cursor = conn.cursor()
+
+    # Find items with same alphabet prefix (hinge → hinge101, hinge102)
+    cursor.execute("SELECT item_id FROM Items")
+    rows = cursor.fetchall()
+    conn.close()
+
+    # Extract prefix (letters only)
+    import re
+    prefix = re.match(r"[A-Za-z]+", item_id)
+    prefix = prefix.group(0).lower() if prefix else item_id.lower()
+
+    similar = [
+        r["item_id"] for r in rows
+        if r["item_id"].lower().startswith(prefix) and r["item_id"] != item_id
+    ]
+
+    return jsonify(similar)
+
+
+@app.route("/item/<item_id>")
+def item_page(item_id):
+    # This renders the description page (frontend will fetch data via AJAX)
+    return render_template("description.html", item_id=item_id)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
