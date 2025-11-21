@@ -313,7 +313,13 @@ function addNewRow() {
       newRow._addonRow.remove();
       newRow._addonRow = null;
     }
+    
+    // If this row was created as an add-on from a parent row, reset the parent's add-on dropdown to "None"
     if (newRow._parentRow) {
+      const parentAddonSelect = newRow._parentRow.querySelector(".addon");
+      if (parentAddonSelect) {
+        parentAddonSelect.value = "";
+      }
       newRow._parentRow._addonRow = null;
     }
 
@@ -412,6 +418,25 @@ partSelect.addEventListener("change", async (e) => {
   if (newRow._addonRow && newRow._addonRow.isConnected) {
     newRow._addonRow.remove();
     newRow._addonRow = null;
+  }
+
+  // NEW: If this row is a child add-on row, update the parent's add-on dropdown to match the new part
+  if (newRow._parentRow && selectedId) {
+    const parentAddonSelect = newRow._parentRow.querySelector(".addon");
+    if (parentAddonSelect) {
+      // Check if the new selectedId exists in the parent's add-on dropdown options
+      const optionExists = Array.from(parentAddonSelect.options).some(
+        opt => opt.value === selectedId
+      );
+      
+      if (optionExists) {
+        // Update parent's add-on dropdown to the new part
+        parentAddonSelect.value = selectedId;
+      } else {
+        // If the new part is not in recommendations, reset to "None"
+        parentAddonSelect.value = "";
+      }
+    }
   }
 
   if (selectedItem) {
