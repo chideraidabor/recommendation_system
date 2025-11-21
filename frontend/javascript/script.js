@@ -564,23 +564,10 @@ partSelect.addEventListener("change", async (e) => {
   return newRow;
 }
 
+// When "Add Item" is clicked, just add a brand new empty row
 document.getElementById("addItem").addEventListener("click", () => {
-  const newRow = addNewRow();
-  // Find the last selected Add-on value
-  const allAddonSelects = document.querySelectorAll(".addon");
-  const lastSelectedAddon = Array.from(allAddonSelects)
-    .map((sel) => sel.value)
-    .filter((val) => val && val.trim() !== "")
-    .pop(); 
-
-  if (lastSelectedAddon) {
-    const partSelect = newRow.querySelector(".partNumber");
-    partSelect.value = lastSelectedAddon;
-
-    partSelect.dispatchEvent(new Event("change"));
-  }
+  addNewRow();
 });
-
 
 // ====================== //
 //   FORM SUBMISSION      //
