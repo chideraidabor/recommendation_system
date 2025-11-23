@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
 document.addEventListener("DOMContentLoaded", async () => {
   // Step 1: Load next invoice ID
   if (sessionStorage.getItem("fetchNewInvoiceID")) {
@@ -250,15 +251,28 @@ function rowHasContent(tr) {
   const addon = tr.querySelector(".addon")?.value?.trim() || "";
   return part !== "" || desc !== "" || price > 0 || addon !== "";
 }
+
 function isFirstRow(tr) {
   const tbody = document.querySelector("#itemsTable tbody");
   return tbody.querySelector("tr") === tr;
 }
+
+// UPDATED: visibility rules
 function toggleDeleteVisibility(tr) {
   const btn = tr.querySelector("button.delete");
   if (!btn) return;
-  if (rowHasContent(tr)) btn.classList.remove("hidden");
-  else btn.classList.add("hidden");
+
+  if (isFirstRow(tr)) {
+    // First row: show Delete only when there is content (so user can clear)
+    if (rowHasContent(tr)) {
+      btn.classList.remove("hidden");
+    } else {
+      btn.classList.add("hidden");
+    }
+  } else {
+    // Other rows: always show Delete (can delete even if empty)
+    btn.classList.remove("hidden");
+  }
 }
 
 // ====================== //
@@ -297,7 +311,6 @@ function addNewRow() {
   </td>
 `;
 
-
   tbody.appendChild(newRow);
 
   const partSelect = newRow.querySelector(".partNumber");
@@ -305,7 +318,6 @@ function addNewRow() {
   const addonSelect = newRow.querySelector(".addon");
   const delBtn = newRow.querySelector(".delete");
 
-  // DELETE button functionality
   // DELETE button functionality
   delBtn.addEventListener("click", () => {
     // Clean up linked rows both ways before deleting
@@ -323,8 +335,11 @@ function addNewRow() {
       newRow._parentRow._addonRow = null;
     }
 
-    if (isFirstRow(newRow)) {
-      // If this is the first row, clear it instead of deleting
+    const tbody = document.querySelector("#itemsTable tbody");
+    const totalRows = tbody.querySelectorAll("tr").length;
+
+    if (isFirstRow(newRow) && totalRows === 1) {
+      // Only one row in the table → clear but keep it
       partSelect.value = "";
       newRow.querySelector(".description").value = "";
       qtyInput.value = "1";
@@ -334,7 +349,7 @@ function addNewRow() {
       toggleDeleteVisibility(newRow);
       updateTotals();
     } else {
-      // Otherwise, remove the row completely
+      // More than one row → remove this row completely
       newRow.remove();
       updateTotals();
     }
@@ -405,178 +420,152 @@ function addNewRow() {
   
 
   // Part selection
-partSelect.addEventListener("change", async (e) => {
-  const selectedId = e.target.value;
-  const selectedItem = allItems.find(
-    (item) => String(item.item_id) === String(selectedId)
-  );
-
-  // STEP 1: Always clear the add-on dropdown when part changes
-  addonSelect.innerHTML = `<option value="">None</option>`;
-
-  // STEP 2: If this row previously created an add-on row, remove it
-  if (newRow._addonRow && newRow._addonRow.isConnected) {
-    newRow._addonRow.remove();
-    newRow._addonRow = null;
-  }
-
-  // NEW: If this row is a child add-on row, update the parent's add-on dropdown to match the new part
-  if (newRow._parentRow && selectedId) {
-    const parentAddonSelect = newRow._parentRow.querySelector(".addon");
-    if (parentAddonSelect) {
-      // Check if the new selectedId exists in the parent's add-on dropdown options
-      const optionExists = Array.from(parentAddonSelect.options).some(
-        opt => opt.value === selectedId
-      );
-      
-      if (optionExists) {
-        // Update parent's add-on dropdown to the new part
-        parentAddonSelect.value = selectedId;
-      } else {
-        // If the new part is not in recommendations, reset to "None"
-        parentAddonSelect.value = "";
-      }
-    }
-  }
-
-  if (selectedItem) {
-    // Check if there's already another row with this item
-    const existingRow = Array.from(tbody.querySelectorAll("tr")).find(
-      (row) =>
-        row.querySelector(".partNumber").value === selectedId &&
-        row !== newRow
+  partSelect.addEventListener("change", async (e) => {
+    const selectedId = e.target.value;
+    const selectedItem = allItems.find(
+      (item) => String(item.item_id) === String(selectedId)
     );
 
-    if (existingRow) {
-      // Instead of adding a new row, update the existing row with latest info
-      existingRow.querySelector(".description").value =
-        selectedItem.item_description;
-      existingRow.querySelector(".unitPrice").value =
-        selectedItem.unit_price.toFixed(2);
-      const qtyInput = existingRow.querySelector(".quantity");
-      qtyInput.value = parseInt(qtyInput.value) + 1;
-
-      // Remove the redundant new row
-      newRow.remove();
-      updateTotals();
-      return;
-    }
-
-    // Otherwise, just update current row
-    newRow.querySelector(".description").value = selectedItem.item_description;
-    newRow.querySelector(".unitPrice").value = selectedItem.unit_price.toFixed(2);
-    toggleDeleteVisibility(newRow);
-    updateTotals();
-
-    // STEP 3: Fetch and rebuild recommendations for the new part
-    try {
-      const res = await fetch(`http://127.0.0.1:5000/recommendations/${selectedId}`);
-      const data = await res.json();
-
-      // Reset dropdown again before adding new options
-      addonSelect.innerHTML = `<option value="">None</option>`;
-
-      if (data.length > 0) {
-        data.forEach((rec) => {
-          const opt = document.createElement("option");
-          opt.value = rec.recommended_item;
-        
-          const percent = (rec.score * 100).toFixed(0);
-          const match = allItems.find((item) => item.item_id === rec.recommended_item);
-          const desc = match ? match.item_description : "";
-        
-          const fullLabel  = `${rec.recommended_item} – ${percent}% (${desc})`;
-          const shortLabel = rec.recommended_item;
-        
-          opt.dataset.fullLabel  = fullLabel;
-          opt.dataset.shortLabel = shortLabel;
-        
-          // When the list is open, we show the full label
-          opt.textContent = fullLabel;
-        
-          addonSelect.appendChild(opt);
-        });
-        
-
-        // STEP 4: Make sure only one "change" listener exists (handles text revert issue)
-        // addonSelect.onchange = () => {
-        //   const selectedOption = addonSelect.options[addonSelect.selectedIndex];
-        //   if (selectedOption) {
-        //     // Save full text the first time
-        //     if (!selectedOption.dataset.fullText) {
-        //       selectedOption.dataset.fullText = selectedOption.textContent;
-        //     }
-
-        //     // Show only the short value when closed
-        //     selectedOption.textContent = selectedOption.value;
-        //   }
-
-        //   // When user clicks the dropdown again, restore full text for all options
-        //   addonSelect.addEventListener("mousedown", () => {
-        //     Array.from(addonSelect.options).forEach((opt) => {
-        //       if (opt.dataset.fullText) {
-        //         opt.textContent = opt.dataset.fullText;
-        //       }
-        //     });
-        //   });
-        // };
-        // ————————————————
-        // FIXED SHORT/LONG LABEL LOGIC
-        // ————————————————
-
-        addonSelect.addEventListener("focus", () => {
-          // Dropdown is opening → show FULL labels
-          Array.from(addonSelect.options).forEach(opt => {
-            if (opt.dataset.fullLabel) opt.textContent = opt.dataset.fullLabel;
-          });
-        });
-
-        addonSelect.addEventListener("mousedown", () => {
-          // Some browsers trigger mousedown before focus
-          Array.from(addonSelect.options).forEach(opt => {
-            if (opt.dataset.fullLabel) opt.textContent = opt.dataset.fullLabel;
-          });
-        });
-
-        addonSelect.addEventListener("change", () => {
-          // Selection made → set ONLY this one to short label
-          const selected = addonSelect.options[addonSelect.selectedIndex];
-          if (selected && selected.dataset.shortLabel) {
-            selected.textContent = selected.dataset.shortLabel;
-          }
-        });
-
-        // When dropdown closes (blur), ensure collapsed view shows short label
-        addonSelect.addEventListener("blur", () => {
-          const selected = addonSelect.options[addonSelect.selectedIndex];
-          if (selected && selected.dataset.shortLabel) {
-            selected.textContent = selected.dataset.shortLabel;
-          }
-        });
-
-
-      } else {
-        const opt = document.createElement("option");
-        opt.textContent = "No recommendations";
-        opt.disabled = true;
-        addonSelect.appendChild(opt);
-      }
-    } catch (err) {
-      console.error("Error fetching recommendations:", err);
-      addonSelect.innerHTML = `<option value="">Error loading add-ons</option>`;
-    }
-  } else {
-    // Reset if cleared
-    newRow.querySelector(".description").value = "";
-    newRow.querySelector(".unitPrice").value = "0";
-    newRow.querySelector(".amount").textContent = "0.00";
+    // STEP 1: Always clear the add-on dropdown when part changes
     addonSelect.innerHTML = `<option value="">None</option>`;
-    toggleDeleteVisibility(newRow);
-    updateTotals();
-  }
-});
-  
 
+    // STEP 2: If this row previously created an add-on row, remove it
+    if (newRow._addonRow && newRow._addonRow.isConnected) {
+      newRow._addonRow.remove();
+      newRow._addonRow = null;
+    }
+
+    // NEW: If this row is a child add-on row, update the parent's add-on dropdown to match the new part
+    if (newRow._parentRow && selectedId) {
+      const parentAddonSelect = newRow._parentRow.querySelector(".addon");
+      if (parentAddonSelect) {
+        // Check if the new selectedId exists in the parent's add-on dropdown options
+        const optionExists = Array.from(parentAddonSelect.options).some(
+          opt => opt.value === selectedId
+        );
+        
+        if (optionExists) {
+          // Update parent's add-on dropdown to the new part
+          parentAddonSelect.value = selectedId;
+        } else {
+          // If the new part is not in recommendations, reset to "None"
+          parentAddonSelect.value = "";
+        }
+      }
+    }
+
+    if (selectedItem) {
+      // Check if there's already another row with this item
+      const existingRow = Array.from(tbody.querySelectorAll("tr")).find(
+        (row) =>
+          row.querySelector(".partNumber").value === selectedId &&
+          row !== newRow
+      );
+
+      if (existingRow) {
+        // Instead of adding a new row, update the existing row with latest info
+        existingRow.querySelector(".description").value =
+          selectedItem.item_description;
+        existingRow.querySelector(".unitPrice").value =
+          selectedItem.unit_price.toFixed(2);
+        const qtyInput2 = existingRow.querySelector(".quantity");
+        qtyInput2.value = parseInt(qtyInput2.value) + 1;
+
+        // Remove the redundant new row
+        newRow.remove();
+        updateTotals();
+        return;
+      }
+
+      // Otherwise, just update current row
+      newRow.querySelector(".description").value = selectedItem.item_description;
+      newRow.querySelector(".unitPrice").value = selectedItem.unit_price.toFixed(2);
+      toggleDeleteVisibility(newRow);
+      updateTotals();
+
+      // STEP 3: Fetch and rebuild recommendations for the new part
+      try {
+        const res = await fetch(`http://127.0.0.1:5000/recommendations/${selectedId}`);
+        const data = await res.json();
+
+        // Reset dropdown again before adding new options
+        addonSelect.innerHTML = `<option value="">None</option>`;
+
+        if (data.length > 0) {
+          data.forEach((rec) => {
+            const opt = document.createElement("option");
+            opt.value = rec.recommended_item;
+          
+            const percent = (rec.score * 100).toFixed(0);
+            const match = allItems.find((item) => item.item_id === rec.recommended_item);
+            const desc = match ? match.item_description : "";
+          
+            const fullLabel  = `${rec.recommended_item} – ${percent}% (${desc})`;
+            const shortLabel = rec.recommended_item;
+          
+            opt.dataset.fullLabel  = fullLabel;
+            opt.dataset.shortLabel = shortLabel;
+          
+            // When the list is open, we show the full label
+            opt.textContent = fullLabel;
+          
+            addonSelect.appendChild(opt);
+          });
+          
+
+          // FIXED SHORT/LONG LABEL LOGIC
+          addonSelect.addEventListener("focus", () => {
+            // Dropdown is opening → show FULL labels
+            Array.from(addonSelect.options).forEach(opt => {
+              if (opt.dataset.fullLabel) opt.textContent = opt.dataset.fullLabel;
+            });
+          });
+
+          addonSelect.addEventListener("mousedown", () => {
+            // Some browsers trigger mousedown before focus
+            Array.from(addonSelect.options).forEach(opt => {
+              if (opt.dataset.fullLabel) opt.textContent = opt.dataset.fullLabel;
+            });
+          });
+
+          addonSelect.addEventListener("change", () => {
+            // Selection made → set ONLY this one to short label
+            const selected = addonSelect.options[addonSelect.selectedIndex];
+            if (selected && selected.dataset.shortLabel) {
+              selected.textContent = selected.dataset.shortLabel;
+            }
+          });
+
+          // When dropdown closes (blur), ensure collapsed view shows short label
+          addonSelect.addEventListener("blur", () => {
+            const selected = addonSelect.options[addonSelect.selectedIndex];
+            if (selected && selected.dataset.shortLabel) {
+              selected.textContent = selected.dataset.shortLabel;
+            }
+          });
+
+
+        } else {
+          const opt = document.createElement("option");
+          opt.textContent = "No recommendations";
+          opt.disabled = true;
+          addonSelect.appendChild(opt);
+        }
+      } catch (err) {
+        console.error("Error fetching recommendations:", err);
+        addonSelect.innerHTML = `<option value="">Error loading add-ons</option>`;
+      }
+    } else {
+      // Reset if cleared
+      newRow.querySelector(".description").value = "";
+      newRow.querySelector(".unitPrice").value = "0";
+      newRow.querySelector(".amount").textContent = "0.00";
+      addonSelect.innerHTML = `<option value="">None</option>`;
+      toggleDeleteVisibility(newRow);
+      updateTotals();
+    }
+  });
+  
 
   qtyInput.addEventListener("input", () => {
     toggleDeleteVisibility(newRow);
