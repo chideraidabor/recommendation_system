@@ -5,17 +5,29 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
-from webdriver_manager.chrome import ChromeDriverManager
 import time
+import os
 
 print(" Starting Invoice Form Automation Test...")
 print("=" * 50)
 
 # Setup Chrome browser
 print("\n1. Opening Chrome browser...")
-service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service)
+chrome_options = Options()
+chrome_options.add_experimental_option('excludeSwitches', ['enable-logging'])
+
+# Try to use Chrome directly without webdriver-manager
+try:
+    driver = webdriver.Chrome(options=chrome_options)
+except Exception as e:
+    print(f"Error with default ChromeDriver: {e}")
+    print("Trying with webdriver-manager...")
+    from webdriver_manager.chrome import ChromeDriverManager
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+
 driver.maximize_window()
 
 try:
