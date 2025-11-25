@@ -198,7 +198,18 @@ def get_invoice(invoice_id):
 
     subtotal = sum([float(i["total_amount"]) for i in items])
     tax = subtotal * 0.05
+    
+    # Price-based shipping calculation
     shipping = 0.00
+    if subtotal < 75:
+        shipping = 9.99
+    elif 75 <= subtotal < 150:
+        shipping = 14.99
+    elif 150 <= subtotal < 300:
+        shipping = 19.99
+    elif subtotal >= 300:
+        shipping = 0.00  # Free shipping for orders $300+
+    
     total = subtotal + tax + shipping
 
     return jsonify({
