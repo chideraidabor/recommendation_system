@@ -232,7 +232,19 @@ function updateTotals() {
   });
 
   const tax = subtotal * 0.05;
-  const shipping = 0.0;
+  
+  // Price-based shipping calculation
+  let shipping = 0.0;
+  if (subtotal < 75) {
+    shipping = 9.99;
+  } else if (75 <= subtotal && subtotal < 150) {
+    shipping = 14.99;
+  } else if (150 <= subtotal && subtotal < 300) {
+    shipping = 19.99;
+  } else if (subtotal >= 300) {
+    shipping = 0.0; // Free shipping for orders $300+
+  }
+  
   const total = subtotal + tax + shipping;
 
   document.getElementById("subtotal").textContent = subtotal.toFixed(2);
