@@ -1,0 +1,326 @@
+/* General Page Styles */
+body {
+  font-family: Arial, sans-serif;
+  background: #eef2f7;
+  margin: 0;
+  padding: 30px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+label {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+input, textarea, select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  resize: vertical;
+  height: 60px;
+}
+
+/* Invoice Form (First Page)  */
+.row {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.row-inline {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 15px;
+}
+
+.row-inline .field {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+th {
+  background: #f9f9f9;
+}
+
+.amount {
+  font-weight: bold;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+button.primary {
+  background: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button.primary:hover {
+  opacity: 0.9;
+}
+button.primary:disabled {
+  background: #9aa4b2;
+  cursor: not-allowed;
+  opacity: 0.75;
+}
+
+.summary {
+  text-align: right;
+  margin: 20px 0;
+}
+
+.summary p {
+  margin: 5px 0;
+}
+
+.summary .total {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+
+/* Invoice Page Styling  */
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.left-section {
+  flex: 1;
+}
+
+.left-section h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: #222;
+}
+
+.invoice-info {
+  margin-top: 10px;
+}
+
+.invoice-info p {
+  margin: 0;
+  font-size: 1rem;
+  display: flex;
+  gap: 20px; 
+}
+
+.logo-section {
+  width: 180px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-box {
+  width: 160px;
+  height: 80px;
+  border: 2px dashed #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #777;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.customer-info {
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+#displayItems {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+#displayItems th, #displayItems td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+#displayItems th {
+  background: #f9f9f9;
+  color: #333;
+}
+
+.summary {
+  text-align: right;
+  margin-top: 20px;
+}
+
+.summary p {
+  margin: 4px 0;
+}
+
+.summary .total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 8px;
+  color: #000;
+}
+
+button.delete {
+  background: none;
+  color: #007bff;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 0;
+}
+
+button.delete:hover {
+  text-decoration: underline;
+}
+
+/* ====== Responsive ====== */
+@media (max-width: 768px) {
+  .row-inline {
+    flex-direction: column;
+  }
+
+  .invoice-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .invoice-info p {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .logo-section {
+    align-self: flex-start;
+  }
+}
+
+/* =======================================================
+   FIX: Keep “Actions” column & Delete button inside margin
+   (scoped to #itemsTable only, so other tables remain same)
+   ======================================================= */
+   #itemsTable {
+    table-layout: fixed;   /* respect set column widths; prevents overflow */
+    width: 100%;
+  }
+  
+  #itemsTable th,
+  #itemsTable td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  /* Column widths — 6 = Add-ons, 7 = Actions */
+  #itemsTable th:nth-child(6),
+  #itemsTable td:nth-child(6) {
+    width: 140px;          /* Add-ons column */
+  }
+  
+  #itemsTable th:nth-child(7),
+  #itemsTable td:nth-child(7),
+  #itemsTable td.actions {
+    width: 110px;          /* Actions column */
+    padding: 8px;
+  }
+  
+  /* Inputs/selects fit inside their cells */
+  #itemsTable select,
+  #itemsTable input[type="number"],
+  #itemsTable input[type="text"] {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Keep Delete button neat inside the cell */
+  #itemsTable button.delete {
+    display: inline-block;
+    width: 100%;            /* fill Actions cell width */
+    max-width: 96px;        /* but never spill */
+    box-sizing: border-box;
+    white-space: nowrap;
+  }
+  
+  /* Last-resort guard against any sub-pixel overflow */
+  .container { overflow-x: hidden; }
+  /* Hide elements until we decide to show them in JS */
+  .hidden { display: none !important; }
+
+/* Hover Reveal Info Icon */
+
+.desc-cell {
+  position: relative;
+  padding-right: 8px; 
+}
+
+.addon-cell {
+  position: relative;
+  padding-right: 28px; 
+}
+
+/* Info icon beside Add-on dropdown */
+.addon-info-icon {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #007bff;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease, color 0.2s ease;
+  vertical-align: middle;
+}
+
+.addon-cell:hover .addon-info-icon {
+  opacity: 1;
+}
+
+/* Hover color effect */
+.addon-info-icon:hover {
+  color: #0056c7;
+}

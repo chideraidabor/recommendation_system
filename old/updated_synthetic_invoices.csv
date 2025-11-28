@@ -1,0 +1,1665 @@
+invoice_id,date,customer_id,customer_contact_info,billing_address,salesperson,item_description,part_number,variant_group,quantity,unit_price,total_amount
+INV0001,2025-04-08,CUST001,kimbowen@example.com,"Unit 5315 Box 8497
+DPO AA 47521",Michelle Williams,Faucet,FA101,Faucet Deck Mount,1,135.76,135.76
+INV0002,2025-04-25,CUST002,samantha33@example.net,"Unit 4309 Box 4872
+DPO AE 27018",Sara Griffin,Mirror,MR105,Mirror Frameless,1,264.81,264.81
+INV0003,2025-04-18,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Dave West,Shower,SH108,Shower Handheld,3,109.4,328.2
+INV0003,2025-04-18,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Dave West,Shower,SH104,Shower Handheld,1,436.13,436.13
+INV0004,2025-08-21,CUST004,singhryan@example.net,"86285 Vargas Prairie Suite 516
+Christopherville, KY 97266",Mr. Greg Lucas,Door,DR102,Door Standard,3,386.44,1159.32
+INV0004,2025-08-21,CUST004,singhryan@example.net,"86285 Vargas Prairie Suite 516
+Christopherville, KY 97266",Mr. Greg Lucas,Mirror,MR114,Mirror Framed,4,340.13,1360.52
+INV0004,2025-08-21,CUST004,singhryan@example.net,"86285 Vargas Prairie Suite 516
+Christopherville, KY 97266",Mr. Greg Lucas,Sink,SI113,Sink Topmount,4,88.69,354.76
+INV0004,2025-08-21,CUST004,singhryan@example.net,"86285 Vargas Prairie Suite 516
+Christopherville, KY 97266",Mr. Greg Lucas,Sink,SI108,Sink Topmount,5,365.14,1825.7
+INV0005,2025-09-10,CUST005,gonzalezchristopher@example.com,"3446 Thomas Drive
+South Francesbury, GA 22887",Sabrina Palmer,Knob,KN118,Knob Square,1,246.74,246.74
+INV0006,2025-07-31,CUST006,xgonzalez@example.net,"4671 Sutton Trail
+Port Lisahaven, UT 14173",Courtney Herrera,Knob,KN118,Knob Square,4,101.39,405.56
+INV0006,2025-07-31,CUST006,xgonzalez@example.net,"4671 Sutton Trail
+Port Lisahaven, UT 14173",Courtney Herrera,Door,DR103,Door French,5,451.28,2256.4
+INV0007,2025-05-19,CUST007,christinearmstrong@example.net,"971 Matthew Inlet Suite 763
+Alicialand, VI 37452",Christian Fisher,Shower,SH120,Shower Rain,5,272.82,1364.1
+INV0008,2025-04-19,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Thomas Wilson,Mirror,MR102,Mirror Frameless,4,247.97,991.88
+INV0008,2025-04-19,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Thomas Wilson,Mirror,MR118,Mirror Frameless,2,88.07,176.14
+INV0009,2025-05-27,CUST009,ginaadams@example.org,"45866 Allen Knoll Apt. 481
+New Deniseside, CO 47816",Randy Williams,Door,DR109,Door Sliding,1,112.64,112.64
+INV0009,2025-05-27,CUST009,ginaadams@example.org,"45866 Allen Knoll Apt. 481
+New Deniseside, CO 47816",Randy Williams,Door,DR112,Door French,4,224.5,898.0
+INV0010,2025-07-02,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Katherine Mitchell,Knob,KN120,Knob Square,4,230.66,922.64
+INV0011,2025-06-15,CUST011,dianasullivan@example.net,"8125 Dean Shore
+North Ashley, MT 29925",Melanie Mitchell,Sink,SI101,Sink Undermount,2,16.04,32.08
+INV0012,2025-07-22,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Julie Burke,Mirror,MR114,Mirror Framed,4,61.74,246.96
+INV0012,2025-07-22,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Julie Burke,Door,DR113,Door Sliding,4,148.53,594.12
+INV0012,2025-07-22,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Julie Burke,Knob,KN110,Knob Square,4,63.48,253.92
+INV0013,2025-06-01,CUST012,diane01@example.org,"016 Alex Lake Suite 565
+Carrieview, WV 73533",Kimberly Wheeler,Door,DR104,Door French,1,81.3,81.3
+INV0014,2025-07-11,CUST013,amandadonaldson@example.org,"6817 Jack Forest
+Port Tinaland, NJ 71504",Samantha Dawson,Shower,SH105,Shower Handheld,5,227.83,1139.15
+INV0014,2025-07-11,CUST013,amandadonaldson@example.org,"6817 Jack Forest
+Port Tinaland, NJ 71504",Samantha Dawson,Faucet,FA116,Faucet Deck Mount,5,112.39,561.95
+INV0015,2025-07-31,CUST014,glenn78@example.net,"05551 Thomas Turnpike Suite 390
+Port Christy, OK 18881",Tiffany Stevens,Shower,SH111,Shower Rain,5,494.19,2470.95
+INV0016,2025-04-28,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",Sheila Li,Mirror,MR117,Mirror Framed,2,332.15,664.3
+INV0016,2025-04-28,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",Sheila Li,Door,DR120,Door Sliding,4,240.8,963.2
+INV0016,2025-04-28,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",Sheila Li,Shower,SH115,Shower Rain,2,134.7,269.4
+INV0017,2025-07-21,CUST016,crystalwu@example.org,"9192 Jordan Greens
+Jeremyton, MA 77066",Tracey Taylor,Sink,SI110,Sink Undermount,1,67.38,67.38
+INV0018,2025-07-06,CUST017,herrerastefanie@example.com,"2587 Hampton Fords Suite 289
+Danielport, OK 83321",John Taylor,Shower,SH120,Shower Rain,2,199.63,399.26
+INV0018,2025-07-06,CUST017,herrerastefanie@example.com,"2587 Hampton Fords Suite 289
+Danielport, OK 83321",John Taylor,Faucet,FA114,Faucet Wall Mount,4,135.76,543.04
+INV0019,2025-06-26,CUST018,haroldgriffin@example.net,"2606 Perez Pass Apt. 028
+Cookton, PW 39426",Joseph Johnson,Knob,KN116,Knob Round,2,203.54,407.08
+INV0019,2025-06-26,CUST018,haroldgriffin@example.net,"2606 Perez Pass Apt. 028
+Cookton, PW 39426",Joseph Johnson,Knob,KN103,Knob Round,4,199.49,797.96
+INV0019,2025-06-26,CUST018,haroldgriffin@example.net,"2606 Perez Pass Apt. 028
+Cookton, PW 39426",Joseph Johnson,Sink,SI116,Sink Topmount,4,459.07,1836.28
+INV0020,2025-04-26,CUST019,gentrypaige@example.net,"402 Kathleen Row
+North Nicholashaven, FL 17528",Thomas Nelson,Mirror,MR116,Mirror Frameless,1,310.14,310.14
+INV0021,2025-04-21,CUST020,bowmanamber@example.net,"Unit 1397 Box 0518
+DPO AP 51630",Jose Torres,Sink,SI111,Sink Topmount,5,16.82,84.1
+INV0022,2025-04-18,CUST021,joseph33@example.net,"153 Barbara Pike Suite 276
+South Brian, OR 21358",Anthony Crane,Shower,SH114,Shower Rain,3,324.76,974.28
+INV0023,2025-07-31,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Robin Morgan,Faucet,FA118,Faucet Deck Mount,2,354.81,709.62
+INV0023,2025-07-31,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Robin Morgan,Knob,KN116,Knob Round,4,158.1,632.4
+INV0024,2025-08-26,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Robert Weaver,Sink,SI120,Sink Undermount,2,305.46,610.92
+INV0025,2025-08-07,CUST024,paynejeffrey@example.net,"17219 Rebecca Canyon Suite 144
+Doyleview, PA 93048",Austin Powell,Shower,SH117,Shower Rain,3,224.07,672.21
+INV0025,2025-08-07,CUST024,paynejeffrey@example.net,"17219 Rebecca Canyon Suite 144
+Doyleview, PA 93048",Austin Powell,Door,DR119,Door Sliding,3,38.83,116.49
+INV0025,2025-08-07,CUST024,paynejeffrey@example.net,"17219 Rebecca Canyon Suite 144
+Doyleview, PA 93048",Austin Powell,Sink,SI108,Sink Undermount,1,431.01,431.01
+INV0026,2025-08-10,CUST025,contrerasmegan@example.net,"03486 Matthews Wells
+West Chelseaberg, PR 61167",Shane Roberts,Mirror,MR110,Mirror Frameless,3,136.36,409.08
+INV0027,2025-06-01,CUST026,floreshannah@example.net,"75140 Flores Turnpike Apt. 427
+Mirandabury, NH 79603",Kayla Moore,Knob,KN114,Knob Square,5,79.33,396.65
+INV0028,2025-04-24,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Phillip Goodman,Knob,KN104,Knob Round,1,404.76,404.76
+INV0029,2025-05-25,CUST009,ginaadams@example.org,"45866 Allen Knoll Apt. 481
+New Deniseside, CO 47816",Tyler Bennett,Sink,SI110,Sink Topmount,4,265.85,1063.4
+INV0030,2025-04-29,CUST028,graydanielle@example.com,"Unit 7002 Box 7041
+DPO AP 25984",Katrina Byrd,Knob,KN104,Knob Square,2,158.56,317.12
+INV0031,2025-04-16,CUST013,amandadonaldson@example.org,"6817 Jack Forest
+Port Tinaland, NJ 71504",Sharon Maldonado,Knob,KN101,Knob Square,3,327.89,983.67
+INV0032,2025-09-02,CUST029,coffeymichelle@example.net,"47422 Dunlap Neck
+New Mariaside, MA 96988",Louis Donaldson MD,Door,DR108,Door Sliding,2,238.07,476.14
+INV0032,2025-09-02,CUST029,coffeymichelle@example.net,"47422 Dunlap Neck
+New Mariaside, MA 96988",Louis Donaldson MD,Door,DR107,Door Standard,2,394.71,789.42
+INV0033,2025-04-25,CUST030,petersencindy@example.net,"307 Mitchell Brook
+Deanbury, VI 10456",Savannah Scott,Mirror,MR102,Mirror Framed,1,109.35,109.35
+INV0033,2025-04-25,CUST030,petersencindy@example.net,"307 Mitchell Brook
+Deanbury, VI 10456",Savannah Scott,Sink,SI119,Sink Undermount,3,25.78,77.34
+INV0033,2025-04-25,CUST030,petersencindy@example.net,"307 Mitchell Brook
+Deanbury, VI 10456",Savannah Scott,Sink,SI106,Sink Topmount,5,213.63,1068.15
+INV0034,2025-07-19,CUST031,taylorbell@example.com,"487 Tina Key Apt. 745
+South Jaredside, KS 17961",Sarah Richardson,Door,DR119,Door Standard,5,91.31,456.55
+INV0035,2025-04-07,CUST032,schwartzruben@example.org,"465 Brian Curve
+Michaelfort, NV 13037",Gregory Mcdowell,Shower,SH118,Shower Rain,3,139.86,419.58
+INV0036,2025-04-14,CUST033,alexander18@example.org,"75560 Crystal Ranch Suite 354
+North Fredmouth, AZ 85077",Brittany Diaz,Door,DR113,Door French,1,220.7,220.7
+INV0037,2025-06-10,CUST034,marclopez@example.net,"Unit 4650 Box 3945
+DPO AA 40419",Elizabeth Henry,Door,DR103,Door French,2,64.59,129.18
+INV0037,2025-06-10,CUST034,marclopez@example.net,"Unit 4650 Box 3945
+DPO AA 40419",Elizabeth Henry,Mirror,MR103,Mirror Framed,5,277.61,1388.05
+INV0037,2025-06-10,CUST034,marclopez@example.net,"Unit 4650 Box 3945
+DPO AA 40419",Elizabeth Henry,Sink,SI102,Sink Topmount,3,155.7,467.1
+INV0038,2025-04-20,CUST035,xtrevino@example.com,"3089 Holly Course
+East Willieland, MO 26003",Brian Brady,Door,DR109,Door Standard,2,132.43,264.86
+INV0038,2025-04-20,CUST035,xtrevino@example.com,"3089 Holly Course
+East Willieland, MO 26003",Brian Brady,Shower,SH110,Shower Rain,1,131.81,131.81
+INV0039,2025-06-13,CUST036,evannichols@example.org,"84486 Lamb Roads
+South Jeremyfurt, NJ 49497",Shelby Rodriguez,Mirror,MR118,Mirror Frameless,3,412.95,1238.85
+INV0040,2025-08-06,CUST037,uclark@example.org,"68254 Carol Drives Apt. 943
+West Stacie, CO 86028",Annette Parker,Sink,SI112,Sink Undermount,4,38.33,153.32
+INV0041,2025-09-04,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Raymond Newman,Mirror,MR104,Mirror Frameless,3,32.97,98.91
+INV0042,2025-09-15,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Michael Poole,Sink,SI112,Sink Undermount,3,120.22,360.66
+INV0043,2025-07-10,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Christy Rojas,Faucet,FA116,Faucet Wall Mount,5,146.22,731.1
+INV0043,2025-07-10,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Christy Rojas,Door,DR109,Door French,1,257.65,257.65
+INV0043,2025-07-10,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Christy Rojas,Shower,SH114,Shower Handheld,5,39.72,198.6
+INV0044,2025-07-12,CUST039,william55@example.net,"768 Guzman Rapid
+New Charleston, PR 73259",Antonio Harvey,Knob,KN102,Knob Square,5,465.26,2326.3
+INV0044,2025-07-12,CUST039,william55@example.net,"768 Guzman Rapid
+New Charleston, PR 73259",Antonio Harvey,Faucet,FA110,Faucet Deck Mount,2,38.54,77.08
+INV0045,2025-05-01,CUST011,dianasullivan@example.net,"8125 Dean Shore
+North Ashley, MT 29925",Katherine Owens,Door,DR113,Door French,1,68.85,68.85
+INV0046,2025-07-23,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Lee Warner,Shower,SH109,Shower Handheld,2,211.04,422.08
+INV0046,2025-07-23,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Lee Warner,Mirror,MR102,Mirror Framed,4,107.11,428.44
+INV0047,2025-06-10,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Patrick Scott,Sink,SI113,Sink Topmount,4,477.18,1908.72
+INV0047,2025-06-10,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Patrick Scott,Faucet,FA104,Faucet Wall Mount,3,400.13,1200.39
+INV0047,2025-06-10,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Patrick Scott,Mirror,MR118,Mirror Frameless,1,474.77,474.77
+INV0048,2025-09-26,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Latoya Gilmore,Mirror,MR109,Mirror Framed,4,109.56,438.24
+INV0048,2025-09-26,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Latoya Gilmore,Sink,SI120,Sink Undermount,4,131.22,524.88
+INV0048,2025-09-26,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Latoya Gilmore,Knob,KN112,Knob Round,4,122.37,489.48
+INV0049,2025-06-26,CUST041,christopher69@example.net,"71302 Anthony Lakes Apt. 901
+Lake Jessicaside, AL 77683",Michael Mcdonald,Shower,SH102,Shower Rain,5,57.56,287.8
+INV0050,2025-06-02,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Amanda Leblanc,Door,DR112,Door Sliding,3,224.67,674.01
+INV0051,2025-08-06,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Paula Shannon,Door,DR108,Door Sliding,4,337.7,1350.8
+INV0051,2025-08-06,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Paula Shannon,Shower,SH112,Shower Rain,5,55.98,279.9
+INV0051,2025-08-06,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Paula Shannon,Mirror,MR105,Mirror Framed,1,206.61,206.61
+INV0052,2025-09-25,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Angelica Rice,Sink,SI117,Sink Undermount,3,14.24,42.72
+INV0053,2025-08-11,CUST012,diane01@example.org,"016 Alex Lake Suite 565
+Carrieview, WV 73533",Laura Evans,Mirror,MR119,Mirror Frameless,5,308.37,1541.85
+INV0054,2025-04-07,CUST045,zmoore@example.net,"491 Wall Plains
+Port Brandonberg, IA 59420",Brenda George,Mirror,MR104,Mirror Framed,3,192.95,578.85
+INV0054,2025-04-07,CUST045,zmoore@example.net,"491 Wall Plains
+Port Brandonberg, IA 59420",Brenda George,Door,DR102,Door Standard,2,134.16,268.32
+INV0055,2025-07-30,CUST046,robertevans@example.org,"53835 Ford Shoals Suite 738
+South Frederickville, AS 91779",Daniel Townsend,Sink,SI105,Sink Undermount,2,486.54,973.08
+INV0056,2025-07-16,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Frank Gallagher,Knob,KN106,Knob Round,1,261.05,261.05
+INV0056,2025-07-16,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Frank Gallagher,Sink,SI112,Sink Topmount,3,316.74,950.22
+INV0057,2025-08-15,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Cynthia Schroeder,Sink,SI106,Sink Topmount,1,485.16,485.16
+INV0058,2025-09-15,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Christopher Taylor,Knob,KN112,Knob Round,2,495.16,990.32
+INV0059,2025-04-29,CUST014,glenn78@example.net,"05551 Thomas Turnpike Suite 390
+Port Christy, OK 18881",Edwin Martin,Knob,KN118,Knob Square,2,93.52,187.04
+INV0059,2025-04-29,CUST014,glenn78@example.net,"05551 Thomas Turnpike Suite 390
+Port Christy, OK 18881",Edwin Martin,Shower,SH108,Shower Handheld,4,151.51,606.04
+INV0059,2025-04-29,CUST014,glenn78@example.net,"05551 Thomas Turnpike Suite 390
+Port Christy, OK 18881",Edwin Martin,Sink,SI112,Sink Topmount,5,311.63,1558.15
+INV0060,2025-07-18,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Ryan Caldwell,Faucet,FA105,Faucet Deck Mount,2,205.41,410.82
+INV0060,2025-07-18,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Ryan Caldwell,Mirror,MR105,Mirror Frameless,3,184.41,553.23
+INV0061,2025-08-19,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Jesse Jenkins,Door,DR103,Door Sliding,4,489.06,1956.24
+INV0062,2025-08-29,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Daniel Larson,Shower,SH117,Shower Rain,3,265.57,796.71
+INV0062,2025-08-29,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Daniel Larson,Faucet,FA110,Faucet Deck Mount,1,453.99,453.99
+INV0062,2025-08-29,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Daniel Larson,Knob,KN104,Knob Round,3,474.81,1424.43
+INV0062,2025-08-29,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Daniel Larson,Mirror,MR108,Mirror Framed,3,317.72,953.16
+INV0063,2025-06-25,CUST049,jacobharding@example.com,"30255 Sutton Drive
+New Jason, GU 19342",Elizabeth Gonzalez,Faucet,FA103,Faucet Deck Mount,1,342.43,342.43
+INV0064,2025-09-13,CUST050,jgray@example.com,"070 Michael Tunnel
+New William, AK 76088",Todd Johnson,Knob,KN102,Knob Round,2,495.37,990.74
+INV0064,2025-09-13,CUST050,jgray@example.com,"070 Michael Tunnel
+New William, AK 76088",Todd Johnson,Mirror,MR117,Mirror Framed,1,86.45,86.45
+INV0064,2025-09-13,CUST050,jgray@example.com,"070 Michael Tunnel
+New William, AK 76088",Todd Johnson,Sink,SI102,Sink Topmount,1,215.22,215.22
+INV0065,2025-06-02,CUST001,kimbowen@example.com,"Unit 5315 Box 8497
+DPO AA 47521",Jaime Rice,Door,DR109,Door Standard,5,41.3,206.5
+INV0066,2025-08-03,CUST051,tammy57@example.net,"Unit 7848 Box 2216
+DPO AA 37263",Richard Martin,Shower,SH117,Shower Rain,1,331.16,331.16
+INV0066,2025-08-03,CUST051,tammy57@example.net,"Unit 7848 Box 2216
+DPO AA 37263",Richard Martin,Shower,SH112,Shower Rain,3,385.52,1156.56
+INV0067,2025-05-19,CUST039,william55@example.net,"768 Guzman Rapid
+New Charleston, PR 73259",Ernest Hudson,Mirror,MR116,Mirror Frameless,3,416.55,1249.65
+INV0067,2025-05-19,CUST039,william55@example.net,"768 Guzman Rapid
+New Charleston, PR 73259",Ernest Hudson,Sink,SI117,Sink Undermount,4,280.18,1120.72
+INV0067,2025-05-19,CUST039,william55@example.net,"768 Guzman Rapid
+New Charleston, PR 73259",Ernest Hudson,Door,DR108,Door French,2,74.64,149.28
+INV0068,2025-04-09,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Paula Stephens,Shower,SH108,Shower Rain,5,203.92,1019.6
+INV0069,2025-04-26,CUST052,spencecameron@example.net,"459 Martinez Ramp
+Patelview, GA 13866",Roberta Hill MD,Knob,KN112,Knob Round,4,52.64,210.56
+INV0069,2025-04-26,CUST052,spencecameron@example.net,"459 Martinez Ramp
+Patelview, GA 13866",Roberta Hill MD,Knob,KN102,Knob Square,5,313.39,1566.95
+INV0070,2025-05-14,CUST019,gentrypaige@example.net,"402 Kathleen Row
+North Nicholashaven, FL 17528",Cody Sanchez,Mirror,MR118,Mirror Frameless,5,149.73,748.65
+INV0070,2025-05-14,CUST019,gentrypaige@example.net,"402 Kathleen Row
+North Nicholashaven, FL 17528",Cody Sanchez,Knob,KN115,Knob Round,2,395.86,791.72
+INV0070,2025-05-14,CUST019,gentrypaige@example.net,"402 Kathleen Row
+North Nicholashaven, FL 17528",Cody Sanchez,Shower,SH104,Shower Rain,1,107.25,107.25
+INV0071,2025-08-03,CUST017,herrerastefanie@example.com,"2587 Hampton Fords Suite 289
+Danielport, OK 83321",Robert Allison,Knob,KN104,Knob Round,3,481.04,1443.12
+INV0072,2025-09-01,CUST029,coffeymichelle@example.net,"47422 Dunlap Neck
+New Mariaside, MA 96988",Brendan Clayton,Shower,SH102,Shower Rain,4,91.5,366.0
+INV0073,2025-06-14,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Patricia Black,Mirror,MR102,Mirror Framed,3,378.59,1135.77
+INV0073,2025-06-14,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Patricia Black,Mirror,MR110,Mirror Framed,5,338.61,1693.05
+INV0073,2025-06-14,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Patricia Black,Shower,SH113,Shower Rain,4,263.0,1052.0
+INV0073,2025-06-14,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Patricia Black,Shower,SH115,Shower Handheld,2,276.79,553.58
+INV0074,2025-04-04,CUST032,schwartzruben@example.org,"465 Brian Curve
+Michaelfort, NV 13037",Amy Simmons,Knob,KN120,Knob Round,4,296.23,1184.92
+INV0075,2025-04-08,CUST054,morrismichael@example.org,"338 Erica Stream
+Natashachester, VI 99042",Stephanie Palmer,Shower,SH108,Shower Handheld,2,116.76,233.52
+INV0076,2025-04-19,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Logan Price,Knob,KN118,Knob Square,4,294.43,1177.72
+INV0076,2025-04-19,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Logan Price,Door,DR117,Door Sliding,5,168.87,844.35
+INV0077,2025-08-28,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Maria Greer,Faucet,FA102,Faucet Wall Mount,1,302.76,302.76
+INV0078,2025-06-10,CUST057,kendrajohnson@example.net,"424 Jeffrey Islands Apt. 337
+New Masonton, AS 22101",Jamie Barajas,Mirror,MR115,Mirror Framed,2,96.5,193.0
+INV0079,2025-09-11,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Jordan Tran,Door,DR104,Door Standard,4,40.54,162.16
+INV0080,2025-04-13,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Joshua Boyd,Faucet,FA120,Faucet Wall Mount,5,243.84,1219.2
+INV0081,2025-06-08,CUST034,marclopez@example.net,"Unit 4650 Box 3945
+DPO AA 40419",Jacob Higgins,Mirror,MR112,Mirror Frameless,1,225.19,225.19
+INV0082,2025-05-26,CUST005,gonzalezchristopher@example.com,"3446 Thomas Drive
+South Francesbury, GA 22887",Beth Ramsey,Sink,SI112,Sink Topmount,3,126.38,379.14
+INV0082,2025-05-26,CUST005,gonzalezchristopher@example.com,"3446 Thomas Drive
+South Francesbury, GA 22887",Beth Ramsey,Mirror,MR111,Mirror Frameless,3,82.5,247.5
+INV0082,2025-05-26,CUST005,gonzalezchristopher@example.com,"3446 Thomas Drive
+South Francesbury, GA 22887",Beth Ramsey,Door,DR119,Door Standard,1,346.77,346.77
+INV0082,2025-05-26,CUST005,gonzalezchristopher@example.com,"3446 Thomas Drive
+South Francesbury, GA 22887",Beth Ramsey,Faucet,FA103,Faucet Wall Mount,4,85.21,340.84
+INV0083,2025-09-18,CUST058,pprice@example.net,"9815 Kellie Crossroad Suite 778
+Joannaview, MP 08943",Molly Cain,Door,DR113,Door French,2,149.23,298.46
+INV0084,2025-09-05,CUST059,vanessaconway@example.org,"53486 Weber Overpass Suite 942
+South Melissachester, CO 27670",Jesse Cook,Faucet,FA103,Faucet Wall Mount,4,310.76,1243.04
+INV0085,2025-04-23,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Mitchell Young,Sink,SI117,Sink Undermount,4,283.3,1133.2
+INV0086,2025-04-22,CUST060,mgibson@example.org,"Unit 9859 Box 0604
+DPO AE 83680",Katherine Perkins,Mirror,MR111,Mirror Frameless,3,292.18,876.54
+INV0086,2025-04-22,CUST060,mgibson@example.org,"Unit 9859 Box 0604
+DPO AE 83680",Katherine Perkins,Mirror,MR113,Mirror Frameless,2,62.98,125.96
+INV0087,2025-08-10,CUST061,brian40@example.com,"5912 Beck Viaduct
+Sanchezport, OR 95613",Michelle Tran,Shower,SH104,Shower Rain,3,291.16,873.48
+INV0088,2025-06-08,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Helen Duke,Mirror,MR108,Mirror Frameless,5,119.1,595.5
+INV0089,2025-09-26,CUST062,martha49@example.org,"74092 Bennett Shores Suite 718
+Millerchester, MP 76569",Stephen Ramsey,Sink,SI108,Sink Topmount,3,298.69,896.07
+INV0090,2025-09-04,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Rita Taylor,Knob,KN108,Knob Square,5,105.81,529.05
+INV0090,2025-09-04,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Rita Taylor,Faucet,FA106,Faucet Wall Mount,5,338.34,1691.7
+INV0091,2025-05-27,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Kenneth Castillo,Door,DR109,Door Sliding,1,392.85,392.85
+INV0092,2025-07-15,CUST063,rodriguezdakota@example.net,"98528 Murillo Camp
+New Kristenberg, NV 57495",Donald Pacheco,Shower,SH120,Shower Handheld,4,247.27,989.08
+INV0093,2025-04-09,CUST036,evannichols@example.org,"84486 Lamb Roads
+South Jeremyfurt, NJ 49497",Erin Wade,Sink,SI108,Sink Undermount,2,115.57,231.14
+INV0094,2025-07-13,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Brianna Patterson,Door,DR120,Door French,2,424.09,848.18
+INV0095,2025-09-21,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Shelly Nguyen,Door,DR114,Door French,5,242.71,1213.55
+INV0096,2025-06-14,CUST058,pprice@example.net,"9815 Kellie Crossroad Suite 778
+Joannaview, MP 08943",Harry Anderson,Knob,KN106,Knob Round,5,430.75,2153.75
+INV0096,2025-06-14,CUST058,pprice@example.net,"9815 Kellie Crossroad Suite 778
+Joannaview, MP 08943",Harry Anderson,Sink,SI102,Sink Topmount,4,87.84,351.36
+INV0097,2025-06-01,CUST065,michael39@example.net,"1400 Schmidt Mission
+Moranmouth, VT 73555",James Spencer,Faucet,FA103,Faucet Deck Mount,3,108.62,325.86
+INV0098,2025-08-21,CUST049,jacobharding@example.com,"30255 Sutton Drive
+New Jason, GU 19342",Chase Branch,Knob,KN114,Knob Square,4,459.81,1839.24
+INV0098,2025-08-21,CUST049,jacobharding@example.com,"30255 Sutton Drive
+New Jason, GU 19342",Chase Branch,Faucet,FA103,Faucet Wall Mount,4,216.46,865.84
+INV0098,2025-08-21,CUST049,jacobharding@example.com,"30255 Sutton Drive
+New Jason, GU 19342",Chase Branch,Knob,KN101,Knob Square,4,51.39,205.56
+INV0099,2025-04-01,CUST039,william55@example.net,"768 Guzman Rapid
+New Charleston, PR 73259",Cody Simon,Knob,KN106,Knob Round,4,412.4,1649.6
+INV0100,2025-05-09,CUST001,kimbowen@example.com,"Unit 5315 Box 8497
+DPO AA 47521",Justin Lopez,Knob,KN101,Knob Square,4,32.9,131.6
+INV0100,2025-05-09,CUST001,kimbowen@example.com,"Unit 5315 Box 8497
+DPO AA 47521",Justin Lopez,Door,DR107,Door Standard,5,87.65,438.25
+INV0100,2025-05-09,CUST001,kimbowen@example.com,"Unit 5315 Box 8497
+DPO AA 47521",Justin Lopez,Shower,SH102,Shower Rain,4,316.88,1267.52
+INV0101,2025-08-23,CUST036,evannichols@example.org,"84486 Lamb Roads
+South Jeremyfurt, NJ 49497",Felicia Smith,Mirror,MR112,Mirror Frameless,4,186.72,746.88
+INV0102,2025-04-16,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Johnathan Martinez,Door,DR106,Door French,4,82.14,328.56
+INV0103,2025-04-13,CUST062,martha49@example.org,"74092 Bennett Shores Suite 718
+Millerchester, MP 76569",Denise Burton,Faucet,FA105,Faucet Wall Mount,3,283.13,849.39
+INV0104,2025-08-25,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Kristi Lawrence,Knob,KN105,Knob Square,5,418.31,2091.55
+INV0104,2025-08-25,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Kristi Lawrence,Shower,SH115,Shower Rain,5,262.29,1311.45
+INV0104,2025-08-25,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Kristi Lawrence,Sink,SI114,Sink Topmount,2,214.74,429.48
+INV0105,2025-08-17,CUST066,briangordon@example.org,"634 Welch Crescent
+New Elizabeth, PW 11791",Cathy Gomez,Sink,SI107,Sink Topmount,3,353.53,1060.59
+INV0106,2025-05-23,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",Gary Mack,Mirror,MR109,Mirror Framed,1,240.39,240.39
+INV0107,2025-09-20,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Kara Brown,Faucet,FA105,Faucet Wall Mount,4,50.62,202.48
+INV0108,2025-04-19,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Lori Brown,Door,DR107,Door French,2,280.13,560.26
+INV0108,2025-04-19,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Lori Brown,Knob,KN112,Knob Square,2,315.3,630.6
+INV0109,2025-05-18,CUST026,floreshannah@example.net,"75140 Flores Turnpike Apt. 427
+Mirandabury, NH 79603",Maureen Lewis,Knob,KN107,Knob Round,4,223.98,895.92
+INV0109,2025-05-18,CUST026,floreshannah@example.net,"75140 Flores Turnpike Apt. 427
+Mirandabury, NH 79603",Maureen Lewis,Door,DR112,Door French,1,259.04,259.04
+INV0109,2025-05-18,CUST026,floreshannah@example.net,"75140 Flores Turnpike Apt. 427
+Mirandabury, NH 79603",Maureen Lewis,Shower,SH116,Shower Handheld,2,15.18,30.36
+INV0110,2025-09-19,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Jerry Taylor,Faucet,FA115,Faucet Deck Mount,4,298.29,1193.16
+INV0110,2025-09-19,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Jerry Taylor,Door,DR109,Door Sliding,1,117.97,117.97
+INV0111,2025-08-01,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Shannon Williams,Mirror,MR119,Mirror Framed,2,452.08,904.16
+INV0111,2025-08-01,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Shannon Williams,Sink,SI110,Sink Undermount,3,282.97,848.91
+INV0111,2025-08-01,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Shannon Williams,Faucet,FA119,Faucet Deck Mount,5,211.74,1058.7
+INV0111,2025-08-01,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Shannon Williams,Sink,SI101,Sink Undermount,4,439.32,1757.28
+INV0112,2025-04-09,CUST068,burnssheryl@example.net,"7815 Beasley Wall Apt. 687
+Lake Dorothy, IL 35559",Alexandra Moore,Faucet,FA104,Faucet Wall Mount,3,207.23,621.69
+INV0113,2025-05-02,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Christine Chang,Shower,SH111,Shower Handheld,5,286.76,1433.8
+INV0114,2025-07-08,CUST019,gentrypaige@example.net,"402 Kathleen Row
+North Nicholashaven, FL 17528",Alexandra Lopez,Door,DR105,Door French,2,429.23,858.46
+INV0115,2025-06-16,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Devin Mcdonald,Door,DR109,Door Sliding,2,320.73,641.46
+INV0116,2025-08-03,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Sonya Taylor,Knob,KN112,Knob Square,5,32.66,163.3
+INV0117,2025-09-05,CUST005,gonzalezchristopher@example.com,"3446 Thomas Drive
+South Francesbury, GA 22887",Christina Medina,Shower,SH109,Shower Handheld,3,59.77,179.31
+INV0117,2025-09-05,CUST005,gonzalezchristopher@example.com,"3446 Thomas Drive
+South Francesbury, GA 22887",Christina Medina,Mirror,MR112,Mirror Framed,4,52.36,209.44
+INV0118,2025-06-24,CUST069,allisonjulie@example.net,"4303 Lori Lane
+East Daniel, LA 06437",Christopher Moon,Faucet,FA112,Faucet Deck Mount,5,11.11,55.55
+INV0119,2025-05-01,CUST051,tammy57@example.net,"Unit 7848 Box 2216
+DPO AA 37263",Catherine Wilson,Door,DR112,Door Standard,1,460.95,460.95
+INV0120,2025-07-04,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Miss Mackenzie Mueller MD,Shower,SH119,Shower Handheld,4,388.31,1553.24
+INV0120,2025-07-04,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Miss Mackenzie Mueller MD,Door,DR114,Door Sliding,2,320.81,641.62
+INV0120,2025-07-04,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Miss Mackenzie Mueller MD,Door,DR111,Door Standard,3,252.98,758.94
+INV0121,2025-08-17,CUST070,erin80@example.net,"96649 Le Plaza Suite 991
+Amyton, WA 60730",Daniel Shannon,Sink,SI118,Sink Topmount,2,201.74,403.48
+INV0122,2025-06-02,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Ryan King,Mirror,MR106,Mirror Framed,2,233.59,467.18
+INV0122,2025-06-02,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Ryan King,Shower,SH109,Shower Handheld,5,409.33,2046.65
+INV0123,2025-09-21,CUST057,kendrajohnson@example.net,"424 Jeffrey Islands Apt. 337
+New Masonton, AS 22101",Phillip Martinez,Knob,KN101,Knob Square,2,248.86,497.72
+INV0124,2025-05-20,CUST058,pprice@example.net,"9815 Kellie Crossroad Suite 778
+Joannaview, MP 08943",Susan Pittman,Sink,SI113,Sink Topmount,1,93.41,93.41
+INV0125,2025-05-06,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Nicholas Collier,Door,DR111,Door Sliding,3,192.53,577.59
+INV0126,2025-04-21,CUST011,dianasullivan@example.net,"8125 Dean Shore
+North Ashley, MT 29925",Ryan Duke,Sink,SI118,Sink Topmount,2,275.58,551.16
+INV0127,2025-05-05,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Chad Gomez,Shower,SH103,Shower Handheld,3,468.56,1405.68
+INV0128,2025-06-03,CUST071,stricklandjames@example.net,"0929 Greg Greens
+Jessicaport, MH 52406",Stacy Wade,Shower,SH107,Shower Rain,3,455.73,1367.19
+INV0129,2025-04-04,CUST021,joseph33@example.net,"153 Barbara Pike Suite 276
+South Brian, OR 21358",Jennifer Elliott,Knob,KN111,Knob Round,5,66.55,332.75
+INV0129,2025-04-04,CUST021,joseph33@example.net,"153 Barbara Pike Suite 276
+South Brian, OR 21358",Jennifer Elliott,Mirror,MR116,Mirror Framed,2,300.75,601.5
+INV0129,2025-04-04,CUST021,joseph33@example.net,"153 Barbara Pike Suite 276
+South Brian, OR 21358",Jennifer Elliott,Mirror,MR120,Mirror Framed,1,126.43,126.43
+INV0130,2025-05-10,CUST002,samantha33@example.net,"Unit 4309 Box 4872
+DPO AE 27018",Alicia Hall,Faucet,FA109,Faucet Deck Mount,2,63.26,126.52
+INV0130,2025-05-10,CUST002,samantha33@example.net,"Unit 4309 Box 4872
+DPO AE 27018",Alicia Hall,Knob,KN115,Knob Square,2,255.2,510.4
+INV0130,2025-05-10,CUST002,samantha33@example.net,"Unit 4309 Box 4872
+DPO AE 27018",Alicia Hall,Faucet,FA104,Faucet Wall Mount,5,367.55,1837.75
+INV0131,2025-04-23,CUST063,rodriguezdakota@example.net,"98528 Murillo Camp
+New Kristenberg, NV 57495",James Wagner,Door,DR116,Door Sliding,3,254.28,762.84
+INV0131,2025-04-23,CUST063,rodriguezdakota@example.net,"98528 Murillo Camp
+New Kristenberg, NV 57495",James Wagner,Sink,SI115,Sink Topmount,5,94.63,473.15
+INV0132,2025-04-14,CUST060,mgibson@example.org,"Unit 9859 Box 0604
+DPO AE 83680",Nicholas Gomez,Knob,KN104,Knob Square,5,44.53,222.65
+INV0133,2025-09-21,CUST037,uclark@example.org,"68254 Carol Drives Apt. 943
+West Stacie, CO 86028",Patrick Taylor,Faucet,FA118,Faucet Deck Mount,2,109.24,218.48
+INV0134,2025-04-21,CUST024,paynejeffrey@example.net,"17219 Rebecca Canyon Suite 144
+Doyleview, PA 93048",Daniel Hill,Sink,SI107,Sink Undermount,4,78.47,313.88
+INV0134,2025-04-21,CUST024,paynejeffrey@example.net,"17219 Rebecca Canyon Suite 144
+Doyleview, PA 93048",Daniel Hill,Sink,SI115,Sink Undermount,4,468.44,1873.76
+INV0134,2025-04-21,CUST024,paynejeffrey@example.net,"17219 Rebecca Canyon Suite 144
+Doyleview, PA 93048",Daniel Hill,Shower,SH107,Shower Rain,1,417.03,417.03
+INV0135,2025-06-18,CUST072,lorithomas@example.org,"250 Nguyen Stream Suite 225
+West Angelaport, IN 55676",John Wells,Faucet,FA108,Faucet Wall Mount,4,447.34,1789.36
+INV0136,2025-07-30,CUST028,graydanielle@example.com,"Unit 7002 Box 7041
+DPO AP 25984",Julie Stanley,Shower,SH118,Shower Handheld,5,479.85,2399.25
+INV0136,2025-07-30,CUST028,graydanielle@example.com,"Unit 7002 Box 7041
+DPO AP 25984",Julie Stanley,Door,DR113,Door Standard,4,149.52,598.08
+INV0136,2025-07-30,CUST028,graydanielle@example.com,"Unit 7002 Box 7041
+DPO AP 25984",Julie Stanley,Sink,SI102,Sink Topmount,2,79.44,158.88
+INV0136,2025-07-30,CUST028,graydanielle@example.com,"Unit 7002 Box 7041
+DPO AP 25984",Julie Stanley,Door,DR104,Door Sliding,1,81.25,81.25
+INV0137,2025-04-14,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Matthew Espinoza,Sink,SI118,Sink Undermount,2,407.28,814.56
+INV0137,2025-04-14,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Matthew Espinoza,Sink,SI120,Sink Topmount,4,213.82,855.28
+INV0137,2025-04-14,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Matthew Espinoza,Faucet,FA119,Faucet Deck Mount,3,353.58,1060.74
+INV0137,2025-04-14,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Matthew Espinoza,Mirror,MR110,Mirror Frameless,1,266.77,266.77
+INV0138,2025-06-01,CUST024,paynejeffrey@example.net,"17219 Rebecca Canyon Suite 144
+Doyleview, PA 93048",Christy Wallace,Shower,SH114,Shower Handheld,4,13.26,53.04
+INV0138,2025-06-01,CUST024,paynejeffrey@example.net,"17219 Rebecca Canyon Suite 144
+Doyleview, PA 93048",Christy Wallace,Sink,SI113,Sink Undermount,5,342.11,1710.55
+INV0138,2025-06-01,CUST024,paynejeffrey@example.net,"17219 Rebecca Canyon Suite 144
+Doyleview, PA 93048",Christy Wallace,Sink,SI101,Sink Topmount,1,425.34,425.34
+INV0139,2025-09-21,CUST060,mgibson@example.org,"Unit 9859 Box 0604
+DPO AE 83680",Erik Camacho,Faucet,FA114,Faucet Wall Mount,2,399.13,798.26
+INV0139,2025-09-21,CUST060,mgibson@example.org,"Unit 9859 Box 0604
+DPO AE 83680",Erik Camacho,Sink,SI117,Sink Undermount,1,259.63,259.63
+INV0140,2025-08-07,CUST074,tammyhale@example.org,"6946 Alexander Motorway Apt. 860
+Colehaven, WV 88601",Nicholas Green PhD,Door,DR112,Door Standard,5,389.28,1946.4
+INV0141,2025-05-01,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Keith Watkins,Mirror,MR111,Mirror Frameless,2,180.35,360.7
+INV0141,2025-05-01,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Keith Watkins,Shower,SH116,Shower Handheld,4,166.98,667.92
+INV0141,2025-05-01,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Keith Watkins,Shower,SH118,Shower Rain,5,248.07,1240.35
+INV0142,2025-07-07,CUST061,brian40@example.com,"5912 Beck Viaduct
+Sanchezport, OR 95613",Rhonda Long,Shower,SH102,Shower Handheld,5,489.08,2445.4
+INV0143,2025-07-28,CUST075,zdyer@example.org,"83686 Joann Junctions
+Lake Jamieborough, FM 73208",Allen Carlson,Shower,SH104,Shower Handheld,5,19.0,95.0
+INV0144,2025-06-07,CUST076,ucarter@example.com,"633 Jeffery Rue
+Patrickside, DC 82125",Julie Austin,Mirror,MR103,Mirror Framed,1,21.93,21.93
+INV0145,2025-05-05,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Robert Weber Jr.,Mirror,MR116,Mirror Frameless,1,91.36,91.36
+INV0146,2025-05-26,CUST004,singhryan@example.net,"86285 Vargas Prairie Suite 516
+Christopherville, KY 97266",Jeremy White,Mirror,MR104,Mirror Frameless,5,99.86,499.3
+INV0146,2025-05-26,CUST004,singhryan@example.net,"86285 Vargas Prairie Suite 516
+Christopherville, KY 97266",Jeremy White,Knob,KN104,Knob Round,4,374.44,1497.76
+INV0147,2025-06-25,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Michael Howard,Shower,SH120,Shower Rain,2,50.8,101.6
+INV0148,2025-07-24,CUST039,william55@example.net,"768 Guzman Rapid
+New Charleston, PR 73259",Scott Ford,Faucet,FA120,Faucet Deck Mount,4,369.41,1477.64
+INV0149,2025-07-13,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Beth Donaldson MD,Mirror,MR105,Mirror Framed,2,450.85,901.7
+INV0149,2025-07-13,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Beth Donaldson MD,Shower,SH101,Shower Handheld,3,493.28,1479.84
+INV0150,2025-04-25,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Mary Kelly,Mirror,MR119,Mirror Framed,5,348.05,1740.25
+INV0151,2025-05-14,CUST029,coffeymichelle@example.net,"47422 Dunlap Neck
+New Mariaside, MA 96988",Benjamin Butler,Sink,SI111,Sink Topmount,4,261.85,1047.4
+INV0151,2025-05-14,CUST029,coffeymichelle@example.net,"47422 Dunlap Neck
+New Mariaside, MA 96988",Benjamin Butler,Sink,SI113,Sink Undermount,4,359.71,1438.84
+INV0151,2025-05-14,CUST029,coffeymichelle@example.net,"47422 Dunlap Neck
+New Mariaside, MA 96988",Benjamin Butler,Door,DR108,Door Standard,1,79.17,79.17
+INV0151,2025-05-14,CUST029,coffeymichelle@example.net,"47422 Dunlap Neck
+New Mariaside, MA 96988",Benjamin Butler,Door,DR113,Door Standard,5,21.28,106.4
+INV0152,2025-07-26,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Scott Wilson,Sink,SI112,Sink Undermount,1,446.48,446.48
+INV0153,2025-07-09,CUST077,lmcdowell@example.net,"897 Tanya Drive
+North Vickiemouth, OH 32614",Jennifer Castro,Sink,SI117,Sink Undermount,1,481.85,481.85
+INV0154,2025-09-06,CUST014,glenn78@example.net,"05551 Thomas Turnpike Suite 390
+Port Christy, OK 18881",Madison Robinson,Sink,SI103,Sink Undermount,5,324.36,1621.8
+INV0154,2025-09-06,CUST014,glenn78@example.net,"05551 Thomas Turnpike Suite 390
+Port Christy, OK 18881",Madison Robinson,Sink,SI113,Sink Undermount,5,318.11,1590.55
+INV0154,2025-09-06,CUST014,glenn78@example.net,"05551 Thomas Turnpike Suite 390
+Port Christy, OK 18881",Madison Robinson,Knob,KN117,Knob Round,5,16.3,81.5
+INV0154,2025-09-06,CUST014,glenn78@example.net,"05551 Thomas Turnpike Suite 390
+Port Christy, OK 18881",Madison Robinson,Faucet,FA113,Faucet Wall Mount,5,156.69,783.45
+INV0155,2025-07-11,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Brittany Tate,Door,DR107,Door Sliding,1,13.64,13.64
+INV0156,2025-05-11,CUST054,morrismichael@example.org,"338 Erica Stream
+Natashachester, VI 99042",Doris Lewis,Sink,SI105,Sink Topmount,1,373.92,373.92
+INV0157,2025-06-01,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Stephanie Sullivan,Mirror,MR120,Mirror Framed,3,111.45,334.35
+INV0157,2025-06-01,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Stephanie Sullivan,Shower,SH111,Shower Handheld,1,490.79,490.79
+INV0157,2025-06-01,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Stephanie Sullivan,Shower,SH104,Shower Rain,5,159.69,798.45
+INV0158,2025-05-21,CUST020,bowmanamber@example.net,"Unit 1397 Box 0518
+DPO AP 51630",Gary Vaughan,Knob,KN116,Knob Square,2,316.65,633.3
+INV0158,2025-05-21,CUST020,bowmanamber@example.net,"Unit 1397 Box 0518
+DPO AP 51630",Gary Vaughan,Mirror,MR112,Mirror Framed,4,208.6,834.4
+INV0158,2025-05-21,CUST020,bowmanamber@example.net,"Unit 1397 Box 0518
+DPO AP 51630",Gary Vaughan,Mirror,MR108,Mirror Frameless,4,478.68,1914.72
+INV0158,2025-05-21,CUST020,bowmanamber@example.net,"Unit 1397 Box 0518
+DPO AP 51630",Gary Vaughan,Shower,SH105,Shower Rain,1,351.28,351.28
+INV0159,2025-07-30,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Chad Lawson,Faucet,FA111,Faucet Deck Mount,5,299.79,1498.95
+INV0159,2025-07-30,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Chad Lawson,Sink,SI101,Sink Undermount,4,354.76,1419.04
+INV0159,2025-07-30,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Chad Lawson,Shower,SH109,Shower Rain,2,208.91,417.82
+INV0160,2025-08-06,CUST019,gentrypaige@example.net,"402 Kathleen Row
+North Nicholashaven, FL 17528",Bryan Gallagher,Sink,SI114,Sink Undermount,3,160.11,480.33
+INV0161,2025-06-07,CUST068,burnssheryl@example.net,"7815 Beasley Wall Apt. 687
+Lake Dorothy, IL 35559",Anthony Rivera,Faucet,FA101,Faucet Deck Mount,3,397.96,1193.88
+INV0162,2025-04-17,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Amber Bush,Knob,KN103,Knob Round,4,479.06,1916.24
+INV0162,2025-04-17,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Amber Bush,Shower,SH111,Shower Rain,4,89.32,357.28
+INV0162,2025-04-17,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Amber Bush,Shower,SH112,Shower Rain,5,167.1,835.5
+INV0162,2025-04-17,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Amber Bush,Faucet,FA118,Faucet Deck Mount,1,462.12,462.12
+INV0163,2025-05-22,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Larry Hartman,Sink,SI110,Sink Topmount,4,59.85,239.4
+INV0164,2025-06-05,CUST019,gentrypaige@example.net,"402 Kathleen Row
+North Nicholashaven, FL 17528",Becky Anderson,Door,DR104,Door Standard,2,119.07,238.14
+INV0165,2025-05-03,CUST075,zdyer@example.org,"83686 Joann Junctions
+Lake Jamieborough, FM 73208",Jennifer Rodriguez,Door,DR102,Door Standard,1,341.38,341.38
+INV0166,2025-07-13,CUST004,singhryan@example.net,"86285 Vargas Prairie Suite 516
+Christopherville, KY 97266",Kimberly Doyle,Sink,SI119,Sink Topmount,4,495.84,1983.36
+INV0167,2025-04-30,CUST078,josemoore@example.com,"982 Ramos Extensions
+West Carolineburgh, CO 91602",Sharon Macdonald,Mirror,MR119,Mirror Framed,5,333.11,1665.55
+INV0167,2025-04-30,CUST078,josemoore@example.com,"982 Ramos Extensions
+West Carolineburgh, CO 91602",Sharon Macdonald,Knob,KN111,Knob Square,1,229.28,229.28
+INV0168,2025-06-13,CUST024,paynejeffrey@example.net,"17219 Rebecca Canyon Suite 144
+Doyleview, PA 93048",Sonia Harris DVM,Door,DR106,Door Standard,1,126.06,126.06
+INV0169,2025-07-13,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Rhonda Stark,Shower,SH112,Shower Handheld,2,280.63,561.26
+INV0169,2025-07-13,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Rhonda Stark,Mirror,MR105,Mirror Frameless,2,326.45,652.9
+INV0169,2025-07-13,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Rhonda Stark,Sink,SI109,Sink Undermount,4,421.72,1686.88
+INV0170,2025-06-10,CUST001,kimbowen@example.com,"Unit 5315 Box 8497
+DPO AA 47521",Darius Solis,Door,DR109,Door Standard,1,161.88,161.88
+INV0171,2025-05-27,CUST079,pfields@example.net,"331 Katie Row Suite 020
+Samanthabury, MO 21221",Stephanie Thomas,Door,DR101,Door Sliding,5,377.86,1889.3
+INV0171,2025-05-27,CUST079,pfields@example.net,"331 Katie Row Suite 020
+Samanthabury, MO 21221",Stephanie Thomas,Knob,KN102,Knob Round,5,212.21,1061.05
+INV0172,2025-04-23,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Betty Stanley,Faucet,FA109,Faucet Deck Mount,3,172.03,516.09
+INV0172,2025-04-23,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Betty Stanley,Mirror,MR112,Mirror Framed,2,455.12,910.24
+INV0172,2025-04-23,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Betty Stanley,Sink,SI117,Sink Undermount,5,19.03,95.15
+INV0173,2025-04-18,CUST050,jgray@example.com,"070 Michael Tunnel
+New William, AK 76088",Mr. Patrick Carter Jr.,Door,DR116,Door Standard,4,255.6,1022.4
+INV0174,2025-04-05,CUST035,xtrevino@example.com,"3089 Holly Course
+East Willieland, MO 26003",Phillip Long,Door,DR101,Door French,5,403.03,2015.15
+INV0175,2025-06-01,CUST052,spencecameron@example.net,"459 Martinez Ramp
+Patelview, GA 13866",April Phillips,Knob,KN113,Knob Square,3,159.84,479.52
+INV0176,2025-05-12,CUST039,william55@example.net,"768 Guzman Rapid
+New Charleston, PR 73259",Dr. Rebekah Nunez,Knob,KN102,Knob Square,2,330.13,660.26
+INV0177,2025-06-11,CUST018,haroldgriffin@example.net,"2606 Perez Pass Apt. 028
+Cookton, PW 39426",Bruce Buck,Knob,KN108,Knob Round,5,415.79,2078.95
+INV0178,2025-08-10,CUST071,stricklandjames@example.net,"0929 Greg Greens
+Jessicaport, MH 52406",Terry Cervantes,Sink,SI101,Sink Undermount,5,253.27,1266.35
+INV0179,2025-04-06,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Kathleen Sanchez,Mirror,MR104,Mirror Frameless,5,30.81,154.05
+INV0179,2025-04-06,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Kathleen Sanchez,Faucet,FA112,Faucet Deck Mount,5,156.91,784.55
+INV0180,2025-08-28,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Matthew Pacheco,Door,DR119,Door Sliding,4,404.98,1619.92
+INV0180,2025-08-28,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Matthew Pacheco,Shower,SH120,Shower Handheld,1,216.48,216.48
+INV0181,2025-09-09,CUST080,katrina41@example.net,"551 Anna Island
+Yvetteview, MH 31371",Kathryn Franklin,Mirror,MR115,Mirror Framed,5,327.35,1636.75
+INV0182,2025-06-09,CUST050,jgray@example.com,"070 Michael Tunnel
+New William, AK 76088",Gregory Gutierrez,Faucet,FA110,Faucet Deck Mount,1,281.4,281.4
+INV0183,2025-09-01,CUST070,erin80@example.net,"96649 Le Plaza Suite 991
+Amyton, WA 60730",Mr. Gerald Brown,Door,DR120,Door Sliding,1,303.01,303.01
+INV0183,2025-09-01,CUST070,erin80@example.net,"96649 Le Plaza Suite 991
+Amyton, WA 60730",Mr. Gerald Brown,Faucet,FA103,Faucet Wall Mount,5,412.64,2063.2
+INV0183,2025-09-01,CUST070,erin80@example.net,"96649 Le Plaza Suite 991
+Amyton, WA 60730",Mr. Gerald Brown,Sink,SI115,Sink Topmount,1,410.83,410.83
+INV0184,2025-09-09,CUST032,schwartzruben@example.org,"465 Brian Curve
+Michaelfort, NV 13037",Cheryl Baker,Shower,SH108,Shower Handheld,3,271.94,815.82
+INV0184,2025-09-09,CUST032,schwartzruben@example.org,"465 Brian Curve
+Michaelfort, NV 13037",Cheryl Baker,Shower,SH115,Shower Rain,3,302.81,908.43
+INV0185,2025-08-27,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Albert Walker,Shower,SH101,Shower Handheld,5,295.8,1479.0
+INV0185,2025-08-27,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Albert Walker,Shower,SH113,Shower Handheld,3,272.75,818.25
+INV0186,2025-07-06,CUST019,gentrypaige@example.net,"402 Kathleen Row
+North Nicholashaven, FL 17528",Jennifer Duncan,Knob,KN113,Knob Square,4,239.66,958.64
+INV0187,2025-05-17,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Anthony Shaffer,Faucet,FA115,Faucet Wall Mount,2,316.47,632.94
+INV0188,2025-06-05,CUST081,ashley02@example.net,"29419 Tommy Row
+Mendezland, IN 27676",Kelli Walker,Door,DR116,Door Standard,4,93.1,372.4
+INV0188,2025-06-05,CUST081,ashley02@example.net,"29419 Tommy Row
+Mendezland, IN 27676",Kelli Walker,Mirror,MR108,Mirror Frameless,2,123.19,246.38
+INV0189,2025-09-12,CUST028,graydanielle@example.com,"Unit 7002 Box 7041
+DPO AP 25984",John Sanchez,Door,DR112,Door Sliding,3,328.76,986.28
+INV0190,2025-04-18,CUST033,alexander18@example.org,"75560 Crystal Ranch Suite 354
+North Fredmouth, AZ 85077",Diana Perez,Mirror,MR104,Mirror Frameless,5,41.71,208.55
+INV0190,2025-04-18,CUST033,alexander18@example.org,"75560 Crystal Ranch Suite 354
+North Fredmouth, AZ 85077",Diana Perez,Knob,KN119,Knob Round,5,50.05,250.25
+INV0190,2025-04-18,CUST033,alexander18@example.org,"75560 Crystal Ranch Suite 354
+North Fredmouth, AZ 85077",Diana Perez,Shower,SH112,Shower Handheld,3,194.56,583.68
+INV0190,2025-04-18,CUST033,alexander18@example.org,"75560 Crystal Ranch Suite 354
+North Fredmouth, AZ 85077",Diana Perez,Shower,SH103,Shower Rain,4,449.92,1799.68
+INV0191,2025-06-12,CUST062,martha49@example.org,"74092 Bennett Shores Suite 718
+Millerchester, MP 76569",Sarah Pittman,Shower,SH119,Shower Rain,3,80.48,241.44
+INV0192,2025-04-22,CUST001,kimbowen@example.com,"Unit 5315 Box 8497
+DPO AA 47521",Tyler Rodriguez,Mirror,MR112,Mirror Frameless,2,434.11,868.22
+INV0193,2025-04-19,CUST018,haroldgriffin@example.net,"2606 Perez Pass Apt. 028
+Cookton, PW 39426",Samantha Hamilton,Faucet,FA110,Faucet Deck Mount,1,211.24,211.24
+INV0194,2025-05-29,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Catherine Roberts,Sink,SI110,Sink Undermount,1,293.07,293.07
+INV0194,2025-05-29,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Catherine Roberts,Sink,SI107,Sink Undermount,3,128.25,384.75
+INV0195,2025-04-05,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Kevin Cook,Knob,KN102,Knob Round,2,196.19,392.38
+INV0195,2025-04-05,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Kevin Cook,Faucet,FA103,Faucet Wall Mount,5,136.79,683.95
+INV0195,2025-04-05,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Kevin Cook,Sink,SI102,Sink Topmount,1,292.52,292.52
+INV0195,2025-04-05,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Kevin Cook,Shower,SH107,Shower Handheld,5,314.9,1574.5
+INV0196,2025-05-18,CUST034,marclopez@example.net,"Unit 4650 Box 3945
+DPO AA 40419",William Floyd,Sink,SI104,Sink Undermount,1,468.91,468.91
+INV0196,2025-05-18,CUST034,marclopez@example.net,"Unit 4650 Box 3945
+DPO AA 40419",William Floyd,Mirror,MR115,Mirror Framed,4,452.96,1811.84
+INV0196,2025-05-18,CUST034,marclopez@example.net,"Unit 4650 Box 3945
+DPO AA 40419",William Floyd,Sink,SI115,Sink Undermount,1,433.44,433.44
+INV0197,2025-09-14,CUST082,qtran@example.org,"3403 Delgado Divide
+Clarkland, MI 60480",Judith Foley,Faucet,FA120,Faucet Wall Mount,2,498.39,996.78
+INV0198,2025-09-26,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Claudia Burnett,Mirror,MR119,Mirror Framed,2,238.04,476.08
+INV0199,2025-07-15,CUST065,michael39@example.net,"1400 Schmidt Mission
+Moranmouth, VT 73555",Jennifer Duran,Shower,SH104,Shower Rain,1,142.24,142.24
+INV0200,2025-05-17,CUST060,mgibson@example.org,"Unit 9859 Box 0604
+DPO AE 83680",Daniel Smith,Knob,KN116,Knob Square,1,195.2,195.2
+INV0201,2025-05-14,CUST083,davidbrady@example.net,"99789 Anderson Ville Suite 819
+Stanleystad, AK 16723",Amy Duncan,Faucet,FA103,Faucet Wall Mount,1,199.19,199.19
+INV0202,2025-08-19,CUST083,davidbrady@example.net,"99789 Anderson Ville Suite 819
+Stanleystad, AK 16723",Derrick Ramsey,Sink,SI111,Sink Undermount,5,189.52,947.6
+INV0202,2025-08-19,CUST083,davidbrady@example.net,"99789 Anderson Ville Suite 819
+Stanleystad, AK 16723",Derrick Ramsey,Shower,SH106,Shower Rain,5,288.6,1443.0
+INV0202,2025-08-19,CUST083,davidbrady@example.net,"99789 Anderson Ville Suite 819
+Stanleystad, AK 16723",Derrick Ramsey,Faucet,FA112,Faucet Wall Mount,3,149.87,449.61
+INV0203,2025-07-19,CUST084,williamschultz@example.com,"1508 Carter Spur Suite 427
+East Edwardberg, AL 00980",Anna Wolf,Door,DR119,Door Standard,4,279.82,1119.28
+INV0203,2025-07-19,CUST084,williamschultz@example.com,"1508 Carter Spur Suite 427
+East Edwardberg, AL 00980",Anna Wolf,Door,DR118,Door Standard,5,325.86,1629.3
+INV0203,2025-07-19,CUST084,williamschultz@example.com,"1508 Carter Spur Suite 427
+East Edwardberg, AL 00980",Anna Wolf,Knob,KN112,Knob Square,1,370.39,370.39
+INV0204,2025-06-08,CUST025,contrerasmegan@example.net,"03486 Matthews Wells
+West Chelseaberg, PR 61167",Kiara Cardenas,Mirror,MR103,Mirror Frameless,4,373.27,1493.08
+INV0205,2025-05-18,CUST006,xgonzalez@example.net,"4671 Sutton Trail
+Port Lisahaven, UT 14173",Andrew Smith,Shower,SH102,Shower Handheld,1,359.3,359.3
+INV0206,2025-04-13,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Brandy Lloyd,Faucet,FA119,Faucet Wall Mount,4,14.6,58.4
+INV0207,2025-05-23,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Nathan Mccormick,Faucet,FA112,Faucet Deck Mount,1,195.56,195.56
+INV0207,2025-05-23,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Nathan Mccormick,Knob,KN108,Knob Square,3,401.82,1205.46
+INV0208,2025-07-31,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Gregory Robinson,Mirror,MR114,Mirror Framed,5,426.78,2133.9
+INV0209,2025-09-04,CUST085,brittney91@example.org,"4683 Christopher Meadow Apt. 802
+Traciemouth, PW 19780",Keith Best,Knob,KN115,Knob Square,3,327.35,982.05
+INV0209,2025-09-04,CUST085,brittney91@example.org,"4683 Christopher Meadow Apt. 802
+Traciemouth, PW 19780",Keith Best,Sink,SI114,Sink Undermount,1,483.49,483.49
+INV0209,2025-09-04,CUST085,brittney91@example.org,"4683 Christopher Meadow Apt. 802
+Traciemouth, PW 19780",Keith Best,Mirror,MR112,Mirror Framed,2,177.49,354.98
+INV0210,2025-09-15,CUST085,brittney91@example.org,"4683 Christopher Meadow Apt. 802
+Traciemouth, PW 19780",John Rasmussen,Shower,SH113,Shower Handheld,2,423.03,846.06
+INV0211,2025-07-19,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Anthony Curtis,Mirror,MR101,Mirror Framed,4,328.36,1313.44
+INV0211,2025-07-19,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Anthony Curtis,Door,DR118,Door Standard,3,252.11,756.33
+INV0212,2025-04-18,CUST026,floreshannah@example.net,"75140 Flores Turnpike Apt. 427
+Mirandabury, NH 79603",Lisa Gross,Mirror,MR102,Mirror Framed,5,228.33,1141.65
+INV0213,2025-06-30,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Nathan Gill,Door,DR117,Door Sliding,1,490.3,490.3
+INV0213,2025-06-30,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Nathan Gill,Sink,SI117,Sink Undermount,4,56.27,225.08
+INV0213,2025-06-30,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Nathan Gill,Mirror,MR107,Mirror Framed,3,297.33,891.99
+INV0213,2025-06-30,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Nathan Gill,Knob,KN107,Knob Round,4,178.76,715.04
+INV0214,2025-07-03,CUST069,allisonjulie@example.net,"4303 Lori Lane
+East Daniel, LA 06437",Paige Montoya,Door,DR113,Door Sliding,4,114.09,456.36
+INV0215,2025-09-11,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Kathy Rogers,Shower,SH103,Shower Handheld,4,377.11,1508.44
+INV0216,2025-07-03,CUST026,floreshannah@example.net,"75140 Flores Turnpike Apt. 427
+Mirandabury, NH 79603",James Palmer,Knob,KN113,Knob Round,3,362.5,1087.5
+INV0217,2025-07-17,CUST069,allisonjulie@example.net,"4303 Lori Lane
+East Daniel, LA 06437",Nicholas Griffin,Door,DR113,Door Sliding,2,451.41,902.82
+INV0218,2025-04-24,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Nicole Cook,Faucet,FA104,Faucet Wall Mount,1,33.52,33.52
+INV0219,2025-05-24,CUST012,diane01@example.org,"016 Alex Lake Suite 565
+Carrieview, WV 73533",Eric Arias,Faucet,FA102,Faucet Wall Mount,2,399.84,799.68
+INV0220,2025-06-22,CUST060,mgibson@example.org,"Unit 9859 Box 0604
+DPO AE 83680",Katrina Flowers,Faucet,FA104,Faucet Wall Mount,4,229.55,918.2
+INV0221,2025-07-01,CUST045,zmoore@example.net,"491 Wall Plains
+Port Brandonberg, IA 59420",Alexander Martin,Mirror,MR112,Mirror Framed,3,477.63,1432.89
+INV0221,2025-07-01,CUST045,zmoore@example.net,"491 Wall Plains
+Port Brandonberg, IA 59420",Alexander Martin,Sink,SI107,Sink Topmount,4,286.71,1146.84
+INV0221,2025-07-01,CUST045,zmoore@example.net,"491 Wall Plains
+Port Brandonberg, IA 59420",Alexander Martin,Faucet,FA112,Faucet Deck Mount,2,291.22,582.44
+INV0222,2025-06-27,CUST086,ypeterson@example.net,"99944 Carolyn Path Suite 007
+Kathyburgh, MA 98260",Mario Guerra,Faucet,FA102,Faucet Wall Mount,3,237.54,712.62
+INV0223,2025-09-12,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Michael Obrien,Shower,SH107,Shower Rain,4,492.77,1971.08
+INV0224,2025-04-23,CUST068,burnssheryl@example.net,"7815 Beasley Wall Apt. 687
+Lake Dorothy, IL 35559",Andrew Williams,Faucet,FA105,Faucet Deck Mount,1,446.88,446.88
+INV0225,2025-05-19,CUST034,marclopez@example.net,"Unit 4650 Box 3945
+DPO AA 40419",Stefanie Henry,Knob,KN108,Knob Square,2,467.6,935.2
+INV0226,2025-09-22,CUST087,qwilliams@example.org,"83182 Pamela Shores
+New Markberg, AL 25674",Dr. Craig Clark,Shower,SH110,Shower Rain,1,316.76,316.76
+INV0227,2025-08-06,CUST029,coffeymichelle@example.net,"47422 Dunlap Neck
+New Mariaside, MA 96988",Thomas Richmond,Mirror,MR109,Mirror Frameless,5,96.81,484.05
+INV0228,2025-08-23,CUST075,zdyer@example.org,"83686 Joann Junctions
+Lake Jamieborough, FM 73208",Matthew Reed,Shower,SH108,Shower Handheld,4,293.82,1175.28
+INV0228,2025-08-23,CUST075,zdyer@example.org,"83686 Joann Junctions
+Lake Jamieborough, FM 73208",Matthew Reed,Faucet,FA103,Faucet Deck Mount,4,245.91,983.64
+INV0229,2025-08-05,CUST012,diane01@example.org,"016 Alex Lake Suite 565
+Carrieview, WV 73533",Tracy Dixon,Door,DR102,Door French,1,162.02,162.02
+INV0229,2025-08-05,CUST012,diane01@example.org,"016 Alex Lake Suite 565
+Carrieview, WV 73533",Tracy Dixon,Shower,SH111,Shower Rain,3,23.82,71.46
+INV0229,2025-08-05,CUST012,diane01@example.org,"016 Alex Lake Suite 565
+Carrieview, WV 73533",Tracy Dixon,Knob,KN109,Knob Round,1,416.79,416.79
+INV0230,2025-06-13,CUST068,burnssheryl@example.net,"7815 Beasley Wall Apt. 687
+Lake Dorothy, IL 35559",Mark Armstrong DVM,Knob,KN102,Knob Square,1,109.79,109.79
+INV0231,2025-08-29,CUST081,ashley02@example.net,"29419 Tommy Row
+Mendezland, IN 27676",Jody Fox,Faucet,FA117,Faucet Deck Mount,5,15.35,76.75
+INV0231,2025-08-29,CUST081,ashley02@example.net,"29419 Tommy Row
+Mendezland, IN 27676",Jody Fox,Shower,SH116,Shower Handheld,1,260.57,260.57
+INV0232,2025-07-13,CUST088,candace28@example.org,"9632 Sarah Streets Apt. 986
+Port Latoya, MI 23905",Ricardo Patterson,Shower,SH102,Shower Handheld,1,204.62,204.62
+INV0232,2025-07-13,CUST088,candace28@example.org,"9632 Sarah Streets Apt. 986
+Port Latoya, MI 23905",Ricardo Patterson,Knob,KN112,Knob Round,2,305.97,611.94
+INV0233,2025-04-01,CUST017,herrerastefanie@example.com,"2587 Hampton Fords Suite 289
+Danielport, OK 83321",Spencer Phillips,Knob,KN109,Knob Round,3,482.26,1446.78
+INV0234,2025-07-09,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Heather Jimenez,Knob,KN120,Knob Square,5,74.19,370.95
+INV0234,2025-07-09,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Heather Jimenez,Mirror,MR114,Mirror Frameless,2,372.08,744.16
+INV0235,2025-09-24,CUST029,coffeymichelle@example.net,"47422 Dunlap Neck
+New Mariaside, MA 96988",Kathleen Johnson,Door,DR110,Door Standard,4,446.61,1786.44
+INV0236,2025-04-17,CUST017,herrerastefanie@example.com,"2587 Hampton Fords Suite 289
+Danielport, OK 83321",Amanda Fitzgerald,Faucet,FA119,Faucet Deck Mount,1,306.62,306.62
+INV0237,2025-06-27,CUST065,michael39@example.net,"1400 Schmidt Mission
+Moranmouth, VT 73555",Patricia Blair,Shower,SH120,Shower Rain,2,237.06,474.12
+INV0237,2025-06-27,CUST065,michael39@example.net,"1400 Schmidt Mission
+Moranmouth, VT 73555",Patricia Blair,Faucet,FA111,Faucet Wall Mount,4,118.99,475.96
+INV0238,2025-06-23,CUST018,haroldgriffin@example.net,"2606 Perez Pass Apt. 028
+Cookton, PW 39426",Joseph Hurst,Mirror,MR117,Mirror Frameless,3,22.89,68.67
+INV0239,2025-08-23,CUST052,spencecameron@example.net,"459 Martinez Ramp
+Patelview, GA 13866",Thomas Johnson,Mirror,MR106,Mirror Frameless,5,189.01,945.05
+INV0240,2025-04-24,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Adrian Lopez,Door,DR106,Door Sliding,3,299.2,897.6
+INV0240,2025-04-24,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Adrian Lopez,Faucet,FA118,Faucet Deck Mount,1,93.52,93.52
+INV0241,2025-04-23,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",David Brandt,Sink,SI110,Sink Topmount,4,162.18,648.72
+INV0241,2025-04-23,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",David Brandt,Shower,SH108,Shower Handheld,5,191.27,956.35
+INV0242,2025-06-09,CUST079,pfields@example.net,"331 Katie Row Suite 020
+Samanthabury, MO 21221",Richard Tucker,Mirror,MR105,Mirror Framed,5,410.07,2050.35
+INV0243,2025-05-25,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Dawn Robertson,Door,DR116,Door Sliding,4,311.24,1244.96
+INV0243,2025-05-25,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Dawn Robertson,Mirror,MR105,Mirror Framed,1,44.97,44.97
+INV0243,2025-05-25,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Dawn Robertson,Knob,KN120,Knob Round,2,57.51,115.02
+INV0244,2025-05-08,CUST019,gentrypaige@example.net,"402 Kathleen Row
+North Nicholashaven, FL 17528",Cameron Williams,Knob,KN120,Knob Square,5,19.45,97.25
+INV0245,2025-05-02,CUST058,pprice@example.net,"9815 Kellie Crossroad Suite 778
+Joannaview, MP 08943",Matthew Tate,Knob,KN106,Knob Square,4,21.97,87.88
+INV0246,2025-07-13,CUST041,christopher69@example.net,"71302 Anthony Lakes Apt. 901
+Lake Jessicaside, AL 77683",Katherine Young,Mirror,MR112,Mirror Framed,1,392.56,392.56
+INV0246,2025-07-13,CUST041,christopher69@example.net,"71302 Anthony Lakes Apt. 901
+Lake Jessicaside, AL 77683",Katherine Young,Faucet,FA106,Faucet Deck Mount,2,464.47,928.94
+INV0247,2025-09-11,CUST039,william55@example.net,"768 Guzman Rapid
+New Charleston, PR 73259",Robert Ellis,Knob,KN110,Knob Square,5,374.51,1872.55
+INV0248,2025-09-08,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Candace Perez,Shower,SH107,Shower Handheld,1,356.69,356.69
+INV0249,2025-07-05,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Evan Bailey,Sink,SI114,Sink Undermount,2,157.09,314.18
+INV0249,2025-07-05,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Evan Bailey,Door,DR108,Door Sliding,2,82.97,165.94
+INV0249,2025-07-05,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Evan Bailey,Mirror,MR111,Mirror Framed,1,334.65,334.65
+INV0250,2025-05-02,CUST071,stricklandjames@example.net,"0929 Greg Greens
+Jessicaport, MH 52406",Melissa Cook,Sink,SI110,Sink Topmount,1,20.76,20.76
+INV0250,2025-05-02,CUST071,stricklandjames@example.net,"0929 Greg Greens
+Jessicaport, MH 52406",Melissa Cook,Mirror,MR112,Mirror Frameless,3,459.51,1378.53
+INV0250,2025-05-02,CUST071,stricklandjames@example.net,"0929 Greg Greens
+Jessicaport, MH 52406",Melissa Cook,Shower,SH110,Shower Handheld,2,156.28,312.56
+INV0250,2025-05-02,CUST071,stricklandjames@example.net,"0929 Greg Greens
+Jessicaport, MH 52406",Melissa Cook,Sink,SI114,Sink Topmount,3,396.92,1190.76
+INV0251,2025-09-13,CUST035,xtrevino@example.com,"3089 Holly Course
+East Willieland, MO 26003",Lindsay Wright,Faucet,FA103,Faucet Deck Mount,1,468.4,468.4
+INV0251,2025-09-13,CUST035,xtrevino@example.com,"3089 Holly Course
+East Willieland, MO 26003",Lindsay Wright,Mirror,MR102,Mirror Framed,4,353.52,1414.08
+INV0251,2025-09-13,CUST035,xtrevino@example.com,"3089 Holly Course
+East Willieland, MO 26003",Lindsay Wright,Door,DR102,Door French,4,32.65,130.6
+INV0252,2025-05-09,CUST086,ypeterson@example.net,"99944 Carolyn Path Suite 007
+Kathyburgh, MA 98260",Tony Martinez,Knob,KN106,Knob Square,1,213.89,213.89
+INV0253,2025-05-19,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Jennifer Long,Door,DR108,Door Sliding,2,253.72,507.44
+INV0253,2025-05-19,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Jennifer Long,Sink,SI104,Sink Undermount,3,483.43,1450.29
+INV0254,2025-06-25,CUST072,lorithomas@example.org,"250 Nguyen Stream Suite 225
+West Angelaport, IN 55676",Kristine Elliott,Mirror,MR116,Mirror Framed,4,287.82,1151.28
+INV0255,2025-09-03,CUST088,candace28@example.org,"9632 Sarah Streets Apt. 986
+Port Latoya, MI 23905",Michael Adams,Knob,KN111,Knob Round,2,52.54,105.08
+INV0256,2025-04-25,CUST025,contrerasmegan@example.net,"03486 Matthews Wells
+West Chelseaberg, PR 61167",Lisa Campbell,Sink,SI112,Sink Undermount,2,116.51,233.02
+INV0256,2025-04-25,CUST025,contrerasmegan@example.net,"03486 Matthews Wells
+West Chelseaberg, PR 61167",Lisa Campbell,Shower,SH104,Shower Handheld,4,283.72,1134.88
+INV0257,2025-09-23,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",William Wolf PhD,Shower,SH114,Shower Rain,4,391.61,1566.44
+INV0258,2025-05-02,CUST014,glenn78@example.net,"05551 Thomas Turnpike Suite 390
+Port Christy, OK 18881",Lucas West,Shower,SH106,Shower Handheld,2,253.98,507.96
+INV0258,2025-05-02,CUST014,glenn78@example.net,"05551 Thomas Turnpike Suite 390
+Port Christy, OK 18881",Lucas West,Faucet,FA119,Faucet Deck Mount,3,263.13,789.39
+INV0259,2025-04-09,CUST089,lopezsamuel@example.org,"1661 Gavin Knolls
+Brooksborough, RI 75868",Matthew Hunt,Faucet,FA111,Faucet Deck Mount,2,223.0,446.0
+INV0260,2025-06-05,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Donald Haney,Knob,KN114,Knob Square,5,144.53,722.65
+INV0261,2025-04-17,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Robin Joseph,Door,DR106,Door Standard,1,364.61,364.61
+INV0262,2025-07-08,CUST061,brian40@example.com,"5912 Beck Viaduct
+Sanchezport, OR 95613",Michelle Bradford,Mirror,MR114,Mirror Frameless,5,198.94,994.7
+INV0262,2025-07-08,CUST061,brian40@example.com,"5912 Beck Viaduct
+Sanchezport, OR 95613",Michelle Bradford,Sink,SI105,Sink Topmount,5,184.37,921.85
+INV0263,2025-05-31,CUST077,lmcdowell@example.net,"897 Tanya Drive
+North Vickiemouth, OH 32614",Robert Rodriguez MD,Door,DR117,Door Sliding,2,273.66,547.32
+INV0264,2025-04-26,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Tony Thompson,Shower,SH102,Shower Rain,3,438.35,1315.05
+INV0265,2025-04-14,CUST045,zmoore@example.net,"491 Wall Plains
+Port Brandonberg, IA 59420",Rebekah Riley,Mirror,MR108,Mirror Frameless,4,131.51,526.04
+INV0266,2025-06-17,CUST090,julie70@example.org,"5572 Morgan Well
+Carlosland, PW 87934",Tiffany Hopkins,Faucet,FA101,Faucet Wall Mount,1,359.52,359.52
+INV0267,2025-07-26,CUST091,baileyjason@example.net,"14414 Lopez Loaf Suite 476
+Lake Tiffany, OK 93638",Austin Floyd,Faucet,FA116,Faucet Deck Mount,2,219.24,438.48
+INV0268,2025-04-19,CUST079,pfields@example.net,"331 Katie Row Suite 020
+Samanthabury, MO 21221",Sara Long,Faucet,FA102,Faucet Deck Mount,5,200.53,1002.65
+INV0269,2025-06-24,CUST058,pprice@example.net,"9815 Kellie Crossroad Suite 778
+Joannaview, MP 08943",Matthew Church,Mirror,MR108,Mirror Framed,2,349.56,699.12
+INV0270,2025-05-30,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Cynthia Dyer,Shower,SH104,Shower Handheld,1,291.95,291.95
+INV0271,2025-08-15,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Brenda Moreno,Shower,SH119,Shower Rain,5,486.07,2430.35
+INV0271,2025-08-15,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Brenda Moreno,Sink,SI102,Sink Undermount,5,455.55,2277.75
+INV0271,2025-08-15,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Brenda Moreno,Shower,SH120,Shower Handheld,4,125.65,502.6
+INV0272,2025-07-14,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Jean Weber,Door,DR104,Door Sliding,1,238.67,238.67
+INV0272,2025-07-14,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Jean Weber,Knob,KN107,Knob Square,4,244.51,978.04
+INV0273,2025-06-22,CUST091,baileyjason@example.net,"14414 Lopez Loaf Suite 476
+Lake Tiffany, OK 93638",Jessica Ingram,Sink,SI115,Sink Topmount,5,197.73,988.65
+INV0273,2025-06-22,CUST091,baileyjason@example.net,"14414 Lopez Loaf Suite 476
+Lake Tiffany, OK 93638",Jessica Ingram,Mirror,MR110,Mirror Framed,2,433.43,866.86
+INV0274,2025-04-23,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Sharon White,Door,DR104,Door French,1,488.46,488.46
+INV0275,2025-06-09,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",Emily Doyle,Sink,SI112,Sink Topmount,1,352.59,352.59
+INV0276,2025-09-16,CUST092,nlam@example.com,"30723 Martinez Cliff Suite 722
+West Brendaborough, RI 03205",Morgan Martin,Shower,SH107,Shower Rain,3,178.69,536.07
+INV0277,2025-04-27,CUST041,christopher69@example.net,"71302 Anthony Lakes Apt. 901
+Lake Jessicaside, AL 77683",Kyle Adams,Faucet,FA114,Faucet Wall Mount,3,397.23,1191.69
+INV0278,2025-06-05,CUST090,julie70@example.org,"5572 Morgan Well
+Carlosland, PW 87934",Ashley Wilson,Faucet,FA107,Faucet Wall Mount,2,29.92,59.84
+INV0278,2025-06-05,CUST090,julie70@example.org,"5572 Morgan Well
+Carlosland, PW 87934",Ashley Wilson,Knob,KN112,Knob Square,3,415.75,1247.25
+INV0279,2025-05-06,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Catherine Garcia,Knob,KN115,Knob Square,2,380.89,761.78
+INV0279,2025-05-06,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Catherine Garcia,Knob,KN109,Knob Square,2,244.5,489.0
+INV0279,2025-05-06,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Catherine Garcia,Shower,SH111,Shower Handheld,1,188.74,188.74
+INV0280,2025-05-02,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Willie Howard,Mirror,MR108,Mirror Frameless,2,266.55,533.1
+INV0281,2025-08-26,CUST070,erin80@example.net,"96649 Le Plaza Suite 991
+Amyton, WA 60730",Edwin Gill,Faucet,FA117,Faucet Deck Mount,2,397.94,795.88
+INV0282,2025-09-15,CUST093,bryanrose@example.net,"903 Sanchez Stream Apt. 522
+East Charlesshire, CT 41673",Brian Thomas,Door,DR108,Door Sliding,1,126.28,126.28
+INV0283,2025-04-25,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Barbara Anderson,Sink,SI113,Sink Topmount,1,204.92,204.92
+INV0283,2025-04-25,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Barbara Anderson,Sink,SI106,Sink Undermount,1,376.7,376.7
+INV0284,2025-07-12,CUST094,williamsonlori@example.net,"76018 Miranda Mountain Suite 491
+Port Juanton, OK 35889",Roy Alexander,Door,DR116,Door Standard,5,478.92,2394.6
+INV0285,2025-06-22,CUST035,xtrevino@example.com,"3089 Holly Course
+East Willieland, MO 26003",Christine Faulkner,Mirror,MR111,Mirror Frameless,3,365.64,1096.92
+INV0285,2025-06-22,CUST035,xtrevino@example.com,"3089 Holly Course
+East Willieland, MO 26003",Christine Faulkner,Sink,SI104,Sink Topmount,2,74.59,149.18
+INV0285,2025-06-22,CUST035,xtrevino@example.com,"3089 Holly Course
+East Willieland, MO 26003",Christine Faulkner,Knob,KN103,Knob Square,3,160.67,482.01
+INV0286,2025-04-16,CUST077,lmcdowell@example.net,"897 Tanya Drive
+North Vickiemouth, OH 32614",Madison Stevens,Sink,SI119,Sink Undermount,4,487.75,1951.0
+INV0287,2025-05-23,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Michael Smith,Knob,KN103,Knob Round,4,107.08,428.32
+INV0287,2025-05-23,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Michael Smith,Door,DR112,Door Sliding,2,127.31,254.62
+INV0288,2025-05-23,CUST001,kimbowen@example.com,"Unit 5315 Box 8497
+DPO AA 47521",Melinda Cooper,Mirror,MR110,Mirror Framed,2,189.67,379.34
+INV0289,2025-07-18,CUST058,pprice@example.net,"9815 Kellie Crossroad Suite 778
+Joannaview, MP 08943",Heidi Kennedy,Sink,SI105,Sink Undermount,2,292.71,585.42
+INV0290,2025-07-24,CUST036,evannichols@example.org,"84486 Lamb Roads
+South Jeremyfurt, NJ 49497",Sandra Strong,Sink,SI105,Sink Topmount,2,406.93,813.86
+INV0291,2025-07-19,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Bethany Ramsey,Door,DR107,Door Sliding,4,131.22,524.88
+INV0291,2025-07-19,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Bethany Ramsey,Door,DR117,Door Standard,4,230.42,921.68
+INV0291,2025-07-19,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Bethany Ramsey,Sink,SI120,Sink Topmount,3,437.4,1312.2
+INV0292,2025-07-25,CUST018,haroldgriffin@example.net,"2606 Perez Pass Apt. 028
+Cookton, PW 39426",Sarah Russell,Door,DR119,Door Sliding,5,244.64,1223.2
+INV0293,2025-05-30,CUST031,taylorbell@example.com,"487 Tina Key Apt. 745
+South Jaredside, KS 17961",Adam Walters,Shower,SH117,Shower Rain,2,286.65,573.3
+INV0293,2025-05-30,CUST031,taylorbell@example.com,"487 Tina Key Apt. 745
+South Jaredside, KS 17961",Adam Walters,Door,DR116,Door French,1,404.1,404.1
+INV0293,2025-05-30,CUST031,taylorbell@example.com,"487 Tina Key Apt. 745
+South Jaredside, KS 17961",Adam Walters,Knob,KN104,Knob Round,3,456.54,1369.62
+INV0294,2025-08-04,CUST071,stricklandjames@example.net,"0929 Greg Greens
+Jessicaport, MH 52406",David Phillips,Mirror,MR110,Mirror Frameless,1,238.89,238.89
+INV0295,2025-06-02,CUST024,paynejeffrey@example.net,"17219 Rebecca Canyon Suite 144
+Doyleview, PA 93048",Kathryn Hernandez,Mirror,MR116,Mirror Framed,1,396.04,396.04
+INV0296,2025-07-19,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Jeffrey Wilson,Knob,KN103,Knob Round,5,486.2,2431.0
+INV0297,2025-08-16,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Tyler Cook MD,Door,DR120,Door French,4,10.63,42.52
+INV0298,2025-07-03,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Robert Lee,Shower,SH103,Shower Handheld,2,48.12,96.24
+INV0299,2025-08-20,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Kenneth Evans,Shower,SH117,Shower Handheld,3,13.4,40.2
+INV0299,2025-08-20,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Kenneth Evans,Sink,SI112,Sink Undermount,1,265.08,265.08
+INV0299,2025-08-20,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Kenneth Evans,Shower,SH106,Shower Rain,2,133.56,267.12
+INV0299,2025-08-20,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Kenneth Evans,Knob,KN101,Knob Square,1,450.96,450.96
+INV0300,2025-04-30,CUST095,nthompson@example.net,"79995 Sheila Prairie
+Wesleyview, MP 68389",Gwendolyn Bell,Knob,KN108,Knob Round,2,379.95,759.9
+INV0300,2025-04-30,CUST095,nthompson@example.net,"79995 Sheila Prairie
+Wesleyview, MP 68389",Gwendolyn Bell,Mirror,MR103,Mirror Frameless,4,319.71,1278.84
+INV0300,2025-04-30,CUST095,nthompson@example.net,"79995 Sheila Prairie
+Wesleyview, MP 68389",Gwendolyn Bell,Knob,KN116,Knob Round,1,265.63,265.63
+INV0301,2025-07-08,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Marcus Dillon,Knob,KN109,Knob Square,2,278.87,557.74
+INV0302,2025-05-01,CUST060,mgibson@example.org,"Unit 9859 Box 0604
+DPO AE 83680",Jonathan Young,Knob,KN101,Knob Square,4,274.26,1097.04
+INV0302,2025-05-01,CUST060,mgibson@example.org,"Unit 9859 Box 0604
+DPO AE 83680",Jonathan Young,Sink,SI106,Sink Undermount,2,17.16,34.32
+INV0303,2025-08-29,CUST096,mcconnellmark@example.org,"6637 Patterson Mall
+South Victoriaport, FM 63934",Alexandra Conley,Shower,SH101,Shower Rain,3,199.04,597.12
+INV0303,2025-08-29,CUST096,mcconnellmark@example.org,"6637 Patterson Mall
+South Victoriaport, FM 63934",Alexandra Conley,Knob,KN113,Knob Square,4,224.68,898.72
+INV0303,2025-08-29,CUST096,mcconnellmark@example.org,"6637 Patterson Mall
+South Victoriaport, FM 63934",Alexandra Conley,Door,DR118,Door French,4,313.49,1253.96
+INV0304,2025-09-11,CUST036,evannichols@example.org,"84486 Lamb Roads
+South Jeremyfurt, NJ 49497",Debbie Swanson,Knob,KN119,Knob Square,1,296.73,296.73
+INV0305,2025-06-15,CUST077,lmcdowell@example.net,"897 Tanya Drive
+North Vickiemouth, OH 32614",Charles Fischer,Mirror,MR119,Mirror Frameless,3,218.19,654.57
+INV0305,2025-06-15,CUST077,lmcdowell@example.net,"897 Tanya Drive
+North Vickiemouth, OH 32614",Charles Fischer,Door,DR104,Door Sliding,1,429.88,429.88
+INV0306,2025-05-28,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Courtney Yoder,Faucet,FA115,Faucet Wall Mount,1,186.19,186.19
+INV0307,2025-04-03,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Karen Johnson,Sink,SI108,Sink Topmount,4,170.08,680.32
+INV0308,2025-09-09,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Debra Woods,Sink,SI113,Sink Topmount,1,12.2,12.2
+INV0308,2025-09-09,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Debra Woods,Shower,SH115,Shower Handheld,3,425.81,1277.43
+INV0309,2025-09-24,CUST039,william55@example.net,"768 Guzman Rapid
+New Charleston, PR 73259",Catherine Perkins,Knob,KN114,Knob Square,4,180.08,720.32
+INV0310,2025-06-07,CUST033,alexander18@example.org,"75560 Crystal Ranch Suite 354
+North Fredmouth, AZ 85077",Elizabeth Russo,Knob,KN104,Knob Round,3,191.87,575.61
+INV0311,2025-08-13,CUST030,petersencindy@example.net,"307 Mitchell Brook
+Deanbury, VI 10456",Ryan Brooks,Faucet,FA116,Faucet Deck Mount,1,208.89,208.89
+INV0312,2025-06-14,CUST082,qtran@example.org,"3403 Delgado Divide
+Clarkland, MI 60480",Stephen Thompson,Door,DR113,Door Standard,5,381.22,1906.1
+INV0312,2025-06-14,CUST082,qtran@example.org,"3403 Delgado Divide
+Clarkland, MI 60480",Stephen Thompson,Mirror,MR101,Mirror Framed,4,296.77,1187.08
+INV0312,2025-06-14,CUST082,qtran@example.org,"3403 Delgado Divide
+Clarkland, MI 60480",Stephen Thompson,Shower,SH114,Shower Rain,2,422.84,845.68
+INV0312,2025-06-14,CUST082,qtran@example.org,"3403 Delgado Divide
+Clarkland, MI 60480",Stephen Thompson,Faucet,FA105,Faucet Wall Mount,2,404.42,808.84
+INV0313,2025-06-16,CUST035,xtrevino@example.com,"3089 Holly Course
+East Willieland, MO 26003",Victoria Johnson,Mirror,MR114,Mirror Framed,1,415.08,415.08
+INV0313,2025-06-16,CUST035,xtrevino@example.com,"3089 Holly Course
+East Willieland, MO 26003",Victoria Johnson,Door,DR117,Door Sliding,5,126.51,632.55
+INV0314,2025-07-11,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Jeffrey Moreno,Mirror,MR113,Mirror Frameless,2,199.55,399.1
+INV0315,2025-09-26,CUST097,robbinsdonald@example.org,"5282 Martinez Garden
+Chelsealand, AR 98490",Tara Villanueva,Door,DR105,Door French,1,215.97,215.97
+INV0315,2025-09-26,CUST097,robbinsdonald@example.org,"5282 Martinez Garden
+Chelsealand, AR 98490",Tara Villanueva,Shower,SH114,Shower Rain,5,341.11,1705.55
+INV0315,2025-09-26,CUST097,robbinsdonald@example.org,"5282 Martinez Garden
+Chelsealand, AR 98490",Tara Villanueva,Shower,SH104,Shower Handheld,1,46.3,46.3
+INV0316,2025-06-02,CUST016,crystalwu@example.org,"9192 Jordan Greens
+Jeremyton, MA 77066",William Vargas,Door,DR105,Door Standard,4,106.84,427.36
+INV0317,2025-08-02,CUST028,graydanielle@example.com,"Unit 7002 Box 7041
+DPO AP 25984",Theresa Burns,Door,DR101,Door Standard,4,272.8,1091.2
+INV0318,2025-06-08,CUST076,ucarter@example.com,"633 Jeffery Rue
+Patrickside, DC 82125",Mrs. Joanna Johnson,Sink,SI113,Sink Undermount,4,290.49,1161.96
+INV0319,2025-05-02,CUST013,amandadonaldson@example.org,"6817 Jack Forest
+Port Tinaland, NJ 71504",Joseph Graham,Door,DR108,Door Sliding,5,412.97,2064.85
+INV0320,2025-09-30,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",James Watson,Door,DR103,Door French,4,261.19,1044.76
+INV0321,2025-08-12,CUST076,ucarter@example.com,"633 Jeffery Rue
+Patrickside, DC 82125",Joshua Jacobson,Faucet,FA104,Faucet Wall Mount,4,97.75,391.0
+INV0322,2025-06-13,CUST050,jgray@example.com,"070 Michael Tunnel
+New William, AK 76088",Brianna Brown,Knob,KN106,Knob Square,2,353.42,706.84
+INV0323,2025-09-15,CUST025,contrerasmegan@example.net,"03486 Matthews Wells
+West Chelseaberg, PR 61167",Duane Johnson,Knob,KN113,Knob Square,2,276.24,552.48
+INV0323,2025-09-15,CUST025,contrerasmegan@example.net,"03486 Matthews Wells
+West Chelseaberg, PR 61167",Duane Johnson,Mirror,MR114,Mirror Frameless,1,355.86,355.86
+INV0324,2025-07-02,CUST065,michael39@example.net,"1400 Schmidt Mission
+Moranmouth, VT 73555",Christopher Carter,Sink,SI109,Sink Topmount,2,482.93,965.86
+INV0325,2025-08-31,CUST059,vanessaconway@example.org,"53486 Weber Overpass Suite 942
+South Melissachester, CO 27670",Samantha Hart,Sink,SI104,Sink Undermount,4,280.58,1122.32
+INV0326,2025-08-20,CUST070,erin80@example.net,"96649 Le Plaza Suite 991
+Amyton, WA 60730",Alexander Daniels,Mirror,MR105,Mirror Frameless,2,305.21,610.42
+INV0327,2025-09-17,CUST001,kimbowen@example.com,"Unit 5315 Box 8497
+DPO AA 47521",Ashley Barker,Sink,SI102,Sink Undermount,5,442.73,2213.65
+INV0328,2025-04-19,CUST001,kimbowen@example.com,"Unit 5315 Box 8497
+DPO AA 47521",Maureen Blake,Sink,SI117,Sink Topmount,1,123.28,123.28
+INV0329,2025-06-06,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Abigail West,Shower,SH112,Shower Handheld,3,148.44,445.32
+INV0329,2025-06-06,CUST023,karen63@example.org,"066 Snyder Tunnel
+Elizabethmouth, CO 11771",Abigail West,Sink,SI104,Sink Undermount,1,478.73,478.73
+INV0330,2025-04-28,CUST098,brownrebecca@example.com,"USS Chen
+FPO AA 09555",Andrew Jones,Faucet,FA106,Faucet Wall Mount,2,140.19,280.38
+INV0330,2025-04-28,CUST098,brownrebecca@example.com,"USS Chen
+FPO AA 09555",Andrew Jones,Faucet,FA109,Faucet Deck Mount,1,119.47,119.47
+INV0331,2025-08-09,CUST078,josemoore@example.com,"982 Ramos Extensions
+West Carolineburgh, CO 91602",Justin Torres,Sink,SI116,Sink Undermount,5,80.47,402.35
+INV0332,2025-06-18,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Lauren Poole,Sink,SI105,Sink Undermount,3,276.57,829.71
+INV0333,2025-09-20,CUST007,christinearmstrong@example.net,"971 Matthew Inlet Suite 763
+Alicialand, VI 37452",Sean Kelly,Knob,KN116,Knob Square,1,245.44,245.44
+INV0333,2025-09-20,CUST007,christinearmstrong@example.net,"971 Matthew Inlet Suite 763
+Alicialand, VI 37452",Sean Kelly,Knob,KN117,Knob Round,2,132.73,265.46
+INV0334,2025-06-30,CUST086,ypeterson@example.net,"99944 Carolyn Path Suite 007
+Kathyburgh, MA 98260",Stephanie Acevedo,Knob,KN104,Knob Square,2,338.9,677.8
+INV0335,2025-07-08,CUST050,jgray@example.com,"070 Michael Tunnel
+New William, AK 76088",Mary Williams,Knob,KN115,Knob Round,1,149.5,149.5
+INV0336,2025-06-05,CUST086,ypeterson@example.net,"99944 Carolyn Path Suite 007
+Kathyburgh, MA 98260",Patricia Medina,Door,DR114,Door Standard,1,424.57,424.57
+INV0337,2025-06-12,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Charles Young,Knob,KN104,Knob Round,3,264.97,794.91
+INV0338,2025-05-25,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Mackenzie Harris,Faucet,FA112,Faucet Deck Mount,5,95.27,476.35
+INV0339,2025-09-16,CUST057,kendrajohnson@example.net,"424 Jeffrey Islands Apt. 337
+New Masonton, AS 22101",Vanessa Collins,Knob,KN118,Knob Square,4,120.94,483.76
+INV0340,2025-05-15,CUST066,briangordon@example.org,"634 Welch Crescent
+New Elizabeth, PW 11791",James Phillips,Door,DR109,Door Sliding,3,130.43,391.29
+INV0341,2025-08-23,CUST059,vanessaconway@example.org,"53486 Weber Overpass Suite 942
+South Melissachester, CO 27670",Stephen Diaz,Shower,SH115,Shower Rain,5,376.41,1882.05
+INV0342,2025-09-30,CUST017,herrerastefanie@example.com,"2587 Hampton Fords Suite 289
+Danielport, OK 83321",Paul Stewart,Door,DR116,Door French,4,154.28,617.12
+INV0342,2025-09-30,CUST017,herrerastefanie@example.com,"2587 Hampton Fords Suite 289
+Danielport, OK 83321",Paul Stewart,Faucet,FA113,Faucet Wall Mount,1,428.88,428.88
+INV0342,2025-09-30,CUST017,herrerastefanie@example.com,"2587 Hampton Fords Suite 289
+Danielport, OK 83321",Paul Stewart,Mirror,MR107,Mirror Frameless,5,12.29,61.45
+INV0343,2025-08-01,CUST086,ypeterson@example.net,"99944 Carolyn Path Suite 007
+Kathyburgh, MA 98260",Dr. Erin Calhoun,Faucet,FA115,Faucet Deck Mount,2,438.98,877.96
+INV0343,2025-08-01,CUST086,ypeterson@example.net,"99944 Carolyn Path Suite 007
+Kathyburgh, MA 98260",Dr. Erin Calhoun,Sink,SI112,Sink Topmount,3,413.62,1240.86
+INV0344,2025-04-02,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Lisa Wagner,Sink,SI106,Sink Undermount,2,143.8,287.6
+INV0344,2025-04-02,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Lisa Wagner,Mirror,MR116,Mirror Framed,1,269.63,269.63
+INV0345,2025-07-15,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",James Murphy MD,Door,DR116,Door French,4,366.96,1467.84
+INV0346,2025-06-29,CUST020,bowmanamber@example.net,"Unit 1397 Box 0518
+DPO AP 51630",Robert Williams,Door,DR116,Door French,1,157.13,157.13
+INV0347,2025-04-16,CUST021,joseph33@example.net,"153 Barbara Pike Suite 276
+South Brian, OR 21358",Mark Jenkins,Sink,SI108,Sink Topmount,3,234.81,704.43
+INV0347,2025-04-16,CUST021,joseph33@example.net,"153 Barbara Pike Suite 276
+South Brian, OR 21358",Mark Jenkins,Door,DR120,Door Sliding,1,186.02,186.02
+INV0348,2025-09-22,CUST089,lopezsamuel@example.org,"1661 Gavin Knolls
+Brooksborough, RI 75868",Erica Fernandez,Shower,SH112,Shower Handheld,5,346.39,1731.95
+INV0349,2025-07-29,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",John Patterson,Sink,SI117,Sink Undermount,1,196.8,196.8
+INV0349,2025-07-29,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",John Patterson,Mirror,MR110,Mirror Framed,2,130.11,260.22
+INV0350,2025-07-01,CUST032,schwartzruben@example.org,"465 Brian Curve
+Michaelfort, NV 13037",Austin Mendoza,Door,DR119,Door Sliding,2,384.12,768.24
+INV0351,2025-06-11,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Christopher Adkins,Faucet,FA118,Faucet Wall Mount,2,286.26,572.52
+INV0351,2025-06-11,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Christopher Adkins,Door,DR107,Door French,4,309.22,1236.88
+INV0352,2025-08-01,CUST057,kendrajohnson@example.net,"424 Jeffrey Islands Apt. 337
+New Masonton, AS 22101",Wendy Wheeler,Door,DR102,Door French,1,463.48,463.48
+INV0352,2025-08-01,CUST057,kendrajohnson@example.net,"424 Jeffrey Islands Apt. 337
+New Masonton, AS 22101",Wendy Wheeler,Sink,SI104,Sink Topmount,3,115.25,345.75
+INV0352,2025-08-01,CUST057,kendrajohnson@example.net,"424 Jeffrey Islands Apt. 337
+New Masonton, AS 22101",Wendy Wheeler,Door,DR113,Door Standard,5,361.12,1805.6
+INV0353,2025-07-28,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Jeffrey Lane II,Shower,SH114,Shower Rain,2,24.56,49.12
+INV0354,2025-06-26,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Jessica Wheeler,Faucet,FA119,Faucet Wall Mount,4,274.85,1099.4
+INV0354,2025-06-26,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Jessica Wheeler,Sink,SI116,Sink Topmount,2,163.78,327.56
+INV0354,2025-06-26,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Jessica Wheeler,Mirror,MR104,Mirror Frameless,2,425.44,850.88
+INV0354,2025-06-26,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Jessica Wheeler,Faucet,FA106,Faucet Deck Mount,3,235.74,707.22
+INV0355,2025-06-17,CUST036,evannichols@example.org,"84486 Lamb Roads
+South Jeremyfurt, NJ 49497",David Morales,Knob,KN107,Knob Round,1,345.12,345.12
+INV0356,2025-08-18,CUST084,williamschultz@example.com,"1508 Carter Spur Suite 427
+East Edwardberg, AL 00980",Jill Holmes,Door,DR120,Door French,2,156.43,312.86
+INV0357,2025-05-22,CUST025,contrerasmegan@example.net,"03486 Matthews Wells
+West Chelseaberg, PR 61167",Angela Richmond,Faucet,FA118,Faucet Deck Mount,4,441.16,1764.64
+INV0358,2025-07-28,CUST033,alexander18@example.org,"75560 Crystal Ranch Suite 354
+North Fredmouth, AZ 85077",Jeremy Alexander,Sink,SI108,Sink Topmount,4,395.31,1581.24
+INV0359,2025-07-17,CUST079,pfields@example.net,"331 Katie Row Suite 020
+Samanthabury, MO 21221",Patrick Wilson,Faucet,FA118,Faucet Deck Mount,1,454.72,454.72
+INV0360,2025-09-15,CUST087,qwilliams@example.org,"83182 Pamela Shores
+New Markberg, AL 25674",Laura Roberson,Door,DR119,Door Standard,4,82.22,328.88
+INV0361,2025-05-23,CUST093,bryanrose@example.net,"903 Sanchez Stream Apt. 522
+East Charlesshire, CT 41673",Jean English,Mirror,MR107,Mirror Frameless,2,109.21,218.42
+INV0361,2025-05-23,CUST093,bryanrose@example.net,"903 Sanchez Stream Apt. 522
+East Charlesshire, CT 41673",Jean English,Door,DR118,Door Sliding,1,334.2,334.2
+INV0362,2025-04-24,CUST013,amandadonaldson@example.org,"6817 Jack Forest
+Port Tinaland, NJ 71504",Craig Davis,Knob,KN110,Knob Square,4,121.27,485.08
+INV0363,2025-08-19,CUST005,gonzalezchristopher@example.com,"3446 Thomas Drive
+South Francesbury, GA 22887",Kelly Jones,Sink,SI105,Sink Undermount,2,70.07,140.14
+INV0364,2025-07-27,CUST094,williamsonlori@example.net,"76018 Miranda Mountain Suite 491
+Port Juanton, OK 35889",Sandra Williams,Door,DR102,Door Standard,2,438.69,877.38
+INV0365,2025-06-27,CUST089,lopezsamuel@example.org,"1661 Gavin Knolls
+Brooksborough, RI 75868",Mary Stephenson,Sink,SI120,Sink Topmount,4,105.73,422.92
+INV0366,2025-09-07,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Shelia Adams,Knob,KN116,Knob Round,2,391.99,783.98
+INV0366,2025-09-07,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Shelia Adams,Mirror,MR101,Mirror Frameless,3,469.31,1407.93
+INV0367,2025-05-11,CUST089,lopezsamuel@example.org,"1661 Gavin Knolls
+Brooksborough, RI 75868",Michael Beltran,Mirror,MR103,Mirror Frameless,2,91.39,182.78
+INV0368,2025-06-23,CUST002,samantha33@example.net,"Unit 4309 Box 4872
+DPO AE 27018",Brittany Macdonald,Door,DR113,Door French,5,263.74,1318.7
+INV0369,2025-04-04,CUST084,williamschultz@example.com,"1508 Carter Spur Suite 427
+East Edwardberg, AL 00980",Christopher May,Door,DR106,Door Sliding,3,114.58,343.74
+INV0370,2025-05-30,CUST049,jacobharding@example.com,"30255 Sutton Drive
+New Jason, GU 19342",Megan Smith,Sink,SI117,Sink Undermount,1,181.29,181.29
+INV0371,2025-06-21,CUST026,floreshannah@example.net,"75140 Flores Turnpike Apt. 427
+Mirandabury, NH 79603",Scott Weeks,Faucet,FA113,Faucet Wall Mount,3,219.93,659.79
+INV0372,2025-07-29,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Kim Bowers,Mirror,MR115,Mirror Framed,2,489.77,979.54
+INV0372,2025-07-29,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Kim Bowers,Knob,KN110,Knob Round,4,282.68,1130.72
+INV0373,2025-04-10,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Douglas Rodriguez,Mirror,MR105,Mirror Frameless,2,27.28,54.56
+INV0373,2025-04-10,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Douglas Rodriguez,Knob,KN103,Knob Round,1,333.47,333.47
+INV0374,2025-07-09,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Nicole Chapman,Sink,SI104,Sink Undermount,5,157.4,787.0
+INV0375,2025-06-20,CUST079,pfields@example.net,"331 Katie Row Suite 020
+Samanthabury, MO 21221",Mrs. Taylor Williams,Shower,SH110,Shower Rain,3,418.53,1255.59
+INV0376,2025-04-18,CUST019,gentrypaige@example.net,"402 Kathleen Row
+North Nicholashaven, FL 17528",David Benitez,Shower,SH106,Shower Rain,4,319.76,1279.04
+INV0377,2025-04-19,CUST057,kendrajohnson@example.net,"424 Jeffrey Islands Apt. 337
+New Masonton, AS 22101",Ethan Lopez,Sink,SI110,Sink Undermount,3,48.83,146.49
+INV0378,2025-08-20,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Jacob Hicks,Sink,SI102,Sink Undermount,4,124.9,499.6
+INV0379,2025-07-31,CUST075,zdyer@example.org,"83686 Joann Junctions
+Lake Jamieborough, FM 73208",Chloe Charles,Faucet,FA103,Faucet Deck Mount,2,167.0,334.0
+INV0380,2025-04-11,CUST087,qwilliams@example.org,"83182 Pamela Shores
+New Markberg, AL 25674",Mary Callahan,Sink,SI105,Sink Topmount,3,50.05,150.15
+INV0380,2025-04-11,CUST087,qwilliams@example.org,"83182 Pamela Shores
+New Markberg, AL 25674",Mary Callahan,Shower,SH108,Shower Rain,4,295.59,1182.36
+INV0380,2025-04-11,CUST087,qwilliams@example.org,"83182 Pamela Shores
+New Markberg, AL 25674",Mary Callahan,Faucet,FA110,Faucet Deck Mount,4,115.8,463.2
+INV0381,2025-04-17,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Kim Simpson,Shower,SH120,Shower Rain,3,239.85,719.55
+INV0382,2025-09-25,CUST014,glenn78@example.net,"05551 Thomas Turnpike Suite 390
+Port Christy, OK 18881",Marissa Hodges DDS,Mirror,MR118,Mirror Framed,5,30.85,154.25
+INV0383,2025-07-05,CUST096,mcconnellmark@example.org,"6637 Patterson Mall
+South Victoriaport, FM 63934",Steven Ortiz,Faucet,FA115,Faucet Deck Mount,2,205.3,410.6
+INV0383,2025-07-05,CUST096,mcconnellmark@example.org,"6637 Patterson Mall
+South Victoriaport, FM 63934",Steven Ortiz,Door,DR112,Door Standard,3,394.99,1184.97
+INV0383,2025-07-05,CUST096,mcconnellmark@example.org,"6637 Patterson Mall
+South Victoriaport, FM 63934",Steven Ortiz,Shower,SH101,Shower Handheld,1,86.27,86.27
+INV0384,2025-06-09,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Justin Nelson,Shower,SH103,Shower Rain,1,201.25,201.25
+INV0384,2025-06-09,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Justin Nelson,Shower,SH114,Shower Rain,2,23.51,47.02
+INV0385,2025-05-26,CUST057,kendrajohnson@example.net,"424 Jeffrey Islands Apt. 337
+New Masonton, AS 22101",Sarah Vasquez,Shower,SH110,Shower Handheld,3,328.97,986.91
+INV0385,2025-05-26,CUST057,kendrajohnson@example.net,"424 Jeffrey Islands Apt. 337
+New Masonton, AS 22101",Sarah Vasquez,Sink,SI104,Sink Topmount,1,130.97,130.97
+INV0385,2025-05-26,CUST057,kendrajohnson@example.net,"424 Jeffrey Islands Apt. 337
+New Masonton, AS 22101",Sarah Vasquez,Faucet,FA115,Faucet Deck Mount,2,445.89,891.78
+INV0385,2025-05-26,CUST057,kendrajohnson@example.net,"424 Jeffrey Islands Apt. 337
+New Masonton, AS 22101",Sarah Vasquez,Mirror,MR119,Mirror Frameless,5,113.07,565.35
+INV0386,2025-09-11,CUST054,morrismichael@example.org,"338 Erica Stream
+Natashachester, VI 99042",Ronald Phillips,Mirror,MR117,Mirror Framed,2,62.28,124.56
+INV0387,2025-07-11,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Donna Cooper,Knob,KN116,Knob Round,1,415.61,415.61
+INV0387,2025-07-11,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Donna Cooper,Mirror,MR107,Mirror Framed,2,119.78,239.56
+INV0388,2025-05-16,CUST094,williamsonlori@example.net,"76018 Miranda Mountain Suite 491
+Port Juanton, OK 35889",Jillian Long,Shower,SH109,Shower Handheld,5,163.1,815.5
+INV0389,2025-07-29,CUST050,jgray@example.com,"070 Michael Tunnel
+New William, AK 76088",Regina Rodriguez,Knob,KN115,Knob Round,5,302.46,1512.3
+INV0389,2025-07-29,CUST050,jgray@example.com,"070 Michael Tunnel
+New William, AK 76088",Regina Rodriguez,Shower,SH105,Shower Handheld,4,120.57,482.28
+INV0390,2025-05-21,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Derrick Haas,Knob,KN102,Knob Square,5,408.5,2042.5
+INV0391,2025-06-17,CUST093,bryanrose@example.net,"903 Sanchez Stream Apt. 522
+East Charlesshire, CT 41673",Lisa Yu,Mirror,MR113,Mirror Framed,4,19.47,77.88
+INV0392,2025-06-18,CUST059,vanessaconway@example.org,"53486 Weber Overpass Suite 942
+South Melissachester, CO 27670",Cindy Garcia,Knob,KN104,Knob Round,1,120.5,120.5
+INV0393,2025-04-14,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",Erin Gutierrez,Sink,SI120,Sink Topmount,5,75.13,375.65
+INV0393,2025-04-14,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",Erin Gutierrez,Knob,KN120,Knob Square,4,21.25,85.0
+INV0393,2025-04-14,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",Erin Gutierrez,Sink,SI106,Sink Undermount,2,425.78,851.56
+INV0394,2025-07-15,CUST025,contrerasmegan@example.net,"03486 Matthews Wells
+West Chelseaberg, PR 61167",Jay Arellano,Shower,SH113,Shower Handheld,5,136.55,682.75
+INV0395,2025-08-14,CUST078,josemoore@example.com,"982 Ramos Extensions
+West Carolineburgh, CO 91602",Marilyn Clarke,Knob,KN109,Knob Round,3,109.98,329.94
+INV0396,2025-04-02,CUST059,vanessaconway@example.org,"53486 Weber Overpass Suite 942
+South Melissachester, CO 27670",Jasmine Thomas,Mirror,MR116,Mirror Framed,1,424.18,424.18
+INV0396,2025-04-02,CUST059,vanessaconway@example.org,"53486 Weber Overpass Suite 942
+South Melissachester, CO 27670",Jasmine Thomas,Faucet,FA110,Faucet Deck Mount,2,125.84,251.68
+INV0396,2025-04-02,CUST059,vanessaconway@example.org,"53486 Weber Overpass Suite 942
+South Melissachester, CO 27670",Jasmine Thomas,Shower,SH114,Shower Handheld,5,489.61,2448.05
+INV0397,2025-07-30,CUST039,william55@example.net,"768 Guzman Rapid
+New Charleston, PR 73259",Timothy Barry,Sink,SI108,Sink Undermount,5,417.56,2087.8
+INV0398,2025-06-24,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Courtney Richardson,Sink,SI109,Sink Undermount,4,405.83,1623.32
+INV0398,2025-06-24,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Courtney Richardson,Knob,KN119,Knob Round,3,327.37,982.11
+INV0399,2025-04-28,CUST025,contrerasmegan@example.net,"03486 Matthews Wells
+West Chelseaberg, PR 61167",Daniel Howard,Sink,SI110,Sink Topmount,4,407.76,1631.04
+INV0400,2025-06-09,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Eric Fisher,Knob,KN102,Knob Round,3,228.13,684.39
+INV0401,2025-07-31,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Michelle Perez,Sink,SI107,Sink Topmount,5,284.29,1421.45
+INV0402,2025-07-02,CUST006,xgonzalez@example.net,"4671 Sutton Trail
+Port Lisahaven, UT 14173",Paige Miller,Door,DR119,Door Standard,5,117.81,589.05
+INV0402,2025-07-02,CUST006,xgonzalez@example.net,"4671 Sutton Trail
+Port Lisahaven, UT 14173",Paige Miller,Shower,SH104,Shower Rain,5,115.52,577.6
+INV0402,2025-07-02,CUST006,xgonzalez@example.net,"4671 Sutton Trail
+Port Lisahaven, UT 14173",Paige Miller,Faucet,FA103,Faucet Wall Mount,2,127.28,254.56
+INV0403,2025-07-28,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Jeremy Montgomery,Door,DR102,Door French,5,121.61,608.05
+INV0403,2025-07-28,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Jeremy Montgomery,Door,DR109,Door French,5,183.72,918.6
+INV0404,2025-09-04,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",John Dyer,Door,DR103,Door French,2,287.22,574.44
+INV0404,2025-09-04,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",John Dyer,Faucet,FA111,Faucet Wall Mount,2,218.08,436.16
+INV0405,2025-09-01,CUST045,zmoore@example.net,"491 Wall Plains
+Port Brandonberg, IA 59420",Willie Bell,Sink,SI110,Sink Undermount,2,251.86,503.72
+INV0405,2025-09-01,CUST045,zmoore@example.net,"491 Wall Plains
+Port Brandonberg, IA 59420",Willie Bell,Mirror,MR120,Mirror Framed,3,419.73,1259.19
+INV0405,2025-09-01,CUST045,zmoore@example.net,"491 Wall Plains
+Port Brandonberg, IA 59420",Willie Bell,Shower,SH105,Shower Rain,5,290.66,1453.3
+INV0406,2025-09-22,CUST041,christopher69@example.net,"71302 Anthony Lakes Apt. 901
+Lake Jessicaside, AL 77683",Julie Bender,Knob,KN116,Knob Square,3,313.69,941.07
+INV0407,2025-05-31,CUST062,martha49@example.org,"74092 Bennett Shores Suite 718
+Millerchester, MP 76569",Joseph Barnett,Mirror,MR104,Mirror Framed,3,350.48,1051.44
+INV0408,2025-04-26,CUST075,zdyer@example.org,"83686 Joann Junctions
+Lake Jamieborough, FM 73208",Howard Mullen,Shower,SH111,Shower Handheld,3,382.84,1148.52
+INV0408,2025-04-26,CUST075,zdyer@example.org,"83686 Joann Junctions
+Lake Jamieborough, FM 73208",Howard Mullen,Sink,SI105,Sink Undermount,5,175.67,878.35
+INV0408,2025-04-26,CUST075,zdyer@example.org,"83686 Joann Junctions
+Lake Jamieborough, FM 73208",Howard Mullen,Door,DR116,Door Standard,4,421.45,1685.8
+INV0408,2025-04-26,CUST075,zdyer@example.org,"83686 Joann Junctions
+Lake Jamieborough, FM 73208",Howard Mullen,Shower,SH102,Shower Handheld,5,371.92,1859.6
+INV0409,2025-06-09,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Jacob Wilson,Knob,KN111,Knob Square,4,289.92,1159.68
+INV0410,2025-06-02,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Anthony Hernandez,Door,DR107,Door French,4,413.05,1652.2
+INV0411,2025-04-14,CUST058,pprice@example.net,"9815 Kellie Crossroad Suite 778
+Joannaview, MP 08943",Daniel King,Shower,SH103,Shower Rain,3,453.18,1359.54
+INV0412,2025-04-15,CUST096,mcconnellmark@example.org,"6637 Patterson Mall
+South Victoriaport, FM 63934",Alyssa Mendoza,Sink,SI108,Sink Undermount,3,224.95,674.85
+INV0413,2025-08-15,CUST075,zdyer@example.org,"83686 Joann Junctions
+Lake Jamieborough, FM 73208",Evan Bray,Mirror,MR101,Mirror Framed,1,135.35,135.35
+INV0414,2025-09-22,CUST065,michael39@example.net,"1400 Schmidt Mission
+Moranmouth, VT 73555",Amanda Hayes,Sink,SI107,Sink Undermount,3,403.76,1211.28
+INV0414,2025-09-22,CUST065,michael39@example.net,"1400 Schmidt Mission
+Moranmouth, VT 73555",Amanda Hayes,Knob,KN116,Knob Square,5,400.96,2004.8
+INV0415,2025-04-20,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Theresa Meyer,Faucet,FA108,Faucet Deck Mount,3,106.39,319.17
+INV0415,2025-04-20,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Theresa Meyer,Sink,SI101,Sink Undermount,4,174.89,699.56
+INV0415,2025-04-20,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Theresa Meyer,Door,DR119,Door Standard,4,412.06,1648.24
+INV0416,2025-07-08,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Calvin Salinas,Shower,SH104,Shower Rain,5,27.61,138.05
+INV0416,2025-07-08,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Calvin Salinas,Faucet,FA116,Faucet Wall Mount,4,193.09,772.36
+INV0417,2025-06-11,CUST070,erin80@example.net,"96649 Le Plaza Suite 991
+Amyton, WA 60730",Marvin Jordan,Door,DR106,Door Sliding,3,347.1,1041.3
+INV0418,2025-08-06,CUST046,robertevans@example.org,"53835 Ford Shoals Suite 738
+South Frederickville, AS 91779",Mary Valencia,Faucet,FA118,Faucet Deck Mount,2,317.51,635.02
+INV0418,2025-08-06,CUST046,robertevans@example.org,"53835 Ford Shoals Suite 738
+South Frederickville, AS 91779",Mary Valencia,Sink,SI114,Sink Undermount,3,476.25,1428.75
+INV0419,2025-08-08,CUST066,briangordon@example.org,"634 Welch Crescent
+New Elizabeth, PW 11791",Nathan Woodward,Sink,SI119,Sink Topmount,5,424.18,2120.9
+INV0420,2025-08-19,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Alyssa Mullins,Sink,SI119,Sink Topmount,1,223.1,223.1
+INV0421,2025-06-28,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Sarah Vega,Mirror,MR110,Mirror Framed,4,208.25,833.0
+INV0421,2025-06-28,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Sarah Vega,Sink,SI108,Sink Undermount,4,479.41,1917.64
+INV0421,2025-06-28,CUST056,robert52@example.net,"7395 Rivas Rapids Apt. 074
+Tamaraview, MP 43402",Sarah Vega,Faucet,FA104,Faucet Deck Mount,3,200.57,601.71
+INV0422,2025-08-08,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Brian Adams,Knob,KN108,Knob Round,4,378.15,1512.6
+INV0422,2025-08-08,CUST003,ywarner@example.com,"177 Meyer Fords
+Lopeztown, NY 99855",Brian Adams,Shower,SH118,Shower Handheld,3,181.54,544.62
+INV0423,2025-05-30,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Jennifer Wolfe,Mirror,MR115,Mirror Framed,1,112.99,112.99
+INV0423,2025-05-30,CUST053,jimmy06@example.net,"USNS Young
+FPO AP 68288",Jennifer Wolfe,Sink,SI110,Sink Undermount,4,240.06,960.24
+INV0424,2025-05-18,CUST063,rodriguezdakota@example.net,"98528 Murillo Camp
+New Kristenberg, NV 57495",Kristina Larson,Sink,SI112,Sink Undermount,3,265.72,797.16
+INV0425,2025-07-12,CUST034,marclopez@example.net,"Unit 4650 Box 3945
+DPO AA 40419",Caroline Dorsey,Shower,SH104,Shower Rain,3,243.77,731.31
+INV0426,2025-05-22,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Debra Richardson,Shower,SH115,Shower Handheld,3,109.66,328.98
+INV0426,2025-05-22,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Debra Richardson,Shower,SH104,Shower Handheld,3,479.74,1439.22
+INV0426,2025-05-22,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Debra Richardson,Knob,KN105,Knob Square,4,415.2,1660.8
+INV0426,2025-05-22,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Debra Richardson,Door,DR114,Door French,1,99.23,99.23
+INV0427,2025-07-11,CUST019,gentrypaige@example.net,"402 Kathleen Row
+North Nicholashaven, FL 17528",Mary Hudson,Faucet,FA108,Faucet Deck Mount,3,371.89,1115.67
+INV0428,2025-04-08,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Ryan Johnson,Knob,KN120,Knob Round,2,450.79,901.58
+INV0429,2025-08-03,CUST041,christopher69@example.net,"71302 Anthony Lakes Apt. 901
+Lake Jessicaside, AL 77683",Jeffrey Davies,Knob,KN113,Knob Round,5,58.75,293.75
+INV0430,2025-08-30,CUST017,herrerastefanie@example.com,"2587 Hampton Fords Suite 289
+Danielport, OK 83321",Jessica Rice,Faucet,FA102,Faucet Deck Mount,2,245.08,490.16
+INV0431,2025-06-13,CUST075,zdyer@example.org,"83686 Joann Junctions
+Lake Jamieborough, FM 73208",James Stone,Shower,SH117,Shower Handheld,2,216.44,432.88
+INV0432,2025-05-27,CUST009,ginaadams@example.org,"45866 Allen Knoll Apt. 481
+New Deniseside, CO 47816",Jennifer Brandt,Door,DR107,Door French,5,265.81,1329.05
+INV0433,2025-08-19,CUST077,lmcdowell@example.net,"897 Tanya Drive
+North Vickiemouth, OH 32614",Zachary Johnson,Sink,SI105,Sink Topmount,3,386.37,1159.11
+INV0433,2025-08-19,CUST077,lmcdowell@example.net,"897 Tanya Drive
+North Vickiemouth, OH 32614",Zachary Johnson,Door,DR106,Door French,1,78.93,78.93
+INV0433,2025-08-19,CUST077,lmcdowell@example.net,"897 Tanya Drive
+North Vickiemouth, OH 32614",Zachary Johnson,Knob,KN102,Knob Round,4,38.78,155.12
+INV0434,2025-06-22,CUST063,rodriguezdakota@example.net,"98528 Murillo Camp
+New Kristenberg, NV 57495",Christine Hale,Faucet,FA120,Faucet Deck Mount,4,357.85,1431.4
+INV0435,2025-07-09,CUST086,ypeterson@example.net,"99944 Carolyn Path Suite 007
+Kathyburgh, MA 98260",Kevin Davis,Knob,KN114,Knob Round,5,358.33,1791.65
+INV0436,2025-09-24,CUST042,thomasbrittney@example.org,"923 Hopkins Islands
+East Caitlyn, MO 55785",Stephanie Vasquez,Door,DR103,Door French,1,113.49,113.49
+INV0437,2025-09-25,CUST068,burnssheryl@example.net,"7815 Beasley Wall Apt. 687
+Lake Dorothy, IL 35559",Shawn Ramos,Sink,SI103,Sink Topmount,1,142.49,142.49
+INV0438,2025-06-26,CUST081,ashley02@example.net,"29419 Tommy Row
+Mendezland, IN 27676",Stephen Smith,Sink,SI103,Sink Undermount,1,354.93,354.93
+INV0439,2025-04-14,CUST031,taylorbell@example.com,"487 Tina Key Apt. 745
+South Jaredside, KS 17961",Alexis Schultz,Knob,KN105,Knob Square,4,496.6,1986.4
+INV0440,2025-09-13,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",Michelle Aguilar,Mirror,MR115,Mirror Frameless,3,296.24,888.72
+INV0441,2025-06-26,CUST099,hayley56@example.org,"167 Smith Light Suite 968
+Lake Megan, UT 19662",Jaime Cook,Mirror,MR104,Mirror Framed,4,266.65,1066.6
+INV0441,2025-06-26,CUST099,hayley56@example.org,"167 Smith Light Suite 968
+Lake Megan, UT 19662",Jaime Cook,Shower,SH112,Shower Handheld,3,321.11,963.33
+INV0442,2025-05-30,CUST052,spencecameron@example.net,"459 Martinez Ramp
+Patelview, GA 13866",Kevin Campos,Mirror,MR120,Mirror Framed,4,230.44,921.76
+INV0443,2025-05-03,CUST096,mcconnellmark@example.org,"6637 Patterson Mall
+South Victoriaport, FM 63934",Kristie Davidson,Mirror,MR107,Mirror Frameless,3,260.27,780.81
+INV0443,2025-05-03,CUST096,mcconnellmark@example.org,"6637 Patterson Mall
+South Victoriaport, FM 63934",Kristie Davidson,Faucet,FA105,Faucet Deck Mount,5,38.09,190.45
+INV0444,2025-06-03,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Madison Hensley,Faucet,FA105,Faucet Wall Mount,1,79.04,79.04
+INV0445,2025-06-16,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Emily Lopez,Faucet,FA106,Faucet Deck Mount,5,357.87,1789.35
+INV0446,2025-05-06,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Kyle Burton,Sink,SI120,Sink Topmount,1,104.74,104.74
+INV0446,2025-05-06,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Kyle Burton,Faucet,FA115,Faucet Deck Mount,5,244.57,1222.85
+INV0446,2025-05-06,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Kyle Burton,Mirror,MR101,Mirror Frameless,1,23.01,23.01
+INV0447,2025-04-23,CUST020,bowmanamber@example.net,"Unit 1397 Box 0518
+DPO AP 51630",Robert Sanchez,Door,DR116,Door Sliding,4,429.16,1716.64
+INV0448,2025-04-07,CUST001,kimbowen@example.com,"Unit 5315 Box 8497
+DPO AA 47521",William Porter,Sink,SI105,Sink Undermount,3,159.07,477.21
+INV0449,2025-06-20,CUST027,stephanie56@example.com,"846 Myers Square
+Kimberlychester, SC 98977",Jasmine Marshall,Door,DR104,Door Standard,3,120.38,361.14
+INV0450,2025-08-09,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Lindsey Holloway,Faucet,FA117,Faucet Wall Mount,2,273.68,547.36
+INV0450,2025-08-09,CUST038,nicoleoconnor@example.org,"0688 Robinson Trail Suite 854
+Hernandezview, MP 30569",Lindsey Holloway,Knob,KN117,Knob Square,3,55.46,166.38
+INV0451,2025-05-20,CUST094,williamsonlori@example.net,"76018 Miranda Mountain Suite 491
+Port Juanton, OK 35889",Kathryn Phillips,Sink,SI118,Sink Undermount,5,351.43,1757.15
+INV0452,2025-05-13,CUST004,singhryan@example.net,"86285 Vargas Prairie Suite 516
+Christopherville, KY 97266",Eileen Henry,Knob,KN105,Knob Round,4,99.76,399.04
+INV0453,2025-04-06,CUST037,uclark@example.org,"68254 Carol Drives Apt. 943
+West Stacie, CO 86028",Jon Hernandez,Shower,SH102,Shower Rain,5,306.75,1533.75
+INV0453,2025-04-06,CUST037,uclark@example.org,"68254 Carol Drives Apt. 943
+West Stacie, CO 86028",Jon Hernandez,Knob,KN104,Knob Square,3,248.29,744.87
+INV0454,2025-06-01,CUST063,rodriguezdakota@example.net,"98528 Murillo Camp
+New Kristenberg, NV 57495",Barbara Lawrence,Door,DR116,Door French,5,366.29,1831.45
+INV0454,2025-06-01,CUST063,rodriguezdakota@example.net,"98528 Murillo Camp
+New Kristenberg, NV 57495",Barbara Lawrence,Sink,SI112,Sink Undermount,4,462.27,1849.08
+INV0455,2025-05-27,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Carolyn Jimenez,Shower,SH119,Shower Handheld,5,445.52,2227.6
+INV0455,2025-05-27,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Carolyn Jimenez,Knob,KN101,Knob Round,2,377.99,755.98
+INV0456,2025-04-16,CUST058,pprice@example.net,"9815 Kellie Crossroad Suite 778
+Joannaview, MP 08943",Laura Ramirez,Shower,SH109,Shower Rain,1,409.94,409.94
+INV0456,2025-04-16,CUST058,pprice@example.net,"9815 Kellie Crossroad Suite 778
+Joannaview, MP 08943",Laura Ramirez,Shower,SH116,Shower Handheld,2,284.29,568.58
+INV0457,2025-09-29,CUST087,qwilliams@example.org,"83182 Pamela Shores
+New Markberg, AL 25674",Frank Johnson,Shower,SH119,Shower Handheld,1,237.22,237.22
+INV0457,2025-09-29,CUST087,qwilliams@example.org,"83182 Pamela Shores
+New Markberg, AL 25674",Frank Johnson,Mirror,MR116,Mirror Frameless,3,161.47,484.41
+INV0457,2025-09-29,CUST087,qwilliams@example.org,"83182 Pamela Shores
+New Markberg, AL 25674",Frank Johnson,Faucet,FA101,Faucet Deck Mount,5,193.06,965.3
+INV0458,2025-08-16,CUST087,qwilliams@example.org,"83182 Pamela Shores
+New Markberg, AL 25674",Austin Pham,Shower,SH109,Shower Handheld,5,61.58,307.9
+INV0459,2025-06-20,CUST066,briangordon@example.org,"634 Welch Crescent
+New Elizabeth, PW 11791",Justin Roberts,Door,DR113,Door Sliding,2,59.35,118.7
+INV0460,2025-05-10,CUST034,marclopez@example.net,"Unit 4650 Box 3945
+DPO AA 40419",Stephanie Williams,Door,DR106,Door French,1,350.26,350.26
+INV0460,2025-05-10,CUST034,marclopez@example.net,"Unit 4650 Box 3945
+DPO AA 40419",Stephanie Williams,Mirror,MR102,Mirror Frameless,1,48.7,48.7
+INV0461,2025-09-09,CUST097,robbinsdonald@example.org,"5282 Martinez Garden
+Chelsealand, AR 98490",Eric Kramer,Door,DR105,Door Standard,5,248.88,1244.4
+INV0461,2025-09-09,CUST097,robbinsdonald@example.org,"5282 Martinez Garden
+Chelsealand, AR 98490",Eric Kramer,Sink,SI113,Sink Topmount,4,248.72,994.88
+INV0462,2025-09-10,CUST046,robertevans@example.org,"53835 Ford Shoals Suite 738
+South Frederickville, AS 91779",Sarah Potter,Faucet,FA115,Faucet Deck Mount,2,121.01,242.02
+INV0463,2025-09-15,CUST077,lmcdowell@example.net,"897 Tanya Drive
+North Vickiemouth, OH 32614",Brittany Hart,Sink,SI101,Sink Undermount,5,223.01,1115.05
+INV0464,2025-06-14,CUST021,joseph33@example.net,"153 Barbara Pike Suite 276
+South Brian, OR 21358",Christopher Walker,Knob,KN120,Knob Square,4,463.34,1853.36
+INV0464,2025-06-14,CUST021,joseph33@example.net,"153 Barbara Pike Suite 276
+South Brian, OR 21358",Christopher Walker,Mirror,MR111,Mirror Framed,4,455.13,1820.52
+INV0465,2025-05-25,CUST095,nthompson@example.net,"79995 Sheila Prairie
+Wesleyview, MP 68389",Trevor Hicks,Sink,SI110,Sink Topmount,1,69.42,69.42
+INV0466,2025-07-10,CUST047,shannonthomas@example.com,"136 Allison Junctions Apt. 953
+East Jennifermouth, NY 39885",Martha Wise,Knob,KN115,Knob Round,3,131.05,393.15
+INV0467,2025-09-30,CUST094,williamsonlori@example.net,"76018 Miranda Mountain Suite 491
+Port Juanton, OK 35889",Patrick Jones,Mirror,MR104,Mirror Frameless,2,20.09,40.18
+INV0468,2025-04-26,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Dwayne Parsons,Sink,SI111,Sink Topmount,2,14.25,28.5
+INV0468,2025-04-26,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Dwayne Parsons,Shower,SH118,Shower Handheld,4,202.88,811.52
+INV0468,2025-04-26,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Dwayne Parsons,Shower,SH105,Shower Rain,5,239.92,1199.6
+INV0469,2025-05-28,CUST100,jillian89@example.com,"452 Townsend Well Suite 191
+Petersshire, IA 99927",Jason Morales,Sink,SI102,Sink Undermount,4,427.84,1711.36
+INV0469,2025-05-28,CUST100,jillian89@example.com,"452 Townsend Well Suite 191
+Petersshire, IA 99927",Jason Morales,Faucet,FA106,Faucet Deck Mount,2,268.9,537.8
+INV0470,2025-08-27,CUST018,haroldgriffin@example.net,"2606 Perez Pass Apt. 028
+Cookton, PW 39426",Joanne Barnes,Faucet,FA104,Faucet Deck Mount,1,298.05,298.05
+INV0471,2025-09-15,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Mr. Charles Burch,Sink,SI118,Sink Topmount,4,180.5,722.0
+INV0471,2025-09-15,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Mr. Charles Burch,Door,DR109,Door Sliding,3,45.63,136.89
+INV0471,2025-09-15,CUST010,everettcarolyn@example.org,"641 Hill Square Apt. 172
+Debraland, FL 83674",Mr. Charles Burch,Shower,SH118,Shower Rain,5,100.85,504.25
+INV0472,2025-09-13,CUST013,amandadonaldson@example.org,"6817 Jack Forest
+Port Tinaland, NJ 71504",Jillian Macias,Mirror,MR108,Mirror Framed,5,60.08,300.4
+INV0472,2025-09-13,CUST013,amandadonaldson@example.org,"6817 Jack Forest
+Port Tinaland, NJ 71504",Jillian Macias,Door,DR117,Door French,5,280.08,1400.4
+INV0472,2025-09-13,CUST013,amandadonaldson@example.org,"6817 Jack Forest
+Port Tinaland, NJ 71504",Jillian Macias,Shower,SH107,Shower Handheld,3,166.24,498.72
+INV0473,2025-06-10,CUST086,ypeterson@example.net,"99944 Carolyn Path Suite 007
+Kathyburgh, MA 98260",Alexandria Mcgee,Knob,KN118,Knob Round,3,60.28,180.84
+INV0473,2025-06-10,CUST086,ypeterson@example.net,"99944 Carolyn Path Suite 007
+Kathyburgh, MA 98260",Alexandria Mcgee,Mirror,MR110,Mirror Framed,5,162.56,812.8
+INV0473,2025-06-10,CUST086,ypeterson@example.net,"99944 Carolyn Path Suite 007
+Kathyburgh, MA 98260",Alexandria Mcgee,Faucet,FA111,Faucet Wall Mount,4,54.98,219.92
+INV0473,2025-06-10,CUST086,ypeterson@example.net,"99944 Carolyn Path Suite 007
+Kathyburgh, MA 98260",Alexandria Mcgee,Faucet,FA116,Faucet Deck Mount,3,483.16,1449.48
+INV0474,2025-05-12,CUST099,hayley56@example.org,"167 Smith Light Suite 968
+Lake Megan, UT 19662",Dakota Sanchez,Faucet,FA109,Faucet Deck Mount,4,207.23,828.92
+INV0475,2025-06-07,CUST061,brian40@example.com,"5912 Beck Viaduct
+Sanchezport, OR 95613",Lisa Bailey,Shower,SH108,Shower Rain,1,478.32,478.32
+INV0476,2025-05-13,CUST068,burnssheryl@example.net,"7815 Beasley Wall Apt. 687
+Lake Dorothy, IL 35559",Linda Johnston,Sink,SI108,Sink Topmount,3,60.35,181.05
+INV0476,2025-05-13,CUST068,burnssheryl@example.net,"7815 Beasley Wall Apt. 687
+Lake Dorothy, IL 35559",Linda Johnston,Faucet,FA106,Faucet Wall Mount,4,167.02,668.08
+INV0477,2025-08-26,CUST079,pfields@example.net,"331 Katie Row Suite 020
+Samanthabury, MO 21221",Nicholas Phillips,Sink,SI113,Sink Topmount,3,485.83,1457.49
+INV0478,2025-07-12,CUST052,spencecameron@example.net,"459 Martinez Ramp
+Patelview, GA 13866",Garrett Howard,Door,DR113,Door Sliding,3,304.2,912.6
+INV0478,2025-07-12,CUST052,spencecameron@example.net,"459 Martinez Ramp
+Patelview, GA 13866",Garrett Howard,Mirror,MR116,Mirror Framed,4,308.85,1235.4
+INV0479,2025-09-22,CUST092,nlam@example.com,"30723 Martinez Cliff Suite 722
+West Brendaborough, RI 03205",Colton Payne,Mirror,MR114,Mirror Framed,5,188.59,942.95
+INV0480,2025-05-10,CUST076,ucarter@example.com,"633 Jeffery Rue
+Patrickside, DC 82125",Leslie Zimmerman,Door,DR112,Door Sliding,3,11.28,33.84
+INV0481,2025-06-26,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",William Herrera,Shower,SH112,Shower Handheld,1,430.04,430.04
+INV0482,2025-04-26,CUST021,joseph33@example.net,"153 Barbara Pike Suite 276
+South Brian, OR 21358",John Mann,Knob,KN105,Knob Round,3,488.25,1464.75
+INV0482,2025-04-26,CUST021,joseph33@example.net,"153 Barbara Pike Suite 276
+South Brian, OR 21358",John Mann,Door,DR101,Door Standard,4,12.78,51.12
+INV0482,2025-04-26,CUST021,joseph33@example.net,"153 Barbara Pike Suite 276
+South Brian, OR 21358",John Mann,Sink,SI103,Sink Undermount,4,74.5,298.0
+INV0483,2025-06-26,CUST090,julie70@example.org,"5572 Morgan Well
+Carlosland, PW 87934",Christopher Brown,Shower,SH104,Shower Rain,5,59.25,296.25
+INV0483,2025-06-26,CUST090,julie70@example.org,"5572 Morgan Well
+Carlosland, PW 87934",Christopher Brown,Shower,SH110,Shower Rain,3,70.54,211.62
+INV0483,2025-06-26,CUST090,julie70@example.org,"5572 Morgan Well
+Carlosland, PW 87934",Christopher Brown,Shower,SH108,Shower Rain,1,99.07,99.07
+INV0484,2025-04-28,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Mary Mitchell,Knob,KN109,Knob Round,5,483.4,2417.0
+INV0485,2025-09-17,CUST088,candace28@example.org,"9632 Sarah Streets Apt. 986
+Port Latoya, MI 23905",Beth Avila,Mirror,MR105,Mirror Framed,3,408.83,1226.49
+INV0486,2025-05-09,CUST051,tammy57@example.net,"Unit 7848 Box 2216
+DPO AA 37263",Bryce Randolph,Knob,KN112,Knob Square,1,372.72,372.72
+INV0487,2025-08-01,CUST055,earl89@example.net,"442 Mccormick Track
+Port Christineview, NY 25804",Tina Garcia,Faucet,FA102,Faucet Wall Mount,5,427.32,2136.6
+INV0488,2025-08-10,CUST065,michael39@example.net,"1400 Schmidt Mission
+Moranmouth, VT 73555",Jessica Russell,Sink,SI112,Sink Undermount,2,230.29,460.58
+INV0489,2025-07-18,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Robyn Melendez,Mirror,MR108,Mirror Frameless,2,372.87,745.74
+INV0489,2025-07-18,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Robyn Melendez,Sink,SI101,Sink Undermount,4,78.06,312.24
+INV0490,2025-06-14,CUST048,hannahhernandez@example.org,"6596 Webb Creek
+Lunachester, MH 22373",Glen Moss,Mirror,MR101,Mirror Frameless,1,346.59,346.59
+INV0491,2025-05-21,CUST093,bryanrose@example.net,"903 Sanchez Stream Apt. 522
+East Charlesshire, CT 41673",Duane Hernandez,Sink,SI117,Sink Undermount,4,68.82,275.28
+INV0492,2025-07-27,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Joseph Henry,Door,DR112,Door Sliding,1,201.71,201.71
+INV0493,2025-07-12,CUST012,diane01@example.org,"016 Alex Lake Suite 565
+Carrieview, WV 73533",Jeremy Miller,Sink,SI112,Sink Undermount,1,473.67,473.67
+INV0493,2025-07-12,CUST012,diane01@example.org,"016 Alex Lake Suite 565
+Carrieview, WV 73533",Jeremy Miller,Sink,SI115,Sink Topmount,4,331.41,1325.64
+INV0493,2025-07-12,CUST012,diane01@example.org,"016 Alex Lake Suite 565
+Carrieview, WV 73533",Jeremy Miller,Door,DR120,Door Sliding,4,424.2,1696.8
+INV0493,2025-07-12,CUST012,diane01@example.org,"016 Alex Lake Suite 565
+Carrieview, WV 73533",Jeremy Miller,Shower,SH120,Shower Handheld,4,24.67,98.68
+INV0494,2025-06-02,CUST076,ucarter@example.com,"633 Jeffery Rue
+Patrickside, DC 82125",Danielle Golden,Sink,SI106,Sink Undermount,5,20.15,100.75
+INV0494,2025-06-02,CUST076,ucarter@example.com,"633 Jeffery Rue
+Patrickside, DC 82125",Danielle Golden,Mirror,MR118,Mirror Frameless,4,385.99,1543.96
+INV0495,2025-06-06,CUST093,bryanrose@example.net,"903 Sanchez Stream Apt. 522
+East Charlesshire, CT 41673",James Henderson,Mirror,MR111,Mirror Frameless,5,278.1,1390.5
+INV0496,2025-04-07,CUST058,pprice@example.net,"9815 Kellie Crossroad Suite 778
+Joannaview, MP 08943",Ashley Smith,Knob,KN109,Knob Round,1,420.52,420.52
+INV0497,2025-08-18,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Sabrina Vega,Shower,SH118,Shower Handheld,1,125.96,125.96
+INV0497,2025-08-18,CUST044,rodriguezcarol@example.net,"28612 Murray Mission Suite 997
+New Madison, CO 77657",Sabrina Vega,Shower,SH106,Shower Rain,3,180.5,541.5
+INV0498,2025-06-03,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Jenna Thomas,Door,DR110,Door Standard,4,295.37,1181.48
+INV0498,2025-06-03,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Jenna Thomas,Sink,SI108,Sink Topmount,1,482.39,482.39
+INV0498,2025-06-03,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Jenna Thomas,Door,DR109,Door French,4,498.26,1993.04
+INV0498,2025-06-03,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Jenna Thomas,Faucet,FA110,Faucet Deck Mount,4,456.08,1824.32
+INV0499,2025-07-11,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Karen Larsen,Sink,SI117,Sink Undermount,3,186.56,559.68
+INV0499,2025-07-11,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Karen Larsen,Shower,SH114,Shower Handheld,5,208.84,1044.2
+INV0499,2025-07-11,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Karen Larsen,Shower,SH105,Shower Handheld,2,389.41,778.82
+INV0499,2025-07-11,CUST022,dboyle@example.org,"51091 Nicole Harbors Suite 760
+Michaelport, NJ 52056",Karen Larsen,Shower,SH102,Shower Rain,3,246.58,739.74
+INV0500,2025-06-25,CUST083,davidbrady@example.net,"99789 Anderson Ville Suite 819
+Stanleystad, AK 16723",Samantha Tran,Sink,SI118,Sink Undermount,4,363.41,1453.64
+INV_RPT_1093,2025-05-17,CUST095,nthompson@example.net,"79995 Sheila Prairie
+Wesleyview, MP 68389",Gwendolyn Bell,Mirror,MR103,Mirror Frameless,4,319.71,1278.84
+INV_RPT_2408,2025-05-21,CUST098,brownrebecca@example.com,"USS Chen
+FPO AA 09555",Andrew Jones,Faucet,FA109,Faucet Deck Mount,1,119.47,119.47
+INV_RPT_6782,2025-08-26,CUST029,coffeymichelle@example.net,"47422 Dunlap Neck
+New Mariaside, MA 96988",Thomas Richmond,Mirror,MR109,Mirror Frameless,5,96.81,484.05
+INV_RPT_5702,2025-08-10,CUST040,ashley57@example.com,"33258 Silva Stream Suite 531
+Fosterborough, ME 23511",Chad Lawson,Sink,SI101,Sink Undermount,4,354.76,1419.04
+INV_RPT_4103,2025-09-03,CUST043,garnermichael@example.net,"4680 Clifford Springs Apt. 259
+Debramouth, KS 70321",Alyssa Mullins,Sink,SI119,Sink Topmount,1,223.1,223.1
+INV_RPT_6757,2025-08-02,CUST052,spencecameron@example.net,"459 Martinez Ramp
+Patelview, GA 13866",Garrett Howard,Door,DR113,Door Sliding,3,304.2,912.6
+INV_RPT_9852,2025-05-04,CUST020,bowmanamber@example.net,"Unit 1397 Box 0518
+DPO AP 51630",Robert Sanchez,Door,DR116,Door Sliding,4,429.16,1716.64
+INV_RPT_8214,2025-07-25,CUST084,williamschultz@example.com,"1508 Carter Spur Suite 427
+East Edwardberg, AL 00980",Anna Wolf,Door,DR119,Door Standard,4,279.82,1119.28
+INV_RPT_5517,2025-05-04,CUST008,ryanmendez@example.com,"4493 Michael Plains
+Paulchester, ND 00712",Ryan Johnson,Knob,KN120,Knob Round,2,450.79,901.58
+INV_RPT_6944,2025-05-02,CUST015,hughesrenee@example.net,"36948 Clark Highway
+Stevensonchester, NE 06885",Erin Gutierrez,Sink,SI120,Sink Topmount,5,75.13,375.65
+INV_RPT_7460,2025-07-25,CUST064,diana20@example.com,"9524 Brooks Run Apt. 033
+North Connor, VT 15371",Michael Howard,Shower,SH120,Shower Rain,2,50.8,101.6
+INV_RPT_9422,2025-07-31,CUST050,jgray@example.com,"070 Michael Tunnel
+New William, AK 76088",Regina Rodriguez,Shower,SH105,Shower Handheld,4,120.57,482.28
+INV_RPT_4255,2025-09-21,CUST080,katrina41@example.net,"551 Anna Island
+Yvetteview, MH 31371",Kathryn Franklin,Mirror,MR115,Mirror Framed,5,327.35,1636.75
+INV_RPT_2935,2025-08-23,CUST061,brian40@example.com,"5912 Beck Viaduct
+Sanchezport, OR 95613",Michelle Tran,Shower,SH104,Shower Rain,3,291.16,873.48
+INV_RPT_3957,2025-06-22,CUST016,crystalwu@example.org,"9192 Jordan Greens
+Jeremyton, MA 77066",William Vargas,Door,DR105,Door Standard,4,106.84,427.36
+INV_RPT_1943,2025-06-03,CUST054,morrismichael@example.org,"338 Erica Stream
+Natashachester, VI 99042",Doris Lewis,Sink,SI105,Sink Topmount,1,373.92,373.92
+INV_RPT_8890,2025-05-27,CUST051,tammy57@example.net,"Unit 7848 Box 2216
+DPO AA 37263",Bryce Randolph,Knob,KN112,Knob Square,1,372.72,372.72
+INV_RPT_7484,2025-05-05,CUST078,josemoore@example.com,"982 Ramos Extensions
+West Carolineburgh, CO 91602",Sharon Macdonald,Mirror,MR119,Mirror Framed,5,333.11,1665.55
+INV_RPT_6168,2025-07-20,CUST041,christopher69@example.net,"71302 Anthony Lakes Apt. 901
+Lake Jessicaside, AL 77683",Katherine Young,Mirror,MR112,Mirror Framed,1,392.56,392.56
+INV_RPT_5343,2025-08-14,CUST073,johnwhitaker@example.net,"42495 Megan Bridge
+North Troyborough, AR 27750",Bethany Ramsey,Door,DR117,Door Standard,4,230.42,921.68
+INV_RPT_1831,2025-09-02,CUST036,evannichols@example.org,"84486 Lamb Roads
+South Jeremyfurt, NJ 49497",Felicia Smith,Mirror,MR112,Mirror Frameless,4,186.72,746.88
+INV_RPT_8579,2025-08-05,CUST031,taylorbell@example.com,"487 Tina Key Apt. 745
+South Jaredside, KS 17961",Sarah Richardson,Door,DR119,Door Standard,5,91.31,456.55
+INV_RPT_7413,2025-06-19,CUST100,jillian89@example.com,"452 Townsend Well Suite 191
+Petersshire, IA 99927",Jason Morales,Sink,SI102,Sink Undermount,4,427.84,1711.36
+INV_RPT_1071,2025-05-13,CUST099,hayley56@example.org,"167 Smith Light Suite 968
+Lake Megan, UT 19662",Dakota Sanchez,Faucet,FA109,Faucet Deck Mount,4,207.23,828.92
+INV_RPT_6416,2025-10-20,CUST097,robbinsdonald@example.org,"5282 Martinez Garden
+Chelsealand, AR 98490",Tara Villanueva,Shower,SH104,Shower Handheld,1,46.3,46.3
+INV_RPT_3489,2025-07-26,CUST032,schwartzruben@example.org,"465 Brian Curve
+Michaelfort, NV 13037",Austin Mendoza,Door,DR119,Door Sliding,2,384.12,768.24
+INV_RPT_8320,2025-09-18,CUST004,singhryan@example.net,"86285 Vargas Prairie Suite 516
+Christopherville, KY 97266",Mr. Greg Lucas,Sink,SI113,Sink Topmount,4,88.69,354.76
+INV_RPT_5680,2025-09-28,CUST088,candace28@example.org,"9632 Sarah Streets Apt. 986
+Port Latoya, MI 23905",Beth Avila,Mirror,MR105,Mirror Framed,3,408.83,1226.49
+INV_RPT_5311,2025-06-18,CUST067,jacob05@example.net,"57463 Aimee Square
+Olsonton, VT 21210",Jenna Thomas,Sink,SI108,Sink Topmount,1,482.39,482.39
+INV_RPT_8232,2025-07-17,CUST096,mcconnellmark@example.org,"6637 Patterson Mall
+South Victoriaport, FM 63934",Steven Ortiz,Faucet,FA115,Faucet Deck Mount,2,205.3,410.6
