@@ -1,0 +1,30 @@
+UI Consistency with Figma – Verified. Matches the design prototype.
+Date Format Validation – Passed. Correct format (MM/DD/YYYY).
+Text Visibility – Passed. All invoice text elements are visible.
+Input Fields (Customer Info & Billing Address) – Functional. Data entry works as expected.
+Dropdown Functionality (Item Details) – Passed. Dropdowns work correctly across all columns.
+Add Item Functionality – Passed. Able to add new items successfully.
+Delete Item Functionality – Failed. Delete option is missing and needs to be implemented.
+Automatic Total Calculation – Passed. Subtotal, tax, and total amounts are calculated automatically.
+Salesperson Field – Functional. Able to enter details.
+Create Invoice Button – Partially Passed. The button works on the UI, but since backend/database integration is not yet implemented, invoices are not being stored.
+Create Invoice Button Functionality – Verified. Button works and opens invoice summary page.
+Page Transition – Verified. Smooth navigation to final invoice summary after creation.
+Invoice Summary Visibility – Verified. All fields and item details are clearly visible.
+Subtotal & Total Calculations – Verified. Calculations are accurate in the summary.
+Decimal Precision – Verified. Amounts are automatically rounded to two decimal places.
+Billing Address Consistency – Verified. Address in summary matches input during creation.
+Salesperson Information – Verified. Salesperson details appear correctly in the summary.
+Required Field Validation – Failed. Create Invoice proceeds with empty Customer Contact, Billing Address, and Salesperson; no error messages shown.
+Initial Totals on First Load – Failed. With the default item row untouched, Subtotal/Tax/Shipping/Total display $0.00 instead of the computed amount.
+Submit-Time Recalculation – Failed. Clicking Create Invoice without any edits does not trigger a final totals recompute; the Invoice Summary still shows $0.00.
+Email regex validation - Failed. Need to Provide error when the email format is incorrect in the Customer Contact field.
+Important fileds - Failed. Important fields like Customer Contact, Billing Address, and Salesperson is not showing asterisk to indicate they are mandatory.
+Date Auto-Fill on Page Load - Failed. Invoice date does not default to current date automatically.
+Date Range Validation -  Failed - User can be able to select a future date for invoice creation which should be restricted.
+Scrollable View -  Failed - For long invoices (many items), table is breaking the layout instead of remaining scrollable within the container.
+Negative Quantity or Price - Failed - No validation error is displayed when user enters negative or zero quantity/price.
+Empty Item Row Prevention - Failed - Invoice submission is allowed even if item rows are empty or incomplete.
+Shipping Fee Field Validation - Failed - Shipping fee field is accepting text and negative values.
+Tax Calculation Accuracy - Failed - Tax calculation formula and decimal rounding logic is incorrect.
+Invoice Reset on Submission - Passed - After “Create Invoice,” form is not clearing or resetting correctly for new entry.
