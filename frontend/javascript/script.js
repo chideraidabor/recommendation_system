@@ -116,7 +116,7 @@ emailInput.addEventListener("input", () => {
     emailError.textContent = "";
     emailInput.style.borderColor = "green";
   }
-}); // (this closes your emailInput event listener)
+}); 
 
 // ====================== //
 //  CREATE BUTTON STATE   //
@@ -269,7 +269,7 @@ function isFirstRow(tr) {
   return tbody.querySelector("tr") === tr;
 }
 
-// UPDATED: visibility rules
+// visibility rules
 function toggleDeleteVisibility(tr) {
   const btn = tr.querySelector("button.delete");
   if (!btn) return;
@@ -447,7 +447,7 @@ function addNewRow() {
       newRow._addonRow = null;
     }
 
-    // NEW: If this row is a child add-on row, update the parent's add-on dropdown to match the new part
+    // If this row is a child add-on row, update the parent's add-on dropdown to match the new part
     if (newRow._parentRow && selectedId) {
       const parentAddonSelect = newRow._parentRow.querySelector(".addon");
       if (parentAddonSelect) {
@@ -508,7 +508,7 @@ function addNewRow() {
             const opt = document.createElement("option");
             opt.value = rec.recommended_item;
           
-            const percent = (rec.score * 100).toFixed(0);
+            const percent = (rec.score * 10).toFixed(0);
             const match = allItems.find((item) => item.item_id === rec.recommended_item);
             const desc = match ? match.item_description : "";
           
@@ -541,7 +541,7 @@ function addNewRow() {
           });
 
           addonSelect.addEventListener("change", () => {
-            // Selection made → set ONLY this one to short label
+            // Selection made, set ONLY this one to short label
             const selected = addonSelect.options[addonSelect.selectedIndex];
             if (selected && selected.dataset.shortLabel) {
               selected.textContent = selected.dataset.shortLabel;

@@ -72,7 +72,7 @@ ALTER TABLE Items ADD COLUMN short_description TEXT;
 cursor.executescript(schema)
 
 # Load CSV data
-invoice_df = pd.read_csv("../data/generated_invoices.csv")
+invoice_df = pd.read_csv("../data/generated_invoices_updated.csv")
 compatibility_df = pd.read_csv("../data/compatibility.csv")
 
 # Insert Customers
@@ -182,11 +182,6 @@ if not compatibility_df.empty:
     valid_items = set(items_df["item_id"])
     missing_core = set(compatibility_df["core_item"]) - valid_items
     missing_related = set(compatibility_df["related_item"]) - valid_items
-
-    # print(f"\nMissing core items: {len(missing_core)}")
-    # print(missing_core)
-    # print(f"\nMissing related items: {len(missing_related)}")
-    # print(missing_related)
 
     # Filter valid compatibility rows
     valid_compatibility_df = compatibility_df[
