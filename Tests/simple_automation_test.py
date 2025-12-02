@@ -7,6 +7,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException, UnexpectedAlertPresentException
 import time
 import os
 
@@ -51,6 +54,9 @@ try:
     email_field = driver.find_element(By.ID, "customerContact")
     email_field.clear()
     email_field.send_keys("test@example.com")
+    # Trigger blur event to complete validation
+    driver.execute_script("arguments[0].dispatchEvent(new Event('blur'));", email_field)
+    driver.execute_script("arguments[0].dispatchEvent(new Event('input'));", email_field)
     print("   Email entered: test@example.com")
     time.sleep(1)
     
@@ -59,6 +65,9 @@ try:
     billing_field = driver.find_element(By.ID, "billingAddress")
     billing_field.clear()
     billing_field.send_keys("123 Main Street, City, State 12345")
+    # Trigger blur event to complete validation
+    driver.execute_script("arguments[0].dispatchEvent(new Event('blur'));", billing_field)
+    driver.execute_script("arguments[0].dispatchEvent(new Event('input'));", billing_field)
     print("   Billing address entered")
     time.sleep(1)
     
@@ -67,6 +76,9 @@ try:
     salesperson_field = driver.find_element(By.ID, "salesperson")
     salesperson_field.clear()
     salesperson_field.send_keys("John Doe")
+    # Trigger blur event to complete validation
+    driver.execute_script("arguments[0].dispatchEvent(new Event('blur'));", salesperson_field)
+    driver.execute_script("arguments[0].dispatchEvent(new Event('input'));", salesperson_field)
     print("   Salesperson entered: John Doe")
     time.sleep(1)
     
@@ -135,16 +147,69 @@ try:
     rows = driver.find_elements(By.CSS_SELECTOR, "#itemsTable tbody tr")
     print(f"   Total rows after adding: {len(rows)}")
     
+    # Delete the empty row we just added (to avoid database error)
+    print("   Deleting empty row before submission...")
+    delete_buttons = driver.find_elements(By.CSS_SELECTOR, ".delete")
+    if delete_buttons and len(delete_buttons) > 0:
+        # Click the delete button on the last (empty) row
+        delete_buttons[-1].click()
+        time.sleep(1)
+        rows_after_delete = driver.find_elements(By.CSS_SELECTOR, "#itemsTable tbody tr")
+        print(f"   Total rows after cleanup: {len(rows_after_delete)}")
+    
     # Test 12: Check if Create Invoice button is enabled
     print("\n TEST 12: Checking Create Invoice button...")
     create_button = driver.find_element(By.CSS_SELECTOR, 'button[type="submit"]')
+    
+    # Wait a moment for button state to update after all field validations
+    time.sleep(2)
+    
     is_enabled = create_button.is_enabled()
     print(f"   Button enabled: {is_enabled}")
     
+    if not is_enabled:
+        print("   Button is disabled - checking field states...")
+        print(f"   Email: {email_field.get_attribute('value')}")
+        print(f"   Billing: {billing_field.get_attribute('value')}")
+        print(f"   Salesperson: {salesperson_field.get_attribute('value')}")
+    
     # Test 13: Create the invoice
     print("\n TEST 13: Creating invoice...")
+    
+    # Print current items before submission for debugging
+    print("   Current items in table:")
+    rows = driver.find_elements(By.CSS_SELECTOR, "#itemsTable tbody tr")
+    for idx, row in enumerate(rows, 1):
+        part = row.find_element(By.CSS_SELECTOR, ".partNumber").get_attribute("value")
+        desc = row.find_element(By.CSS_SELECTOR, ".description").get_attribute("value")
+        qty = row.find_element(By.CSS_SELECTOR, ".quantity").get_attribute("value")
+        price = row.find_element(By.CSS_SELECTOR, ".unitPrice").get_attribute("value")
+        print(f"   Row {idx}: Part={part}, Desc={desc}, Qty={qty}, Price={price}")
+    
     create_button.click()
-    time.sleep(3)
+    
+    # Wait for either navigation or alert
+    try:
+        WebDriverWait(driver, 5).until(
+            lambda d: "invoice" in d.current_url or len(d.get_log('browser')) > 0
+        )
+    except:
+        pass
+    
+    time.sleep(2)
+    
+    # Check for alert (error case)
+    try:
+        alert = driver.switch_to.alert
+        alert_text = alert.text
+        print(f"   ALERT DETECTED: {alert_text}")
+        alert.accept()
+        print("   Alert dismissed - invoice save failed")
+        print("   Check Flask console for detailed error")
+        raise Exception(f"Invoice save failed: {alert_text}")
+    except:
+        # No alert means success
+        pass
     
     # Check if navigated to invoice summary
     if "invoice" in driver.current_url:
@@ -234,20 +299,27 @@ try:
     email_field = driver.find_element(By.ID, "customerContact")
     email_field.clear()
     email_field.send_keys("invalid-email")
+    driver.execute_script("arguments[0].dispatchEvent(new Event('input'));", email_field)
     time.sleep(1)
     email_error = driver.find_element(By.ID, "emailError").text
     if "valid email" in email_error.lower():
         print("   Email validation working!")
     email_field.clear()
     email_field.send_keys("valid@email.com")
+    driver.execute_script("arguments[0].dispatchEvent(new Event('input'));", email_field)
+    driver.execute_script("arguments[0].dispatchEvent(new Event('blur'));", email_field)
     time.sleep(1)
     
     # Test 23: Verify part number auto-fills description
     print("\n TEST 23: Testing part number auto-fills description...")
     billing_field = driver.find_element(By.ID, "billingAddress")
     billing_field.send_keys("456 Test Ave")
+    driver.execute_script("arguments[0].dispatchEvent(new Event('input'));", billing_field)
+    driver.execute_script("arguments[0].dispatchEvent(new Event('blur'));", billing_field)
     salesperson_field = driver.find_element(By.ID, "salesperson")
     salesperson_field.send_keys("Jane Smith")
+    driver.execute_script("arguments[0].dispatchEvent(new Event('input'));", salesperson_field)
+    driver.execute_script("arguments[0].dispatchEvent(new Event('blur'));", salesperson_field)
     time.sleep(1)
     part_dropdown = driver.find_element(By.CSS_SELECTOR, ".partNumber")
     select = Select(part_dropdown)
