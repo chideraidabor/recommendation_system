@@ -1,7 +1,70 @@
-<html>
-    <body>
-        <h1>
-            Recommend page
-        </h1>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Recommender</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      width: 300px;
+      margin: 0;
+      padding: 12px;
+      background: #f9f9f9;
+    }
+
+    h2 {
+      margin: 0 0 4px 0;
+      font-size: 16px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .status {
+      font-size: 12px;
+      color: #0078d4;
+      margin-bottom: 10px;
+    }
+
+    .recommendation {
+      background: #fff;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      padding: 8px;
+      margin-bottom: 8px;
+    }
+
+    .item-name {
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .item-reason {
+      font-size: 11px;
+      color: #555;
+    }
+
+    .empty {
+      font-size: 12px;
+      color: #999;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Recommended Parts</h2>
+  <div class="subtitle">Based on current invoice items</div>
+
+  <div class="status">Waiting for invoice data…</div>
+
+  <!-- Dynamic recommendations will be rendered here -->
+  <div id="recommendations"></div>
+
+  <script src="recommend.js"></script>
+</body>
 </html>

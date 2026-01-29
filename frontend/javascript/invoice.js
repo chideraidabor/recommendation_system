@@ -43,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
           `;
           tbody.appendChild(row);
         });
+
+        notifyInvoiceItems(items);
       })
       .catch(err => {
         console.error("Error loading invoice:", err);
@@ -50,9 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
   } else {
-    // (old method)
+    // LocalStorage fallback
     const data = JSON.parse(localStorage.getItem("invoiceData"));
-    if (!data) {
+    if (!data || !Array.isArray(data.items)) {
       document.body.innerHTML = "<h2>No invoice data found!</h2>";
       return;
     }
@@ -81,5 +83,21 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       tbody.appendChild(row);
     });
+
+    notifyInvoiceItems(data.items);
   }
 });
+
+function notifyInvoiceItems(items) {
+  if (!Array.isArray(items)) return;
+
+  const normalized = items.map(item => ({
+    part_number: item.part_number || item.partNumber || "",
+    quantity: item.quantity ?? item.qty ?? 0,
+    variant_group: item.variant_group || item.addon || ""
+  }));
+
+  window.dispatchEvent(new CustomEvent("invoiceItemsUpdated", {
+    detail: { items: normalized }
+  }));
+}
