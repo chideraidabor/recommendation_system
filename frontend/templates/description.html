@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ item_id }} – Item Details</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles/style.css') }}"
+    />
+
+    <style>
+      /* Container styling similar to invoice page */
+      .container {
+        background: #fff;
+        border-radius: 10px;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 30px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      #itemTitle {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #222;
+        margin-top: 10px;
+        margin-bottom: 5px;
+      }
+
+      #itemShortDesc {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #222;
+        margin-top: 5px;
+        margin-bottom: 4px;
+      }
+
+      #itemDescription {
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #333;
+        margin-top: 0px;
+        margin-bottom: 30px;
+      }
+
+      .section-box {
+        background: #fafafa;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .section-box h3 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      .item-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .item-tags a {
+        display: inline-block;
+        background: #f3f0ff;
+        color: #4b37a5;
+        border: 1px solid #ddd;
+        border-radius: 25px;
+        padding: 6px 14px;
+        font-size: 0.95rem;
+        transition: all 0.2s ease;
+      }
+
+      .item-tags a:hover {
+        background: #e4dbff;
+        color: #3b2670;
+        border-color: #b7a8ff;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <a href="#" onclick="window.history.back(); return false;"
+        >← Back to Invoice</a
+      >
+
+      <h1 id="itemTitle">{{ item_id }}</h1>
+      <div id="itemShortDesc" class="muted">Loading description…</div>
+      <p id="itemDescription"></p>
+
+      <div class="section-box">
+        <h3>Recommended Items</h3>
+        <div id="recs" class="item-tags">Loading…</div>
+      </div>
+
+      <div class="section-box">
+        <h3>Similar Items</h3>
+        <div id="similar" class="item-tags">Loading…</div>
+      </div>
+    </div>
+
+    <script>
+      const ITEM_ID = "{{ item_id }}";
+
+      async function loadItem() {
+        const [itemRes, simRes, recRes] = await Promise.all([
+          fetch(`/api/item/${encodeURIComponent(ITEM_ID)}`),
+          fetch(`/api/similar/${encodeURIComponent(ITEM_ID)}`),
+          fetch(`/recommendations/${encodeURIComponent(ITEM_ID)}`),
+        ]);
+
+        const item = await itemRes.json();
+        const sims = await simRes.json();
+        const recs = await recRes.json();
+
+        // Title and short desc
+        document.getElementById("itemTitle").textContent =
+          item.item_id || ITEM_ID;
+        document.getElementById("itemShortDesc").textContent =
+          item.item_description || "No short description available.";
+        document.getElementById("itemDescription").textContent =
+          item.short_description ||
+          "No detailed description available for this item.";
+
+        // Recommended items
+        const recWrap = document.getElementById("recs");
+        recWrap.innerHTML = "";
+        if (Array.isArray(recs) && recs.length) {
+          recs.forEach((r) => {
+            const id = r.recommended_item || r;
+            const a = document.createElement("a");
+            a.href = `/item/${encodeURIComponent(id)}`;
+            a.textContent = id;
+            recWrap.appendChild(a);
+          });
+        } else {
+          recWrap.textContent = "No recommendations available.";
+        }
+
+        // Similar items
+        const simWrap = document.getElementById("similar");
+        simWrap.innerHTML = "";
+        if (Array.isArray(sims) && sims.length) {
+          sims.forEach((id) => {
+            const a = document.createElement("a");
+            a.href = `/item/${encodeURIComponent(id)}`;
+            a.textContent = id;
+            simWrap.appendChild(a);
+          });
+        } else {
+          simWrap.textContent = "No similar items available.";
+        }
+      }
+
+      loadItem().catch((err) => {
+        console.error("Detail page load failed:", err);
+        document.getElementById("itemShortDesc").textContent =
+          "Failed to load item details.";
+        document.getElementById("recs").textContent =
+          "Failed to load recommendations.";
+        document.getElementById("similar").textContent =
+          "Failed to load similar items.";
+      });
+    </script>
+  </body>
+</html>
