@@ -1,0 +1,10 @@
+{
+    "name": "my recommender",
+    "description": "Recommening part item based on invoice beign created for customer",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "recommende.html",
+        "default_icon": "recommend_icon.PNG" 
+    }
+}
