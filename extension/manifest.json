@@ -1,0 +1,21 @@
+{
+  "name": "My Recommender",
+  "description": "Launches the part recommender",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Open Recommender",
+    "default_icon": {
+      "32": "recommend_icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://127.0.0.1:5000/*"],
+      "js": ["contentscript.js"]
+    }
+  ]
+}

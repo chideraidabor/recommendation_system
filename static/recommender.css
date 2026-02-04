@@ -1,0 +1,111 @@
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 720px;
+    margin: 40px auto;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 24px 28px 32px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  }
+  
+  header h1 {
+    margin: 0;
+    font-size: 22px;
+    color: #1f2937;
+  }
+  
+  .subtitle {
+    margin-top: 4px;
+    font-size: 13px;
+    color: #6b7280;
+  }
+  
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  
+  button {
+    background: #0078d4;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background: #005fa3;
+  }
+  
+  #status {
+    font-size: 13px;
+    color: #374151;
+  }
+  
+  .recommendations {
+    margin-top: 20px;
+  }
+  
+  .recommendation {
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  
+  .recommendation:hover {
+    background: #f9fafb;
+  }
+  
+  .item-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #111827;
+  }
+  
+  .item-reason {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+  }
+  
+  .empty {
+    text-align: center;
+    font-size: 13px;
+    color: #9ca3af;
+    padding: 30px 0;
+  }
+  
+  .recommendation {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    cursor: default;
+    pointer-events: none;
+  }
+  
+  .item-name {
+    font-weight: 600;
+  }
+  
+  .item-reason {
+    font-size: 13px;
+    color: #666;
+  }
+  
+  .empty {
+    padding: 16px;
+    color: #888;
+  }
+  

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Part Recommender</title>
+  <link rel="stylesheet" href="/static/recommender.css" />
+  <script src="{{ url_for('static', filename='recommender.js') }}"></script>
+  
+
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Recommended Parts</h1>
+      <p class="subtitle">
+        Based on the currently selected part in the source system
+      </p>
+    </header>
+
+    <div class="controls">
+      <button id="refreshBtn">Refresh Recommendations</button>
+      <span id="status">Waiting for refresh…</span>
+    </div>
+
+    <div id="recommendations" class="recommendations">
+      <div class="empty">
+        No recommendations loaded yet.
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
